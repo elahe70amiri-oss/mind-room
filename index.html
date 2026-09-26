@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0B1220">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>اتاق ذهن | Mind Room</title>
+<style>
+/* استایل‌های اپلیکیشن اینجا قرار دارد */
+:root{--bg:#0B1220;--s:#151E32;--s2:#1C2842;--b:#2A3854;--t:#E8EEF7;--m:#94A3B8;--p:#38BDF8;--pd:#0EA5E9;--a:#A78BFA;--ok:#10B981;--wn:#F59E0B;--dg:#EF4444;--r:14px}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:Tahoma,'Segoe UI',sans-serif;background:var(--bg);color:var(--t);line-height:1.85;font-size:15px;margin:0;min-height:100vh;overflow-x:hidden}
+#app{max-width:520px;margin:0 auto;padding:16px 16px 110px;min-height:100vh}
+h1{font-size:1.5rem;font-weight:700;margin:0 0 8px;color:var(--p)}
+h2{font-size:1.15rem;font-weight:700;margin:0 0 10px}
+h3{font-size:1rem;font-weight:700;margin:0 0 8px;color:var(--p)}
+p{margin:0 0 12px}
+.m{color:var(--m);font-size:.88rem}
+.card{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:16px;margin-bottom:12px}
+.card.c{cursor:pointer;transition:all .2s}
+.card.c:active{transform:scale(.99);background:var(--s2)}
+.card h4{margin:0 0 6px;font-size:.98rem;display:flex;align-items:center;gap:8px}
+.card p{margin:0;font-size:.86rem;color:var(--m);line-height:1.7}
+.ib{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--s);border:1px solid var(--b);border-radius:var(--r);cursor:pointer;text-align:right;width:100%;font-family:inherit;color:var(--t);font-size:.95rem;margin-bottom:10px}
+.ib:active{background:var(--s2)}
+.ib .e{font-size:1.5rem;flex-shrink:0;width:32px;text-align:center}
+.ib .l{flex:1;font-weight:500}
+.ib .ch{color:var(--m);font-size:1.1rem}
+.tag{display:inline-block;padding:2px 10px;border-radius:100px;font-size:.72rem;font-weight:600;background:rgba(56,189,248,.15);color:var(--p);margin-right:6px}
+.tag.g{background:rgba(16,185,129,.15);color:var(--ok)}
+.tag.o{background:rgba(245,158,11,.15);color:var(--wn)}
+.tag.r{background:rgba(239,68,68,.15);color:var(--dg)}
+.tag.pu{background:rgba(167,139,250,.15);color:var(--a)}
+.btn{display:block;width:100%;padding:14px 16px;border:none;border-radius:12px;font-family:inherit;font-size:.95rem;font-weight:600;cursor:pointer;margin-top:10px}
+.bp{background:var(--p);color:#0B1220}
+.bp:active{background:var(--pd)}
+.bs{background:var(--s2);color:var(--p);border:1px solid var(--b)}
+.btn:disabled{opacity:.4}
+.back{display:inline-flex;align-items:center;gap:6px;background:transparent;border:none;color:var(--m);font-family:inherit;font-size:.9rem;cursor:pointer;padding:8px 0;margin-bottom:14px}
+.dis{background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.35);border-radius:12px;padding:12px 14px;margin:14px 0;font-size:.82rem;color:#C4B5FD;line-height:1.7}
+.dis strong{color:var(--a)}
+.warn{background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.35);border-radius:12px;padding:12px 14px;margin:14px 0;font-size:.85rem;color:#FCA5A5;line-height:1.7}
+.warn strong{color:#F87171}
+.pg{height:4px;background:var(--s2);border-radius:100px;overflow:hidden;margin:6px 0 18px}
+.pgb{height:100%;background:linear-gradient(90deg,var(--p),var(--a));border-radius:100px;transition:width .3s}
+.qn{color:var(--m);font-size:.78rem;margin-bottom:6px;font-weight:500}
+.qt{font-size:1.05rem;font-weight:600;margin:0 0 18px;line-height:1.75}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{padding:14px 16px;background:var(--s);border:1.5px solid var(--b);border-radius:12px;color:var(--t);font-family:inherit;font-size:.93rem;cursor:pointer;text-align:right;font-weight:500}
+.opt:active{background:var(--s2)}
+.opt.sel{background:rgba(56,189,248,.12);border-color:var(--p);color:var(--p)}
+.sh{background:linear-gradient(135deg,rgba(56,189,248,.15),rgba(167,139,250,.1));border:1px solid rgba(56,189,248,.35);border-radius:20px;padding:26px 20px;text-align:center;margin-bottom:16px}
+.sh .n{font-size:3rem;font-weight:800;color:var(--p);line-height:1;letter-spacing:-.03em}
+.sh .d{font-size:.85rem;color:var(--m);margin-top:4px}
+.sh .l{font-size:1.1rem;font-weight:700;margin-top:10px}
+.bn{position:fixed;bottom:0;left:0;right:0;z-index:100;background:rgba(21,30,50,.96);backdrop-filter:blur(12px);border-top:1px solid var(--b);padding:6px 0 max(6px,env(safe-area-inset-bottom))}
+.bni{max-width:520px;margin:0 auto;display:flex;justify-content:space-around}
+.nv{flex:1;background:none;border:none;color:var(--m);font-family:inherit;font-size:.68rem;cursor:pointer;padding:8px 4px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.nv .i{font-size:1.25rem;line-height:1}
+.nv.a{color:var(--p)}
+.acc{background:var(--s);border:1px solid var(--b);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.acc summary{padding:14px 16px;cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:'▾';color:var(--m);transition:transform .2s}
+.acc[open] summary::after{transform:rotate(180deg)}
+.acc .bd{padding:0 16px 16px;font-size:.9rem;color:var(--m);line-height:1.8}
+.srch{width:100%;padding:12px 14px;background:var(--s);border:1px solid var(--b);border-radius:12px;color:var(--t);font-family:inherit;font-size:.9rem;margin-bottom:14px}
+.srch:focus{outline:none;border-color:var(--p)}
+.sbx{display:flex;gap:8px;margin:10px 0}
+.sbx input{flex:1;padding:12px;background:var(--s2);border:1px solid var(--b);border-radius:10px;color:var(--t);font-family:inherit;font-size:.82rem;direction:ltr;text-align:left}
+.sbx button{padding:0 16px;background:var(--p);color:#0B1220;border:none;border-radius:10px;font-family:inherit;font-weight:700;cursor:pointer;font-size:.85rem}
+.stat{flex:1;background:var(--s);border:1px solid var(--b);border-radius:12px;padding:12px;text-align:center}
+.stat .n{font-size:1.4rem;font-weight:800;color:var(--p)}
+.stat .t{font-size:.72rem;color:var(--m);margin-top:2px}
+.sr{display:flex;gap:8px;margin-bottom:12px}
+.ltabs{display:flex;gap:6px;margin-bottom:16px;overflow-x:auto;padding-bottom:4px}
+.ltab{padding:8px 14px;background:var(--s);border:1px solid var(--b);border-radius:100px;color:var(--m);font-family:inherit;font-size:.82rem;cursor:pointer;white-space:nowrap}
+.ltab.a{background:var(--p);border-color:var(--p);color:#0B1220;font-weight:700}
+.empty{text-align:center;padding:40px 20px;color:var(--m)}
+.empty .big{font-size:3rem;margin-bottom:12px}
+.ta{width:100%;min-height:100px;padding:12px;background:var(--s2);border:1.5px solid var(--b);border-radius:12px;color:var(--t);font-family:inherit;font-size:.9rem;line-height:1.7;resize:vertical}
+.ta:focus{outline:none;border-color:var(--p)}
+.rng{width:100%;margin:14px 0}
+.stp{display:flex;gap:12px;align-items:flex-start;background:var(--s);border-radius:12px;padding:14px;margin-bottom:10px}
+.stp .n{background:var(--p);color:#0B1220;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.fd{animation:fade .25s ease}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div class="bn"><div class="bni">
+<button class="nv" data-r="/" onclick="nav('/')"><span class="i">🏠</span>خانه</button>
+<button class="nv" data-r="/tests" onclick="nav('/tests')"><span class="i">🧪</span>تست‌ها</button>
+<button class="nv" data-r="/enc" onclick="nav('/enc')"><span class="i">📖</span>دانشنامه</button>
+<button class="nv" data-r="/skills" onclick="nav('/skills')"><span class="i">🎯</span>مهارت‌ها</button>
+<button class="nv" data-r="/lib" onclick="nav('/lib')"><span class="i">📚</span>کتابخانه</button>
+</div></div>
+<script>
+// تمام کدهای جاوااسکریپت اپلیکیشن اینجا قرار دارد
+// داده‌ها (تست‌ها، مسیرها، دانشنامه، مهارت‌ها، کتابخانه) اینجا تعریف می‌شوند
+// توابع ناوبری و رندر صفحات اینجا نوشته می‌شوند
+</script>
+</body>
+</html>
