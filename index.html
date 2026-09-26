@@ -2,15 +2,13 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0B1220">
-<meta name="apple-mobile-web-app-capable" content="yes">
 <title>اتاق ذهن | Mind Room</title>
 <style>
-/* استایل‌های اپلیکیشن اینجا قرار دارد */
-:root{--bg:#0B1220;--s:#151E32;--s2:#1C2842;--b:#2A3854;--t:#E8EEF7;--m:#94A3B8;--p:#38BDF8;--pd:#0EA5E9;--a:#A78BFA;--ok:#10B981;--wn:#F59E0B;--dg:#EF4444;--r:14px}
+:root{--bg:#0B1220;--s:#151E32;--s2:#1C2842;--b:#2A3854;--t:#E8EEF7;--m:#94A3B8;--p:#38BDF8;--a:#A78BFA;--r:14px}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{font-family:Tahoma,'Segoe UI',sans-serif;background:var(--bg);color:var(--t);line-height:1.85;font-size:15px;margin:0;min-height:100vh;overflow-x:hidden}
+body{font-family:Tahoma,sans-serif;background:var(--bg);color:var(--t);line-height:1.85;font-size:15px;margin:0;min-height:100vh}
 #app{max-width:520px;margin:0 auto;padding:16px 16px 110px;min-height:100vh}
 h1{font-size:1.5rem;font-weight:700;margin:0 0 8px;color:var(--p)}
 h2{font-size:1.15rem;font-weight:700;margin:0 0 10px}
@@ -18,74 +16,52 @@ h3{font-size:1rem;font-weight:700;margin:0 0 8px;color:var(--p)}
 p{margin:0 0 12px}
 .m{color:var(--m);font-size:.88rem}
 .card{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:16px;margin-bottom:12px}
-.card.c{cursor:pointer;transition:all .2s}
-.card.c:active{transform:scale(.99);background:var(--s2)}
-.card h4{margin:0 0 6px;font-size:.98rem;display:flex;align-items:center;gap:8px}
+.card.c{cursor:pointer}
+.card.c:active{background:var(--s2)}
+.card h4{margin:0 0 6px;font-size:.98rem}
 .card p{margin:0;font-size:.86rem;color:var(--m);line-height:1.7}
 .ib{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--s);border:1px solid var(--b);border-radius:var(--r);cursor:pointer;text-align:right;width:100%;font-family:inherit;color:var(--t);font-size:.95rem;margin-bottom:10px}
 .ib:active{background:var(--s2)}
 .ib .e{font-size:1.5rem;flex-shrink:0;width:32px;text-align:center}
 .ib .l{flex:1;font-weight:500}
-.ib .ch{color:var(--m);font-size:1.1rem}
+.ib .ch{color:var(--m)}
 .tag{display:inline-block;padding:2px 10px;border-radius:100px;font-size:.72rem;font-weight:600;background:rgba(56,189,248,.15);color:var(--p);margin-right:6px}
-.tag.g{background:rgba(16,185,129,.15);color:var(--ok)}
-.tag.o{background:rgba(245,158,11,.15);color:var(--wn)}
-.tag.r{background:rgba(239,68,68,.15);color:var(--dg)}
-.tag.pu{background:rgba(167,139,250,.15);color:var(--a)}
-.btn{display:block;width:100%;padding:14px 16px;border:none;border-radius:12px;font-family:inherit;font-size:.95rem;font-weight:600;cursor:pointer;margin-top:10px}
+.btn{display:block;width:100%;padding:14px;border:none;border-radius:12px;font-family:inherit;font-size:.95rem;font-weight:600;cursor:pointer;margin-top:10px}
 .bp{background:var(--p);color:#0B1220}
-.bp:active{background:var(--pd)}
-.bs{background:var(--s2);color:var(--p);border:1px solid var(--b)}
-.btn:disabled{opacity:.4}
+.bs{0background:var(--s;2);color:var(--fontp);border:1-sizepx solid var(--b)}
+.btn:disabled:.{opacity:.4}
 .back{display:inline-flex;align-items:center;gap:6px;background:transparent;border:none;color:var(--m);font-family:inherit;font-size:.9rem;cursor:pointer;padding:8px 0;margin-bottom:14px}
-.dis{background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.35);border-radius:12px;padding:12px 14px;margin:14px 0;font-size:.82rem;color:#C4B5FD;line-height:1.7}
-.dis strong{color:var(--a)}
-.warn{background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.35);border-radius:12px;padding:12px 14px;margin:14px 0;font-size:.85rem;color:#FCA5A5;line-height:1.7}
-.warn strong{color:#F87171}
+.dis{background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.35);border-radius:12px;padding:12px 14px;margin:14px 82rem;color:#C4B5FD;line-height:1.7}
+.warn{background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.35);border-radius:12px;padding:12px 14px;margin:14px 0;font-size:.85rem;color:#FCA5A5}
 .pg{height:4px;background:var(--s2);border-radius:100px;overflow:hidden;margin:6px 0 18px}
-.pgb{height:100%;background:linear-gradient(90deg,var(--p),var(--a));border-radius:100px;transition:width .3s}
-.qn{color:var(--m);font-size:.78rem;margin-bottom:6px;font-weight:500}
-.qt{font-size:1.05rem;font-weight:600;margin:0 0 18px;line-height:1.75}
+.pgb{height:100%;background:linear-gradient(90deg,var(--p),var(--a));transition:width .3s}
+.qn{color:var(--m);font-size:.78rem;margin-bottom:6px}
+.qt{font-size:1.05rem;font-weight:600;margin:0 0 18px}
 .opts{display:flex;flex-direction:column;gap:10px}
-.opt{padding:14px 16px;background:var(--s);border:1.5px solid var(--b);border-radius:12px;color:var(--t);font-family:inherit;font-size:.93rem;cursor:pointer;text-align:right;font-weight:500}
+.opt{padding:14px 16px;background:var(--s);border:1.5px solid var(--b);border-radius:12px;color:var(--t);font-family:inherit;font-size:.93rem;cursor:pointer;text-align:right}
 .opt:active{background:var(--s2)}
 .opt.sel{background:rgba(56,189,248,.12);border-color:var(--p);color:var(--p)}
-.sh{background:linear-gradient(135deg,rgba(56,189,248,.15),rgba(167,139,250,.1));border:1px solid rgba(56,189,248,.35);border-radius:20px;padding:26px 20px;text-align:center;margin-bottom:16px}
-.sh .n{font-size:3rem;font-weight:800;color:var(--p);line-height:1;letter-spacing:-.03em}
-.sh .d{font-size:.85rem;color:var(--m);margin-top:4px}
+.sh{background:linear-gradient(135deg,rgba(56,189,248,.15),rgba(167,139,250,.1));border:1px solid rgba(56,189,248,.35);border-radius:20px;padding:26px;text-align:center;margin-bottom:16px}
+.sh .n{font-size:3rem;font-weight:800;color:var(--p);line-height:1}
 .sh .l{font-size:1.1rem;font-weight:700;margin-top:10px}
-.bn{position:fixed;bottom:0;left:0;right:0;z-index:100;background:rgba(21,30,50,.96);backdrop-filter:blur(12px);border-top:1px solid var(--b);padding:6px 0 max(6px,env(safe-area-inset-bottom))}
+.bn{position:fixed;bottom:0;left:0;right:0;background:rgba(21,30,50,.96);border-top:1px solid var(--b);padding:6px 0}
 .bni{max-width:520px;margin:0 auto;display:flex;justify-content:space-around}
-.nv{flex:1;background:none;border:none;color:var(--m);font-family:inherit;font-size:.68rem;cursor:pointer;padding:8px 4px;display:flex;flex-direction:column;align-items:center;gap:2px}
-.nv .i{font-size:1.25rem;line-height:1}
+.nv{flex:1;background:none;border:none;color:var(--m);font-family:inherit;font-size:.7rem;cursor:pointer;padding:8px 4px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.nv .i{font-size:1.3rem}
 .nv.a{color:var(--p)}
 .acc{background:var(--s);border:1px solid var(--b);border-radius:12px;margin-bottom:10px;overflow:hidden}
-.acc summary{padding:14px 16px;cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.acc summary{padding:14px 16px;cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between}
 .acc summary::-webkit-details-marker{display:none}
-.acc summary::after{content:'▾';color:var(--m);transition:transform .2s}
-.acc[open] summary::after{transform:rotate(180deg)}
+.acc summary::after{content:'▾';color:var(--m)}
 .acc .bd{padding:0 16px 16px;font-size:.9rem;color:var(--m);line-height:1.8}
-.srch{width:100%;padding:12px 14px;background:var(--s);border:1px solid var(--b);border-radius:12px;color:var(--t);font-family:inherit;font-size:.9rem;margin-bottom:14px}
-.srch:focus{outline:none;border-color:var(--p)}
-.sbx{display:flex;gap:8px;margin:10px 0}
-.sbx input{flex:1;padding:12px;background:var(--s2);border:1px solid var(--b);border-radius:10px;color:var(--t);font-family:inherit;font-size:.82rem;direction:ltr;text-align:left}
-.sbx button{padding:0 16px;background:var(--p);color:#0B1220;border:none;border-radius:10px;font-family:inherit;font-weight:700;cursor:pointer;font-size:.85rem}
+.sr{display:flex;gap:8px;margin-bottom:12px}
 .stat{flex:1;background:var(--s);border:1px solid var(--b);border-radius:12px;padding:12px;text-align:center}
 .stat .n{font-size:1.4rem;font-weight:800;color:var(--p)}
-.stat .t{font-size:.72rem;color:var(--m);margin-top:2px}
-.sr{display:flex;gap:8px;margin-bottom:12px}
-.ltabs{display:flex;gap:6px;margin-bottom:16px;overflow-x:auto;padding-bottom:4px}
-.ltab{padding:8px 14px;background:var(--s);border:1px solid var(--b);border-radius:100px;color:var(--m);font-family:inherit;font-size:.82rem;cursor:pointer;white-space:nowrap}
+.stat .t{font-size:.72rem;color:var(--m)}
+.ltabs{display:flex;gap:6px;margin-bottom:16px}
+.ltab{padding:8px 14px;background:var(--s);border:1px solid var(--b);border-radius:100px;color:var(--m);font-family:inherit;font-size:.82rem;cursor:pointer}
 .ltab.a{background:var(--p);border-color:var(--p);color:#0B1220;font-weight:700}
 .empty{text-align:center;padding:40px 20px;color:var(--m)}
-.empty .big{font-size:3rem;margin-bottom:12px}
-.ta{width:100%;min-height:100px;padding:12px;background:var(--s2);border:1.5px solid var(--b);border-radius:12px;color:var(--t);font-family:inherit;font-size:.9rem;line-height:1.7;resize:vertical}
-.ta:focus{outline:none;border-color:var(--p)}
-.rng{width:100%;margin:14px 0}
-.stp{display:flex;gap:12px;align-items:flex-start;background:var(--s);border-radius:12px;padding:14px;margin-bottom:10px}
-.stp .n{background:var(--p);color:#0B1220;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0}
-@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.fd{animation:fade .25s ease}
 </style>
 </head>
 <body>
@@ -98,9 +74,453 @@ p{margin:0 0 12px}
 <button class="nv" data-r="/lib" onclick="nav('/lib')"><span class="i">📚</span>کتابخانه</button>
 </div></div>
 <script>
-// تمام کدهای جاوااسکریپت اپلیکیشن اینجا قرار دارد
-// داده‌ها (تست‌ها، مسیرها، دانشنامه، مهارت‌ها، کتابخانه) اینجا تعریف می‌شوند
-// توابع ناوبری و رندر صفحات اینجا نوشته می‌شوند
+const O4F=[{l:'اصلاً',v:0},{l:'چند روز',v:1},{l:'بیش از نیمی',v:2},{l:'تقریباً هر روز',v:3}];
+const O5A=[{l:'کاملاً مخالفم',v:1},{l:'مخالفم',v:2},{l:'نظری ندارم',v:3},{l:'موافقم',v:4},{l:'کاملاً موافقم',v:5}];
+const O4A=[{l:'کاملاً مخالفم',v:1},{l:'مخالفم',v:2},{l:'موافقم',v:3},{l:'کاملاً موافقم',v:4}];
+const O5F=[{l:'هرگز',v:0},{l:'به‌ندرت',v:1},{l:'گاهی',v:2},{l:'اغلب',v:3},{l:'همیشه',v:4}];
+const O4I=[{l:'هیچ',v:0},{l:'خفیف',v:1},{l:'متوسط',v:2},{l:'شدید',v:3},{l:'خیلی شدید',v:4}];
+
+const TESTS={
+gad7:{id:'gad7',name:'مقیاس اضطراب فراگیر',sn:'GAD-7',tag:'اضطراب',dur:2,intro:'در ۲ هفتهٔ گذشته، چند وقت درگیر موارد زیر بودی؟',opts:O4F,
+qs:['احساس عصبی بودن، اضطراب یا بی‌قراری','ناتوانی در متوقف کردن یا کنترل نگرانی','نگرانی بیش از حد دربارهٔ مسائل مختلف','مشکل در آرام شدن','بی‌قراری به‌طوری که نشستن آرام سخت باشد','زودرنجی یا تحریک‌پذیری','ترس از اینکه چیز وحشتناکی اتفاق بیفتد'],rv:[],
+rs:[{m:4,l:'حداقل',c:'#10B981',d:'سطح اضطراب در محدودهٔ طبیعی.'},{m:9,l:'خفیف',c:'#84CC16',d:'علائم خفیف. آرام‌سازی کمک می‌کند.'},{m:14,l:'متوسط',c:'#F59E0B',d:'با روان‌شناس مشورت کن.'},{m:21,l:'شدید',c:'#EF4444',d:'با متخصص صحبت کن.'}]},
+phq9:{id:'phq9',name:'پرسشنامهٔ سلامت بیمار',sn:'PHQ-9',tag:'افسردگی',dur:3,intro:'در ۲ هفتهٔ گذشته، چند وقت درگیر موارد زیر بودی؟',opts:O4F,
+qs:['علاقه یا لذت کم در انجام کارها','احساس دلسردی، افسردگی یا ناامیدی','مشکل در خواب','احساس خستگی یا کمبود انرژی','کم‌اشتهایی یا پرخوری','احساس بد نسبت به خود','مشکل در تمرکز','حرکت یا صحبت آهسته','افکار خودآزاری یا اینکه بهتر بود مرده بودی'],rv:[],crit:8,
+rs:[{m:4,l:'حداقل',c:'#10B981',d:'علائم افسردگی دیده نمی‌شود.'},{m:9,l:'خفیف',c:'#84CC16',d:'مراقبت از خودت و فعالیت بدنی.'},{m:14,l:'متوسط',c:'#F59E0B',d:'با متخصص مشورت کن.'},{m:19,l:'نسبتاً شدید',c:'#F97316',d:'با روان‌شناس صحبت کن.'},{m:27,l:'شدید',c:'#EF4444',d:'حتماً امروز با متخصص تماس بگیر.'}]},
+pswq:{id:'pswq',name:'پرسشنامهٔ نگرانی',sn:'PSWQ',tag:'نگرانی',dur:4,intro:'این جملات چقدر دربارهٔ تو صادق است؟',opts:O5A,
+qs:['اگر فرصت کافی نداشته باشم، نگرانم که کارها را تمام نکنم.','نگرانی‌هایم مرا غرق می‌کند.','معمولاً دربارهٔ مسائل کوچک هم نگران می‌شوم.','وقتی نگرانم، نمی‌توانم تمرکز کنم.','همیشه دربارهٔ چیزهایی نگرانم که پیش آمده‌اند.','نگرانی‌هایم مداوم است.','وقتی کاری را انجام می‌دهم، دربارهٔ کارهای دیگر هم نگرانم.','از نگرانی‌هایم خسته شده‌ام.','به محض اینکه کاری تمام می‌شود، دربارهٔ کار بعدی نگران می‌شوم.','هیچ‌وقت نگرانی‌هایم تمام نمی‌شود.','نگرانی‌هایم قابل کنترل نیست.','وقتی نگرانم، احساس می‌کنم دارم دیوانه می‌شوم.','نگرانی‌هایم مرا فلج می‌کند.','وقتی نگرانم، نمی‌توانم کارها را انجام دهم.','همیشه نگرانم.','بیشتر از حد لازم نگرانم.'],rv:[],
+rs:[{m:30,l:'پایین',c:'#10B981',d:'سطح نگرانی طبیعی است.'},{m:50,l:'متوسط',c:'#F59E0B',d:'نگرانی‌ها روی زندگی اثر می‌گذارند.'},{m:65,l:'بالا',c:'#F97316',d:'با متخصص صحبت کن.'},{m:80,l:'بسیار بالا',c:'#EF4444',d:'حتماً با روان‌شناس مشورت کن.'}]},
+pss10:{id:'pss10',name:'مقیاس استرس ادراک‌شده',sn:'PSS-10',tag:'استرس',dur:3,intro:'در ماه گذشته، چند وقت...',opts:O5F,
+qs:['به‌خاطر اتفاقی غیرمنتظره ناراحت شده‌ای؟','احساس کرده‌ای که نمی‌توانی چیزهای مهم زندگی‌ات را کنترل کنی؟','احساس عصبی بودن و استرس داشته‌ای؟','احساس کرده‌ای که بر مشکلات غلبه می‌کنی؟','احساس کرده‌ای که چیزها به میل تو پیش می‌روند؟','احساس کرده‌ای که نمی‌توانی با همهٔ کارها کنار بیایی؟','توانسته‌ای جنبه‌های آزاردهندهٔ زندگی‌ات را کنترل کنی؟','احساس کرده‌ای که بر همه‌چیز مسلط هستی؟','به‌خاطر چیزهایی که خارج از کنترل تو بود عصبانی شده‌ای؟','احساس کرده‌ای که مشکلات آنقدر زیادند که نمی‌توانی از پسشان بربیایی؟'],rv:[3,4,6,7],
+rs:[{m:13,l:'پایین',c:'#10B981',d:'استرس در محدودهٔ سالم.'},{m:26,l:'متوسط',c:'#F59E0B',d:'مدیریت استرس توصیه می‌شود.'},{m:40,l:'بالا',c:'#EF4444',d:'با متخصص مشورت کن.'}]},
+isi:{id:'isi',name:'شاخص شدت بی‌خوابی',sn:'ISI',tag:'خواب',dur:2,intro:'شدت مشکلات خواب خود را در ۲ هفتهٔ گذشته ارزیابی کن:',opts:O4I,
+qs:['شدت مشکل در به خواب رفتن','شدت مشکل در خواب ماندن','شدت مشکل در بیدار شدن زودهنگام','میزان نارضایتی از الگوی فعلی خواب','میزان تداخل مشکل خواب با فعالیت‌های روزمره','میزان توجه دیگران به مشکل خواب','میزان نگرانی یا ناراحتی از مشکل خواب'],rv:[],
+rs:[{m:7,l:'بدون مشکل',c:'#10B981',d:'خوابت طبیعی است.'},{m:14,l:'زیرآستانه',c:'#84CC16',d:'بهداشت خواب کمک می‌کند.'},{m:21,l:'متوسط',c:'#F59E0B',d:'با متخصص خواب مشورت کن.'},{m:28,l:'شدید',c:'#EF4444',d:'لطفاً با متخصص خواب مشورت کن.'}]},
+who5:{id:'who5',name:'شاخص بهزیستی',sn:'WHO-5',tag:'بهزیستی',dur:1,intro:'در ۲ هفتهٔ گذشته، چند وقت...',opts:O5F,
+qs:['احساس سرخوشی داشته‌ای؟','احساس آرامش و آسودگی داشته‌ای؟','احساس فعال بودن و پرانرژی بودن داشته‌ای؟','از خوابت راضی بوده‌ای؟','زندگی‌ات پر از چیزهایی بوده که به آن‌ها علاقه داری؟'],rv:[],mult:4,
+rs:[{m:28,l:'پایین',c:'#EF4444',d:'با متخصص مشورت کن.'},{m:49,l:'متوسط',c:'#F59E0B',d:'بهزیستی کمتر از حد بهینه.'},{m:100,l:'خوب',c:'#10B981',d:'بهزیستی در محدودهٔ خوب.'}]},
+rosen:{id:'rosen',name:'مقیاس عزت نفس روزنبرگ',sn:'RSES',tag:'عزت نفس',dur:2,intro:'این جملات چقدر دربارهٔ تو صادق است؟',opts:O4A,
+qs:['در کل از خودم راضی‌ام.','گاهی فکر می‌کنم به هیچ دردی نمی‌خورم.','احساس می‌کنم ویژگی‌های خوبی دارم.','می‌توانم کارها را به خوبی دیگران انجام دهم.','احساس می‌کنم چیز زیادی برای افتخار ندارم.','گاهی واقعاً احساس بی‌ارزشی می‌کنم.','احساس می‌کنم آدم باارزشی هستم.','کاش برای خودم احترام بیشتری قائل بودم.','در کل احساس می‌کنم شکست‌خورده‌ام.','نگرشم به خودم مثبت است.'],rv:[1,4,5,7,8],
+rs:[{m:15,l:'پایین',c:'#EF4444',d:'کار روی عزت نفس با متخصص.'},{m:25,l:'متوسط',c:'#F59E0B',d:'نیاز به تقویت دارد.'},{m:40,l:'بالا',c:'#10B981',d:'عزت نفس سالم.'}]},
+asrs:{id:'asrs',name:'مقیاس ADHD بزرگسالان',sn:'ASRS',tag:'ADHD',dur:2,intro:'در ۶ ماه گذشته چقدر با این‌ها مواجه بوده‌ای؟',opts:O5F,
+qs:['پس از انجام آخرین بخش پروژه، در بستن آن مشکل داشته‌ای؟','در سازمان‌دهی کارها مشکل داشته‌ای؟','فراموش کرده‌ای قرارها را؟','از کارهایی که تفکر طولانی می‌خواهد اجتناب کرده‌ای؟','دست‌ها یا پاهایت را تکان داده‌ای؟','احساس کرده‌ای بیش از حد فعال هستی؟'],rv:[],
+rs:[{m:9,l:'پایین',c:'#10B981',d:'نشانهٔ قابل توجهی نیست.'},{m:14,l:'متوسط',c:'#F59E0B',d:'ارزیابی تخصصی توصیه می‌شود.'},{m:24,l:'بالا',c:'#EF4444',d:'با روان‌پزشک مشورت کن.'}]}
+};
+
+const PATHS={
+worry:{id:'worry',title:'نشخوار فکری / نگرانی',e:'🌀',d:'وقتی ذهن مدام درگیر فکرهاست.',
+qs:[{t:'بیشتر دربارهٔ آینده فکر می‌کنی یا گذشته؟',o:[{l:'آینده',s:{fu:2}},{l:'گذشته',s:{pa:2}},{l:'هر دو',s:{fu:1,pa:1}}]},{t:'فکرها قابل کنترل‌اند؟',o:[{l:'تا حدی',s:{c1:1}},{l:'خارج از کنترل',s:{c2:2}}]},{t:'خواب و تمرکزت را مختل کرده؟',o:[{l:'خواب',s:{sl:2}},{l:'تمرکز',s:{fo:2}},{l:'هر دو',s:{sl:2,fo:2}},{l:'نه',s:{}}]},{t:'چه احساسی داری؟',o:[{l:'اضطراب',s:{an:2}},{l:'غم',s:{sa:2}},{l:'عصبانیت',s:{ag:2}}]},{t:'چقدر ادامه داشته؟',o:[{l:'چند روز',s:{dd:1}},{l:'چند هفته',s:{ww:2}},{l:'چند ماه+',s:{mm:3}}]}],
+rt:['pswq','gad7'],sk:[3,4,0,2]},
+dep:{id:'dep',title:'افسردگی / بی‌انگیزگی',e:'🌧️',d:'وقتی لذت‌ها رنگ می‌بازند.',
+qs:[{t:'چقدر از کارها لذت می‌بری؟',o:[{l:'همان‌قدر',s:{pl:0}},{l:'کمتر',s:{pl:2}},{l:'هیچی',s:{pl:3}}]},{t:'انرژیت؟',o:[{l:'خوب',s:{en:0}},{l:'کم',s:{en:2}},{l:'خیلی کم',s:{en:3}}]},{t:'خوابت؟',o:[{l:'خوب',s:{sl:0}},{l:'کم',s:{sl:2}},{l:'زیاد/بی‌نظم',s:{sl:2}}]},{t:'احساست به خودت؟',o:[{l:'مثبت',s:{se:0}},{l:'خنثی',s:{se:1}},{l:'منفی',s:{se:3}}]},{t:'چقدر ادامه داشته؟',o:[{l:'چند روز',s:{dd:1}},{l:'چند هفته',s:{ww:2}},{l:'چند ماه+',s:{mm:3}}]}],
+rt:['phq9','who5'],sk:[5,4,0,7]},
+anx:{id:'anx',title:'اضطراب / حملات پانیک',e:'⚡',d:'بدن و ذهن در حالت هشدار دائمی.',
+qs:[{t:'چقدر دلشوره داری؟',o:[{l:'گاهی',s:{fq:1}},{l:'اغلب',s:{fq:2}},{l:'همیشه',s:{fq:3}}]},{t:'علائم بدنی؟',o:[{l:'تپش قلب',s:{bd:2}},{l:'تنگی نفس',s:{bd:2}},{l:'سرگیجه',s:{bd:2}},{l:'ندارم',s:{}}]},{t:'از چه می‌ترسی؟',o:[{l:'از دست دادن کنترل',s:{fr:2}},{l:'مرگ/بیماری',s:{fr:2}},{l:'قضاوت',s:{fr:2}},{l:'نامشخص',s:{fr:1}}]},{t:'چقدر مختل کرده؟',o:[{l:'کم',s:{im:1}},{l:'متوسط',s:{im:2}},{l:'زیاد',s:{im:3}}]},{t:'چقدر ادامه داشته؟',o:[{l:'چند روز',s:{dd:1}},{l:'چند هفته',s:{ww:2}},{l:'چند ماه+',s:{mm:3}}]}],
+rt:['gad7','pss10'],sk:[0,1,6,2]},
+sleep:{id:'sleep',title:'مشکلات خواب',e:'🌙',d:'سختی در خوابیدن یا خواب ماندن.',
+qs:[{t:'بیشترین مشکلت؟',o:[{l:'به خواب رفتن',s:{on:2}},{l:'بیدار شدن شب',s:{ma:2}},{l:'زود بیدار شدن',s:{ea:2}},{l:'چند تا',s:{mu:3}}]},{t:'چند ساعت؟',o:[{l:'۷+',s:{du:0}},{l:'۵-۷',s:{du:1}},{l:'زیر ۵',s:{du:2}}]},{t:'خستگی روزانه؟',o:[{l:'کم',s:{fa:1}},{l:'متوسط',s:{fa:2}},{l:'زیاد',s:{fa:3}}]},{t:'چقدر ادامه داشته؟',o:[{l:'چند روز',s:{dd:1}},{l:'چند هفته',s:{ww:2}},{l:'چند ماه+',s:{mm:3}}]}],
+rt:['isi','phq9'],sk:[7,0,6]},
+se:{id:'se',title:'عزت نفس پایین',e:'💎',d:'احساس بی‌ارزشی و مقایسهٔ مداوم.',
+qs:[{t:'چقدر مقایسه می‌کنی؟',o:[{l:'کم',s:{cm:1}},{l:'گاهی',s:{cm:2}},{l:'زیاد',s:{cm:3}}]},{t:'صدای درونی؟',o:[{l:'مهربان',s:{vo:0}},{l:'انتقادی',s:{vo:2}},{l:'تحقیرکننده',s:{vo:3}}]},{t:'وقتی اشتباه می‌کنی؟',o:[{l:'می‌پذیرم',s:{er:0}},{l:'ناراحت',s:{er:1}},{l:'سرزنش طولانی',s:{er:3}}]},{t:'در جمع؟',o:[{l:'راحت',s:{so:0}},{l:'کمی مضطرب',s:{so:1}},{l:'خیلی مضطرب',s:{so:3}}]},{t:'چقدر ادامه داشته؟',o:[{l:'چند هفته',s:{ww:2}},{l:'چند ماه+',s:{mm:3}}]}],
+rt:['rosen','phq9'],sk:[8,9,4]},
+anger:{id:'anger',title:'خشم / تحریک‌پذیری',e:'🔥',d:'واکنش‌های شدید خشم.',
+qs:[{t:'چقدر عصبانی می‌شوی؟',o:[{l:'کم',s:{fq:1}},{l:'اغلب',s:{fq:2}},{l:'هر روز',s:{fq:3}}]},{t:'واکنشت؟',o:[{l:'کنترل',s:{co:1}},{l:'بلند حرف',s:{co:2}},{l:'فریاد/شکستن',s:{co:3}}]},{t:'بعدش؟',o:[{l:'پشیمانی کم',s:{rg:1}},{l:'پشیمانی زیاد',s:{rg:2}},{l:'گناه شدید',s:{rg:3}}]},{t:'روی روابط؟',o:[{l:'کم',s:{im:1}},{l:'متوسط',s:{im:2}},{l:'زیاد',s:{im:3}}]},{t:'چقدر ادامه داشته؟',o:[{l:'چند هفته',s:{ww:2}},{l:'چند ماه+',s:{mm:3}}]}],
+rt:['gad7','pss10'],sk:[0,1,9,2]}
+};
+
+const ENC=[
+{id:'gad',t:'اختلال اضطراب فراگیر (GAD)',e:'😰',i:'نگرانی مزمن و بیش از حد.',w:'در GAD فرد حداقل ۶ ماه دربارهٔ موضوعات گوناگون نگران است.',sim:['اضطراب اجتماعی','پانیک','وسواس'],scr:'GAD-7 (۷ سؤال)',ws:['بیش از ۶ ماه','مختل کردن خواب و کار'],sk:['تنفس ۴-۷-۸','برنامهٔ نگرانی'],tr:['CBT','SSRI','MBCT'],wp:['GAD-7 بالای ۱۰','بیش از ۶ ماه'],bk:['قدرت اکنون'],ex:['برنامهٔ نگرانی'],fl:['Inside Out'],mu:['Ludovico Einaudi'],rt:['gad7','pswq']},
+{id:'mdd',t:'افسردگی اساسی (MDD)',e:'🌧️',i:'حالت افسرده یا از دست دادن علاقه حداقل ۲ هفته.',w:'با احساس غم، بی‌حالی، کاهش لذت، تغییر خواب و اشتها همراه است.',sim:['دیس‌تایمی','دوقطبی','سوگ'],scr:'PHQ-9 یا WHO-5',ws:['افکار خودکشی','عدم توانایی در کارها'],sk:['فعال‌سازی رفتاری','ثبت افکار'],tr:['CBT','SSRI','IPT'],wp:['PHQ-9 بالای ۱۰','افکار خودکشی (فوری)'],bk:['احساس ارزشمند بودن'],ex:['فعال‌سازی رفتاری'],fl:['A Man Called Otto'],mu:['Max Richter'],rt:['phq9','who5','rosen']},
+{id:'ocd',t:'وسواس فکری-عملی (OCD)',e:'🔁',i:'افکار مزاحم و رفتارهای اجباری.',w:'افکار ناخواسته و رفتارهای تکرارشونده برای کاهش اضطراب.',sim:['GAD','فوبیا','تیک'],scr:'ییل-براون',ws:['بیش از یک ساعت در روز','مختل کردن روابط'],sk:['ERP','توقف فکر'],tr:['CBT با ERP','SSRI دوز بالا'],wp:['همیشه نیاز به درمان تخصصی'],bk:['رهایی از OCD'],ex:['جدول ERP'],fl:['The Aviator'],mu:['Nils Frahm'],rt:['gad7']},
+{id:'panic',t:'حملات پانیک',e:'💥',i:'حملات ناگهانی ترس شدید.',w:'اوج ناگهانی اضطراب با علائم جسمی.',sim:['GAD','فوبیا','مشکلات قلبی'],scr:'GAD-7',ws:['اجتناب','بیش از یک بار در ماه'],sk:['تنفس ۴-۷-۸','۵-۴-۳-۲-۱'],tr:['CBT با مواجهه','SSRI'],wp:['همیشه نیاز به ارزیابی'],bk:['غلبه بر اضطراب'],ex:['مواجههٔ تدریجی'],fl:['Copycat'],mu:['Ludovico Einaudi'],rt:['gad7','pss10']},
+{id:'ptsd',t:'استرس پس از سانحه (PTSD)',e:'⚔️',i:'واکنش روانی به رویداد آسیب‌زا.',w:'با فلاش‌بک، کابوس و اجتناب همراه است.',sim:['استرس حاد','افسردگی','سوگ پیچیده'],scr:'PCL-5',ws:['همیشه نیاز به درمان تخصصی','افکار خودکشی'],sk:['۵-۴-۳-۲-۱','ذهن‌آگاهی'],tr:['CPT','EMDR','CBT'],wp:['همیشه','اسرع وقت با متخصص'],bk:['بدن فراموش نمی‌کند'],ex:['ذهن‌آگاهی'],fl:['Perks of Being a Wallflower'],mu:['Max Richter'],rt:['phq9','gad7']},
+{id:'adhd',t:'ADHD',e:'🎯',i:'بی‌توجهی، بی‌قراری یا تکانشگری مزمن.',w:'مشکل تمرکز، فراموشکاری، بی‌نظمی و به تعویق انداختن.',sim:['GAD','افسردگی','خواب'],scr:'ASRS-v1.1',ws:['مختل کردن کار یا تحصیل'],sk:['ساختاردهی','پومودورو'],tr:['دارودرمانی','CBT'],wp:['ASRS بالا','برای تشخیص'],bk:['مدیریت ADHD'],ex:['پومودورو'],fl:['A Beautiful Mind'],mu:['Hans Zimmer'],rt:['asrs','gad7']},
+{id:'ins',t:'بی‌خوابی',e:'🌙',i:'مشکل مزمن خواب.',w:'حداقل ۳ شب در هفته و به مدت ۳ ماه.',sim:['آپنه','پای بی‌قرار','افسردگی'],scr:'شاخص ISI',ws:['بیش از ۳ ماه','خستگی شدید'],sk:['بهداشت خواب','تنفس ۴-۷-۸'],tr:['CBT-I','نوردرمانی'],wp:['بیش از ۳ ماه'],bk:['بهداشت خواب'],ex:['ثبت خواب'],fl:['Fight Club'],mu:['Max Richter'],rt:['isi','phq9']},
+{id:'soc',t:'اضطراب اجتماعی',e:'👥',i:'ترس از موقعیت‌های اجتماعی.',w:'ترس از قضاوت و اجتناب از موقعیت‌ها.',sim:['GAD','پانیک','کم‌رویی'],scr:'GAD-7',ws:['اجتناب از کار','همراه با افسردگی'],sk:['مواجههٔ تدریجی','بازسازی شناختی'],tr:['CBT','SSRI'],wp:['GAD-7 بالای ۱۰'],bk:['اضطراب اجتماعی'],ex:['نردبان مواجهه'],fl:['The King Speech'],mu:['Ludovico Einaudi'],rt:['gad7','rosen']},
+{id:'bp',t:'دوقطبی',e:'🌗',i:'نوسان شدید خلق.',w:'دوره‌های افسردگی و شیدایی.',sim:['افسردگی','ADHD','مرزی'],scr:'MDQ',ws:['همیشه نیاز به درمان تخصصی'],sk:['ثبت خلق','بهداشت خواب'],tr:['تثبیت‌کننده خلق','روان‌درمانی'],wp:['اسرع وقت با روان‌پزشک'],bk:['زندگی با دوقطبی'],ex:['نمودار خلق'],fl:['Silver Linings Playbook'],mu:['Nils Frahm'],rt:['phq9']},
+{id:'eat',t:'اختلالات خوردن',e:'🍽️',i:'الگوهای ناسالم غذا.',w:'نگرانی شدید دربارهٔ وزن و رفتارهای جبرانی.',sim:['افسردگی','اضطراب','وسواس'],scr:'EAT-26',ws:['همیشه نیاز به ارزیابی','کاهش وزن سریع'],sk:['غذای آگاهانه'],tr:['CBT-E','خانواده‌درمانی'],wp:['حتماً — می‌تواند خطرناک باشد'],bk:['رهایی از پرخوری'],ex:['غذای آگاهانه'],fl:['To the Bone'],mu:['Ludovico Einaudi'],rt:['phq9','gad7']}
+];
+
+const SKILLS=[
+{id:'breathing478',t:'تنفس ۴-۷-۸',e:'🌬️',c:'آرام‌سازی',d:3,i:'آرام کردن سیستم عصبی.',st:['بنشین و چشمانت را ببند.','۴ ثانیه دم از بینی.','۷ ثانیه نگه‌دار.','۸ ثانیه بازدم از دهان.','۳-۴ بار تکرار کن.'],wy:'سیستم پاراسمپاتیک را فعال می‌کند.',wn:'قبل از خواب، در اضطراب.'},
+{id:'grounding',t:'تکنیک ۵-۴-۳-۲-۱',e:'🌍',c:'زمین‌گیری',d:2,i:'برای وقتی ذهن جدا از لحظهٔ حال است.',st:['۵ چیز که می‌بینی.','۴ چیز که لمس می‌کنی.','۳ چیز که می‌شنوی.','۲ چیز که بو می‌کنی.','۱ چیز که می‌چشی.'],wy:'توجه را به حواس برمی‌گرداند.',wn:'پانیک، فلاش‌بک.'},
+{id:'stopThought',t:'توقف فکر',e:'✋',c:'شناختی',d:1,i:'قطع چرخهٔ افکار مزاحم.',st:['بلند بگو «توقف!»','کش لاستیکی به مچت بزن.','توجه به کار حسی.','بعد ۲ دقیقه برگرد.'],wy:'چرخهٔ خودکار را می‌شکند.',wn:'نشخوار شدید.'},
+{id:'worryTime',t:'برنامهٔ نگرانی',e:'⏰',c:'شناختی',d:15,i:'به نگرانی وقت مشخص بده.',st:['یک ساعت مشخص برای نگرانی.','در طول روز یادداشت کن.','در ساعت مقرر ۱۵ دقیقه فکر کن.','راه‌حل بنویس.','بعدش کار بعدی.'],wy:'ذهن یاد می‌گیرد نگرانی تمام‌وقت نیست.',wn:'نگرانی مزمن.'},
+{id:'thoughtRecord',t:'برگهٔ ثبت افکار',e:'📝',c:'شناختی',d:10,i:'ابزار CBT.',st:['موقعیت بنویس.','فکر خودآیند.','هیجان و شدت.','شواهد موافق.','شواهد مخالف.','فکر جایگزین.'],wy:'فاصله از افکار.',wn:'افکار منفی.'},
+{id:'behavioralActivation',t:'فعال‌سازی رفتاری',e:'🚶',c:'رفتاری',d:30,i:'اول عمل، بعد انگیزه.',st:['کارهای کوچک بنویس.','هر روز یکی.','قبل از آمادگی شروع کن.','حال را نمره بده.'],wy:'انگیزه بعد از عمل می‌آید.',wn:'افسردگی.'},
+{id:'pmr',t:'آرام‌سازی پیشرونده',e:'💪',c:'آرام‌سازی',d:10,i:'تنش بدنی را کم کن.',st:['راحت بنشین.','پاها: ۵ ثانیه منقبض، ۱۰ ثانیه رها.','شکم، دست‌ها، شانه‌ها.','اسکن بدن.'],wy:'رهاسازی عضلات = آرامش.',wn:'قبل از خواب.'},
+{id:'sleepHygiene',t:'بهداشت خواب',e:'🛏️',c:'خواب',d:0,i:'قواعد خواب بهتر.',st:['ساعت مشخص بخواب و بیدار شو.','۱ ساعت قبل صفحه خاموش.','اتاق تاریک و خنک.','کافئین بعد ۱۴ نباشد.','اگر ۲۰ دقیقه بیدار ماندی، بلند شو.'],wy:'ریتم شبانه‌روزی بهتر.',wn:'بی‌خوابی خفیف.'},
+{id:'cognitiveRestr',t:'بازسازی شناختی',e:'🔧',c:'شناختی',d:15,i:'شناسایی افکار غیرمنطقی.',st:['فکر منفی را شناسایی کن.','خطای شناختی را پیدا کن.','شواهد موافق و مخالف.','فکر جایگزین بنویس.'],wy:'تغییر افکار = تغییر حال.',wn:'افسردگی، اضطراب.'},
+{id:'assert',t:'ابزار وجودی',e:'🗣️',c:'ارتباطی',d:0,i:'بیان نیازها محترمانه.',st:['الگوی «من»: من احساس می‌کنم...','مستقیم نگاه کن.','صدای محکم اما آرام.','به نه گفتن عادت کن.'],wy:'ارتباط سالم‌تر.',wn:'روابط.'}
+];
+
+const BOOKS=[
+{t:'قدرت اکنون',a:'اکهارت تال',d:'رهایی از ذهن و زیستن در لحظه.',g:'ذهن‌آگاهی'},
+{t:'وقتی نیچه گریست',a:'اروین یالوم',d:'رمانی دربارهٔ معنادرمانی.',g:'معنا'},
+{t:'احساس ارزشمند بودن',a:'متیو مک‌کی',d:'کار عملی بر عزت نفس.',g:'عزت نفس'},
+{t:'رهایی از نشخوار فکری',a:'سوزان نولن-هوکسما',d:'تکنیک‌های قطع چرخهٔ افکار.',g:'نشخوار'},
+{t:'قفس تنهایی',a:'اروین یالوم',d:'داستان‌هایی از روان‌درمانی.',g:'روان‌درمانی'},
+{t:'بدن فراموش نمی‌کند',a:'بسل ون در کولک',d:'رویکرد تروما-محور.',g:'تروما'},
+{t:'غلبه بر اضطراب و پانیک',a:'دیوید برنز',d:'راهنمای عملی اضطراب.',g:'اضطراب'},
+{t:'مرد در جستجوی معنا',a:'ویکتور فرانکل',d:'معنادرمانی.',g:'معنا'}
+];
+const FILMS=[
+{t:'ذهن زیبا',y:2001,d:'زندگی جان نش — اسکیزوفرنی.',g:'اسکیزوفرنی'},
+{t:'Inside Out',y:2015,d:'انیمیشن احساسات.',g:'هیجان'},
+{t:'Good Will Hunting',y:1997,d:'درمان و رشد.',g:'درمان'},
+{t:'The Perks of Being a Wallflower',y:2012,d:'نوجوانی و تروما.',g:'تروما'},
+{t:'Silver Linings Playbook',y:2012,d:'دوقطبی و عشق.',g:'دوقطبی'},
+{t:'A Man Called Otto',y:2022,d:'سوگ و بازگشت.',g:'سوگ'},
+{t:'Manchester by the Sea',y:2016,d:'سوگ پیچیده.',g:'سوگ'},
+{t:'Soul',y:2020,d:'معنا و هدف زندگی.',g:'معنا'}
+];
+const MUSIC=[
+{t:'Ludovico Einaudi — Piano',d:'پیانو آرام.',g:'آرام‌سازی'},
+{t:'Max Richter — Sleep',d:'آرامش عمیق.',g:'خواب'},
+{t:'Marconi Union — Weightless',d:'کاهش اضطراب.',g:'اضطراب'},
+{t:'صدای باران و طبیعت',d:'برای خواب.',g:'خواب'},
+{t:'Hans Zimmer — Interstellar',d:'تمرکز.',g:'تمرکز'},
+{t:'Nils Frahm — Felt',d:'مینیمال.',g:'آرام‌سازی'}
+];
+
+const QB=[
+{q:'غذای موردعلاقه‌ام؟',o:['پیتزا','قورمه‌سبزی','سوشی','پاستا']},
+{q:'آخر هفته؟',o:['خانه','گردش','مهمانی','کار']},
+{q:'استعداد پنهانم؟',o:['آشپزی','نقاشی','نوشتن','موسیقی']},
+{q:'چی اذیتم می‌کند؟',o:['دروغ','بی‌نظمی','دیرکرد','شلوغی']},
+{q:'رؤیای سفرم؟',o:['ژاپن','ایسلند','ایتالیا','نیوزیلند']},
+{q:'چی خوشحالم می‌کند؟',o:['کتاب','طبیعت','موسیقی','خواب']},
+{q:'از چی می‌ترسم؟',o:['تنهایی','شکست','قضاوت','ناشناخته']},
+{q:'ژانر فیلم؟',o:['درام','کمدی','علمی-تخیلی','ترسناک']},
+{q:'صبح یا شب؟',o:['صبح','بعدازظهر','شب','بستگی دارد']},
+{q:'قهوه یا چای؟',o:['قهوه','چای سیاه','چای سبز','هیچ‌کدام']},
+{q:'وقتی ناراحتم؟',o:['حرف می‌زنم','سکوت','می‌نویسم','موسیقی']},
+{q:'چی مهم است؟',o:['آزادی','امنیت','خلاقیت','رابطه']}
+];
+
+let ST={aT:null,aTA:[],aP:null,aPS:0,aPA:{},last:null,hist:[],qD:null,qA:null,qDc:null};
+function loadHist(){try{ST.hist=JSON.parse(localStorage.getItem('mr_hist')||'[]')}catch(e){ST.hist=[]}}
+function saveHist(x){x.ts=Date.now();ST.hist.push(x);if(ST.hist.length>100)ST.hist.shift();try{localStorage.setItem('mr_hist',JSON.stringify(ST.hist))}catch(e){}}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function b64e(s){try{const b=new TextEncoder().encode(s);let r='';b.forEach(x=>r+=String.fromCharCode(x));return btoa(r).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}catch(e){return''}}
+function b64d(s){try{let x=s.replace(/-/g,'+').replace(/_/g,'/');while(x.length%4)x+='=';const b=atob(x);const u=new Uint8Array(b.length);for(let i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return new TextDecoder().decode(u)}catch(e){return null}}
+function appUrl(){return location.origin+location.pathname}
+async function share(t,x,u){try{if(navigator.share){await navigator.share({title:t,text:x,url:u});return true}else if(navigator.clipboard){await navigator.clipboard.writeText(u);alert('لینک کپی شد ✅');return true}else{prompt('کپی کن:',u);return true}}catch(e){return false}}
+async function copyT(t){try{await navigator.clipboard.writeText(t);alert('کپی شد ✅')}catch(e){prompt('کپی کن:',t)}}
+
+function nav(p){if(location.hash==='#'+p)route();else location.hash=p}
+function route(){
+  const h=location.hash.slice(1)||'/';
+  const parts=h.split('/').filter(Boolean);
+  const [r,p]=parts;
+  window.scrollTo(0,0);
+  document.querySelectorAll('.nv').forEach(b=>{const rr=b.getAttribute('data-r');b.classList.toggle('a',rr===h||(rr!=='/'&&h.startsWith(rr)))});
+  switch(r){
+    case undefined:return vHome();
+    case 'tests':return vTests();
+    case 'test':return vTestIntro(p);
+    case 'trun':return vTestRun(p);
+    case 'tres':return vTestRes(p);
+    case 'paths':return vPaths();
+    case 'path':return vPathIntro(p);
+    case 'prun':return vPathRun(p);
+    case 'pres':return vPathRes(p);
+    case 'enc':return vEnc();
+    case 'entry':return vEntry(p);
+    case 'skills':return vSkills();
+    case 'skill':return vSkill(p);
+    case 'lib':return vLib(p||'books');
+    case 'quiz':return p?vQuizTake(p):vQuizCreate();
+    case 'emergency':return vEmergency();
+    case 'hist':return vHist();
+    case 'about':return vAbout();
+    default:return vHome()
+  }
+}
+
+function vHome(){
+  const menu=[['/paths','🧭','مسیر شخصی من'],['/tests','🧪','تست‌های روان‌شناختی'],['/enc','📖','دانشنامهٔ اختلالات'],['/skills','🎯','مهارت‌های کاربردی'],['/lib','📚','کتابخانهٔ محتوا'],['/quiz','👥','منو چقدر می‌شناسی؟'],['/hist','📈','تاریخچهٔ من'],['/emergency','🆘','الان حالم خوب نیست',true],['/about','ℹ️','درباره']];
+  let h=`<div style="margin-bottom:20px"><h1>🧠 اتاق ذهن</h1><p class="m">Mind Room — فضایی امن برای شناخت بهتر خودت</p></div><p style="font-size:1.05rem;font-weight:600;margin-bottom:14px">الان از اتاق ذهن چی می‌خوای؟</p>`;
+  menu.forEach(([u,e,l,warn])=>{h+=`<button class="ib" onclick="nav('${u}')" ${warn?'style="border-color:rgba(239,68,68,.5);background:rgba(239,68,68,.08)"':''}><span class="e">${e}</span><span class="l" ${warn?'style="color:#F87171"':''}>${l}</span><span class="ch">›</span></button>`});
+  h+=`<div class="dis" style="margin-top:20px"><strong>یادآوری:</strong> این اپ ابزار خودآگاهی و غربالگری است و <strong>جایگزین تشخیص یا درمان تخصصی نیست</strong>.</div>`;
+  document.getElementById('app').innerHTML=h;
+}
+
+function vPaths(){
+  let h=`<button class="back" onclick="nav('/')">← بازگشت</button><h1>🧭 مسیر شخصی</h1><p class="m" style="margin-bottom:18px">چند سؤال کوتاه، بعد یک مسیر پیشنهادی.</p>`;
+  Object.values(PATHS).forEach(p=>{h+=`<div class="card c" onclick="nav('/path/${p.id}')"><h4><span>${p.e}</span> ${p.title}</h4><p>${p.d}</p></div>`});
+  h+=`<div class="dis" style="margin-top:16px"><strong>توجه:</strong> مسیر شخصی، تشخیص پزشکی نیست.</div>`;
+  document.getElementById('app').innerHTML=h;
+}
+
+function vPathIntro(id){
+  const p=PATHS[id];if(!p)return nav('/paths');
+  ST.aP=p;ST.aPS=0;ST.aPA={};
+  document.getElementById('app').innerHTML=`<button class="back" onclick="nav('/paths')">← بازگشت</button>
+    <div class="card"><h1 style="font-size:1.3rem">${p.e} ${p.title}</h1><p class="m">${p.d}</p>
+    <p style="margin-top:14px;font-size:.9rem"><strong>${p.qs.length} سؤال</strong> — حدود ۲ دقیقه</p>
+    <button class="btn bp" onclick="nav('/prun/${p.id}')">شروع</button></div>
+    <div class="dis">این مسیر <strong>تشخیص پزشکی نیست</strong>.</div>`;
+}
+
+function vPathRun(id){
+  const p=PATHS[id];if(!p)return nav('/paths');ST.aP=p;
+  const q=p.qs[ST.aPS],t=p.qs.length,pr=(ST.aPS/t)*100;
+  document.getElementById('app').innerHTML=`<button class="back" onclick="nav('/path/${p.id}')">← بازگشت</button>
+    <div class="pg"><div class="pgb" style="width:${pr}%"></div></div>
+    <p class="qn">سؤال ${ST.aPS+1} از ${t}</p>
+    <p class="qt">${esc(q.t)}</p>
+    <div class="opts">${q.o.map((o,i)=>`<button class="opt" onclick="ansP(${i})">${esc(o.l)}</button>`).join('')}</div>`;
+  window.scrollTo(0,0);
+}
+
+function ansP(i){
+  const p=ST.aP,q=p.qs[ST.aPS],o=q.o[i];
+  for(const[k,v]of Object.entries(o.s||{})){ST.aPA[k]=(ST.aPA[k]||0)+v}
+  ST.aPS++;
+  if(ST.aPS<p.qs.length)vPathRun(p.id);
+  else nav('/pres/'+p.id);
+}
+
+function vPathRes(id){
+  const p=PATHS[id];if(!p)return nav('/paths');
+  const a=ST.aPA;
+  let sev='low';
+  const hi=(a.mm||0)+(a.c2||0)+(a.se||0)+(a.fq||0)+(a.vo||0)+(a.bd||0);
+  const md=(a.ww||0)+(a.sl||0)+(a.fo||0)+(a.im||0)+(a.cm||0);
+  if(hi>=4)sev='high';else if(hi>=2||md>=3)sev='medium';
+  const cf={low:{l:'قابل مدیریت',c:'#10B981',m:'وضعیتت در محدودهٔ قابل مدیریت است.'},medium:{l:'نیاز به توجه',c:'#F59E0B',m:'بهتر است به این موضوع توجه کنی.'},high:{l:'نیاز به پیگیری جدی',c:'#EF4444',m:'توصیه می‌شود با متخصص صحبت کنی.'}}[sev];
+  const rT=(p.rt||[]).map(t=>TESTS[t]).filter(Boolean);
+  const rS=(p.sk||[]).map(i=>SKILLS[i]).filter(Boolean);
+  saveHist({type:'path',id:p.id,title:p.title,severity:sev});
+  let h=`<button class="back" onclick="nav('/paths')">← بازگشت</button>
+    <div class="card" style="border-color:${cf.c}40"><span class="tag" style="background:${cf.c}20;color:${cf.c}">${cf.l}</span><h2 style="margin-top:8px">مسیر: ${p.title}</h2><p>${cf.m}</p></div>`;
+  if(rT.length){h+=`<h3 style="margin-top:20px">🧪 تست‌های مرتبط</h3>`;rT.forEach(t=>{h+=`<div class="card c" onclick="nav('/test/${t.id}')"><h4>${t.name}</h4><p>${t.sn} — ${t.dur} دقیقه</p></div>`})}
+  if(rS.length){h+=`<h3 style="margin-top:20px">🎯 مهارت‌های پیشنهادی</h3>`;rS.forEach(s=>{h+=`<div class="card c" onclick="nav('/skill/${s.id}')"><h4>${s.e} ${s.t}</h4><p>${s.i}</p></div>`})}
+  h+=`<h3 style="margin-top:20px">📅 تمرین ۷ روزه</h3><div class="card"><p>• روز ۱-۲: ۱۰ دقیقه نوشتن افکار</p><p>• روز ۳-۴: تنفس ۴-۷-۸ سه بار در روز</p><p>• روز ۵-۶: برنامهٔ نگرانی</p><p>• روز ۷: مرور و یادداشت</p></div>`;
+  if(sev==='high')h+=`<div class="warn"><strong>⚠️ توصیه:</strong> اگر بیش از چند هفته ادامه دارد، با روان‌شناس مشورت کن.<br>☎️ صدای مشاور: <strong>۱۴۸۰</strong> — اورژانس اجتماعی: <strong>۱۲۳</strong></div>`;
+  h+=`<button class="btn bp" onclick="shareR('${p.id}','${sev}')">📤 اشتراک‌گذاری</button><button class="btn bs" onclick="nav('/')">بازگشت به خانه</button>`;
+  document.getElementById('app').innerHTML=h;
+}
+
+async function shareR(pid,sev){const p=PATHS[pid],l={low:'قابل مدیریت',medium:'نیاز به توجه',high:'نیاز به پیگیری'}[sev];await share('نتیجهٔ اتاق ذهن',`🧭 ${p.title}\nسطح: ${l}\n\nتو هم امتحان کن:`,appUrl())}
+
+function vTests(){
+  let h=`<button class="back" onclick="nav('/')">← بازگشت</button><h1>🧪 تست‌های روان‌شناختی</h1><p class="m" style="margin-bottom:16px">ابزارهای غربالگری معتبر</p><div class="dis"><strong>⚠️ مهم:</strong> این تست‌ها <strong>تشخیص پزشکی نیستند</strong>.</div>`;
+  Object.values(TESTS).forEach(t=>{h+=`<div class="card c" onclick="nav('/test/${t.id}')"><h4>${t.name} <span class="tag">${t.sn}</span></h4><p>${t.qs.length} سؤال • ${t.dur} دقیقه • ${t.tag}</p></div>`});
+  document.getElementById('app').innerHTML=h;
+}
+
+function vTestIntro(id){
+  const t=TESTS[id];if(!t)return nav('/tests');
+  ST.aT=t;ST.aTA=new Array(t.qs.length).fill(null);
+  document.getElementById('app').innerHTML=`<button class="back" onclick="nav('/tests')">← بازگشت</button>
+    <div class="card"><h1 style="font-size:1.3rem">${t.name}</h1><p class="m">${t.sn}</p><p style="margin-top:12px">${t.intro}</p>
+    <p style="margin-top:10px"><strong>${t.qs.length} سؤال</strong> • حدود ${t.dur} دقیقه</p>
+    <button class="btn bp" onclick="nav('/trun/${t.id}')">شروع تست</button></div>
+    <div class="dis">نتیجه <strong>تشخیص پزشکی نیست</strong>.</div>`;
+  window.scrollTo(0,0);
+}
+
+function vTestRun(id){
+  const t=TESTS[id];if(!t)return nav('/tests');ST.aT=t;
+  if(ST.aTA.length!==t.qs.length)ST.aTA=new Array(t.qs.length).fill(null);
+  const ans=ST.aTA.filter(a=>a!==null).length,pr=(ans/t.qs.length)*100;
+  let h=`<button class="back" onclick="nav('/test/${t.id}')">← بازگشت</button>
+    <h2 style="font-size:1.1rem">${t.sn}</h2><p class="m" style="margin-bottom:10px">${t.intro}</p>
+    <div class="pg"><div class="pgb" style="width:${pr}%"></div></div>
+    <p class="m" style="font-size:.82rem;margin-bottom:14px">${ans} از ${t.qs.length}</p>`;
+  t.qs.forEach((q,qi)=>{h+=`<div class="card"><p style="font-size:.9rem;margin-bottom:10px"><strong>${qi+1}.</strong> ${esc(q)}</p><div class="opts" style="gap:6px">${t.opts.map((o,oi)=>`<button class="opt ${ST.aTA[qi]===oi?'sel':''}" style="padding:10px 14px;font-size:.85rem" onclick="ansT(${qi},${oi})">${esc(o.l)}</button>`).join('')}</div></div>`});
+  h+=`<button class="btn bp" onclick="subT()" ${ans<t.qs.length?'disabled':''}>${ans<t.qs.length?`پاسخ به همه (${ans}/${t.qs.length})`:'مشاهدهٔ نتیجه'}</button>`;
+  document.getElementById('app').innerHTML=h;
+}
+
+function ansT(qi,oi){ST.aTA[qi]=oi;vTestRun(ST.aT.id)}
+
+function subT(){
+  const t=ST.aT;let s=0;
+  t.qs.forEach((_,i)=>{let v=t.opts[ST.aTA[i]].v;if(t.rv&&t.rv.includes(i)){const mx=Math.max(...t.opts.map(o=>o.v));const mn=Math.min(...t.opts.map(o=>o.v));v=(mx+mn)-v}s+=v});
+  if(t.mult)s*=t.mult;
+  let crit=false;
+  if(t.crit!==undefined){const o=t.opts[ST.aTA[t.crit]];if(o&&o.v>0)crit=true}
+  const rg=t.rs.find(r=>s<=r.m)||t.rs[t.rs.length-1];
+  saveHist({type:'test',id:t.id,title:t.name,score:s,label:rg.l});
+  ST.last={type:'test',id:t.id,s,rg,crit};
+  nav('/tres/'+t.id);
+}
+
+function vTestRes(id){
+  const t=TESTS[id];if(!t)return nav('/tests');
+  const r=ST.last;if(!r||r.type!=='test')return nav('/test/'+id);
+  let h=`<button class="back" onclick="nav('/tests')">← بازگشت</button>
+    <div class="sh"><div class="n">${r.s}</div><div class="l" style="color:${r.rg.c}">${r.rg.l}</div></div>
+    <div class="card"><p>${r.rg.d}</p></div>`;
+  if(r.crit)h+=`<div class="warn"><strong>🆘 توجه فوری:</strong> پاسخ‌هایت نشان می‌دهد ممکن است به خودت آسیب برسانی. لطفاً همین حالا با یکی از این خطوط تماس بگیر:<br>☎️ اورژانس اجتماعی: <strong>۱۲۳</strong><br>☎️ صدای مشاور: <strong>۱۴۸۰</strong></div>`;
+  h+=`<div class="dis"><strong>⚠️ یادآوری:</strong> این نتیجه <strong>غربالگری اولیه</strong> است و <strong>تشخیص قطعی نیست</strong>.</div>`;
+  h+=`<button class="btn bp" onclick="shareT('${t.id}',${r.s})">📤 اشتراک‌گذاری</button><button class="btn bs" onclick="ST.aTA=[];nav('/test/${t.id}')">تکرار تست</button>`;
+  document.getElementById('app').innerHTML=h;
+}
+
+async function shareT(tid,s){const t=TESTS[tid];await share('نتیجهٔ اتاق ذهن',`🧪 ${t.sn}\nنمره: ${s}\n\nتو هم امتحان کن:`,appUrl())}
+
+function vEnc(){
+  let h=`<button class="back" onclick="nav('/')">← بازگشت</button><h1>📖 دانشنامه</h1><p class="m" style="margin-bottom:14px">توضیح دقیق اختلالات</p>`;
+  ENC.forEach(e=>{h+=`<div class="card c" onclick="nav('/entry/${e.id}')"><h4><span>${e.e}</span> ${e.t}</h4><p>${e.i}</p></div>`});
+  h+=`<div class="dis" style="margin-top:16px">این دانشنامه صرفاً برای آموزش است.</div>`;
+  document.getElementById('app').innerHTML=h;
+}
+
+function vEntry(id){
+  const e=ENC.find(x=>x.id===id);if(!e)return nav('/enc');
+  let h=`<button class="back" onclick="nav('/enc')">← بازگشت</button>
+    <div class="card"><h1 style="font-size:1.3rem">${e.e} ${e.t}</h1><p class="m">${e.i}</p></div>
+    <details class="acc" open><summary>این چیست؟</summary><div class="bd">${esc(e.w)}</div></details>
+    <details class="acc"><summary>چه چیزهایی شبیه آن است؟</summary><div class="bd">${e.sim.map(s=>'• '+esc(s)).join('<br>')}</div></details>
+    <details class="acc"><summary>غربالگری</summary><div class="bd">${esc(e.scr)}</div></details>
+    <details class="acc"><summary>چه زمانی جدی گرفته شود؟</summary><div class="bd">${e.ws.map(s=>'• '+esc(s)).join('<br>')}</div></details>
+    <details class="acc"><summary>مهارت‌های کمک‌کننده</summary><div class="bd">${e.sk.map(s=>'• '+esc(s)).join('<br>')}</div></details>
+    <details class="acc"><summary>درمان‌ها</summary><div class="bd">${e.tr.map(s=>'• '+esc(s)).join('<br>')}</div></details>
+    <details class="acc"><summary>چه زمانی متخصص لازم است؟</summary><div class="bd">${e.wp.map(s=>'• '+esc(s)).join('<br>')}</div></details>
+    <details class="acc"><summary>📚 کتاب‌های مرتبط</summary><div class="bd">${e.bk.map(s=>'• '+esc(s)).join('<br>')}</div></details>
+    <details class="acc"><summary>🧪 تمرین‌ها</summary><div class="bd">${e.ex.map(s=>'• '+esc(s)).join('<br>')}</div></details>
+    <details class="acc"><summary>🎬 فیلم‌های مرتبط</summary><div class="bd">${e.fl.map(s=>'• '+esc(s)).join('<br>')}</div></details>
+    <details class="acc"><summary>🎧 موسیقی مرتبط</summary><div class="bd">${e.mu.map(s=>'• '+esc(s)).join('<br>')}</div></details>`;
+  if(e.rt.length){h+=`<h3 style="margin-top:20px">تست‌های مرتبط</h3>`;e.rt.forEach(tid=>{if(TESTS[tid])h+=`<div class="card c" onclick="nav('/test/${tid}')"><h4>${TESTS[tid].name}</h4><p>${TESTS[tid].sn} — ${TESTS[tid].dur} دقیقه</p></div>`})}
+  h+=`<div class="dis" style="margin-top:20px"><strong>یادآوری:</strong> این مطلب آموزشی است.</div>`;
+  document.getElementById('app').innerHTML=h;
+}
+
+function vSkills(){
+  let h=`<button class="back" onclick="nav('/')">← بازگشت</button><h1>🎯 مهارت‌ها</h1><p class="m" style="margin-bottom:16px">تمرین‌های عملی</p>`;
+  SKILLS.forEach(s=>{h+=`<div class="card c" onclick="nav('/skill/${s.id}')"><h4>${s.e} ${s.t}</h4><p>${s.i}</p><div style="margin-top:8px"><span class="tag">${s.c}</span>${s.d?`<span class="tag">${s.d} دقیقه</span>`:''}</div></div>`});
+  document.getElementById('app').innerHTML=h;
+}
+
+function vSkill(id){
+  const s=SKILLS.find(x=>x.id===id);if(!s)return nav('/skills');
+  let h=`<button class="back" onclick="nav('/skills')">← بازگشت</button>
+    <div class="card"><h1 style="font-size:1.3rem">${s.e} ${s.t}</h1><p class="m">${s.i}</p></div>
+    <h3 style="margin-top:16px">مراحل</h3>`;
+  s.st.forEach((st,i)=>{h+=`<div class="card" style="display:flex;gap:12px;align-items:flex-start"><div style="background:var(--p);color:#0B1220;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0">${i+1}</div><div style="flex:1">${esc(st)}</div></div>`});
+  if(s.wy)h+=`<h3 style="margin-top:16px">چرا کار می‌کند؟</h3><div class="card"><p>${esc(s.wy)}</p></div>`;
+  if(s.wn)h+=`<h3 style="margin-top:16px">کِی استفاده کنیم؟</h3><div class="card"><p>${esc(s.wn)}</p></div>`;
+  document.getElementById('app').innerHTML=h;
+}
+
+function vLib(tab){
+  const tabs=[['books','📖 کتاب‌ها'],['films','🎬 فیلم‌ها'],['music','🎧 موسیقی']];
+  const cur=['books','films','music'].includes(tab)?tab:'books';
+  let h=`<button class="back" onclick="nav('/')">← بازگشت</button><h1>📚 کتابخانه</h1>
+    <div class="ltabs">${tabs.map(([id,l])=>`<button class="ltab ${id===cur?'a':''}" onclick="nav('/lib/${id}')">${l}</button>`).join('')}</div>`;
+  if(cur==='books')BOOKS.forEach(b=>{h+=`<div class="card"><h4>📖 ${b.t}</h4><p style="color:var(--t);font-size:.85rem;margin-bottom:4px">${b.a}</p><p>${b.d}</p><div style="margin-top:8px"><span class="tag">${b.g}</span></div></div>`});
+  else if(cur==='films')FILMS.forEach(f=>{h+=`<div class="card"><h4>🎬 ${f.t}</h4><p style="color:var(--t);font-size:.85rem;margin-bottom:4px">${f.y}</p><p>${f.d}</p><div style="margin-top:8px"><span class="tag">${f.g}</span></div></div>`});
+  else MUSIC.forEach(m=>{h+=`<div class="card"><h4>🎧 ${m.t}</h4><p>${m.d}</p><div style="margin-top:8px"><span class="tag">${m.g}</span></div></div>`});
+  document.getElementById('app').innerHTML=h;
+}
+
+function vQuizCreate(){
+  document.getElementById('app').innerHTML=`<button class="back" onclick="nav('/')">← بازگشت</button>
+    <h1>👥 منو چقدر می‌شناسی؟</h1>
+    <p class="m" style="margin-bottom:16px">به ۵ سؤال دربارهٔ خودت جواب بده، لینک بساز، بفرست.</p>
+    <div class="card"><p style="font-weight:600;margin-bottom:8px">اسم تو</p><input id="qn" style="width:100%;padding:12px;background:var(--s2);border:1px solid var(--b);border-radius:10px;color:var(--t);font-family:inherit" placeholder="مثلاً: علی" maxlength="20"></div>
+    <div id="qpk"></div>
+    <button class="btn bp" id="qcb" onclick="subQC()" disabled>ساخت لینک اشتراک</button>`;
+  const sh=[...QB].sort(()=>Math.random()-.5).slice(0,5);
+  ST.qD={name:'',picks:sh,ans:new Array(5).fill(null)};
+  rQPk();
+}
+
+function rQPk(){
+  const c=document.getElementById('qpk');if(!c)return;
+  c.innerHTML=ST.qD.picks.map((p,i)=>`<div class="card"><p style="font-size:.9rem;font-weight:600;margin-bottom:10px">${i+1}. ${esc(p.q)}</p><div class="opts" style="gap:6px">${p.o.map((o,oi)=>`<button class="opt ${ST.qD.ans[i]===oi?'sel':''}" style="padding:10px 14px;font-size:.85rem" onclick="pkQA(${i},${oi})">${esc(o)}</button>`).join('')}</div></div>`).join('');
+  const all=ST.qD.ans.every(a=>a!==null);
+  const b=document.getElementById('qcb');if(b)b.disabled=!all;
+}
+function pkQA(qi,oi){ST.qD.ans[qi]=oi;rQPk()}
+
+async function subQC(){
+  const n=document.getElementById('qn')?.value.trim()||'یک دوست';
+  const qI=ST.qD.picks.map(p=>QB.indexOf(p));
+  const data={n,q:qI,a:ST.qD.ans};
+  const enc=b64e(JSON.stringify(data));
+  const url=appUrl()+'#/quiz/'+enc;
+  document.getElementById('app').innerHTML=`<button class="back" onclick="nav('/quiz')">← ساخت مجدد</button>
+    <h1>✅ لینک ساخته شد</h1><p class="m">برای دوستت بفرست:</p>
+    <div style="display:flex;gap:8px;margin:10px 0"><input id="ql" readonly value="${esc(url)}" style="flex:1;padding:12px;background:var(--s2);border:1px solid var(--b);border-radius:10px;color:var(--t);font-size:.8rem;direction:ltr"><button onclick="copyT('${esc(url)}')" style="padding:0 16px;background:var(--p);color:#0B1220;border:none;border-radius:10px;font-weight:700">کپی</button></div>
+    <button class="btn bp" onclick="share('منو چقدر می‌شناسی؟','بیا ببینم چقدر منو می‌شناسی!','${esc(url)}')">📤 اشتراک‌گذاری</button>
+    <button class="btn bs" onclick="nav('/quiz')">ساخت بازی جدید</button>`;
+  window.scrollTo(0,0);
+}
+
+function vQuizTake(enc){
+  const d=b64d(enc);let data;
+  try{data=JSON.parse(d)}catch(e){data=null}
+  if(!data||!data.q||!data.a){document.getElementById('app').innerHTML=`<button class="back" onclick="nav('/')">← بازگشت</button><div class="empty"><p>🔗 لینک نامعتبر است.</p></div>`;return}
+  ST.qA=new Array(data.q.length).fill(null);ST.qDc=data;
+  rQTS();
+}
+
+function rQTS(){
+  const d=ST.qDc;
+  document.getElementById('app').innerHTML=`<button class="back" onclick="nav('/')">← بازگشت</button>
+    <div class="card"><h1 style="font-size:1.3rem">👥 ${esc(d.n)} را چقدر می‌شناسی؟</h1><p class="m">به ${d.q.length} سؤال جواب بده.</p></div>
+    ${d.q.map((bi,i)=>{const it=QB[bi];if(!it)return '';return `<div class="card"><p style="font-size:.95rem;font-weight:600;margin-bottom:10px">${i+1}. ${esc(it.q)}</p><div class="opts" style="gap:6px">${it.o.map((o,oi)=>`<button class="opt ${ST.qA[i]===oi?'sel':''}" style="padding:10px 14px;font-size:.85rem" onclick="ansQT(${i},${oi})">${esc(o)}</button>`).join('')}</div></div>`}).join('')}
+    <button class="btn bp" onclick="subQT()" ${ST.qA.some(a=>a===null)?'disabled':''}>${ST.qA.some(a=>a===null)?'پاسخ به همه':'مشاهدهٔ نتیجه'}</button>`;
+}
+
+function ansQT(qi,oi){ST.qA[qi]=oi;rQTS()}
+
+function subQT(){
+  const d=ST.qDc;let cor=0;
+  const rs=d.q.map((bi,i)=>{const ok=ST.qA[i]===d.a[i];if(ok)cor++;return{bi,ma:ST.qA[i],ta:d.a[i],ok}});
+  const tot=d.q.length,pct=Math.round((cor/tot)*100);
+  let m;pct===100?m='🏆 عالی!':pct>=80?m='😍 خیلی خوب!':pct>=60?m='😊 بد نیست!':pct>=40?m='🤔 نصفه‌ونیمه!':m='😅 هنوز منو نمی‌شناسی!';
+  document.getElementById('app').innerHTML=`<button class="back" onclick="nav('/')">← بازگشت</button>
+    <div class="sh"><div class="n">${cor}/${tot}</div><div class="l">${pct}٪</div></div>
+    <div class="card"><p style="font-weight:600">${m}</p></div>
+    ${rs.map(r=>{const it=QB[r.bi];if(!it)return '';return `<div class="card" style="border-color:${r.ok?'rgba(16,185,129,.4)':'rgba(239,68,68,.4)'}"><p style="font-weight:600;font-size:.9rem;margin-bottom:6px">${r.ok?'✅':'❌'} ${esc(it.q)}</p><p class="m">پاسخ تو: ${esc(it.o[r.ma]||'-')}</p>${!r.ok?`<p class="m">درست: ${esc(it.o[r.ta])}</p>`:''}</div>`}).join('')}
+    <button class="btn bp" onclick="nav('/quiz')">ساخت بازی خودم</button><button class="btn bs" onclick="nav('/')">بازگشت</button>`;
+  window.scrollTo(0,0);
+}
+
+function vEmergency(){
+  document.getElementById('app').innerHTML=`<button class="back" onclick="nav('/')">← بازگشت</button>
+    <h1 style="color:#F87171">🆘 الان حالم خوب نیست</h1>
+    <div class="warn" style="margin-bottom:14px"><strong>اگر در خطر فوری هستی، همین الان تماس بگیر:</strong><br>☎️ اورژانس اجتماعی: <strong>۱۲۳</strong><br>☎️ صدای مشاور: <strong>۱۴۸۰</strong><br>☎️ اورژانس پزشکی: <strong>۱۱۵</strong></div>
+    <div class="card"><h3>قدم ۱: تنفس ۴-۷-۸</h3><p>۴ ثانیه دم، ۷ ثانیه نگه‌دار، ۸ ثانیه بازدم. سه بار.</p></div>
+    <div class="card"><h3>قدم ۲: تکنیک ۵-۴-۳-۲-۱</h3><p>۵ چیز می‌بینی، ۴ چیز لمس می‌کنی، ۳ چیز می‌شنوی، ۲ چیز بو می‌کنی، ۱ چیز می‌چشی.</p></div>
+    <div class="card"><h3>قدم ۳: آب سرد</h3><p>صورتت را با آب سرد بشور.</p></div>
+    <div class="card"><h3>قدم ۴: با یک نفر حرف بزن</h3><p>با یک دوست یا خط مشاوره تماس بگیر.</p></div>
+    <div class="dis" style="margin-top:16px">این اپ جایگزین خدمات فوریتی نیست.</div>`;
+}
+
+function vHist(){
+  if(!ST.hist.length){document.getElementById('app').innerHTML=`<button class="back" onclick="nav('/')">← بازگشت</button><h1>📈 تاریخچه</h1><div class="empty"><p>📭 هنوز چیزی ثبت نکرده‌ای.</p></div>`;return}
+  const tc=ST.hist.filter(h=>h.type==='test').length,pc=ST.hist.filter(h=>h.type==='path').length;
+  let h=`<button class="back" onclick="nav('/')">← بازگشت</button><h1>📈 تاریخچه</h1>
+    <div class="sr"><div class="stat"><div class="n">${tc}</div><div class="t">تست</div></div><div class="stat"><div class="n">${pc}</div><div class="t">مسیر</div></div><div class="stat"><div class="n">${ST.hist.length}</div><div class="t">کل</div></div></div>
+    <h3 style="margin-top:16px">آخرین فعالیت‌ها</h3>`;
+  [...ST.hist].reverse().forEach(x=>{
+    const dt=new Date(x.ts).toLocaleDateString('fa-IR')+' '+new Date(x.ts).toLocaleTimeString('fa-IR',{hour:'2-digit',minute:'2-digit'});
+    if(x.type==='test')h+=`<div class="card"><h4>🧪 ${esc(x.title)}</h4><p class="m">${dt}</p><p style="margin-top:6px">نمره: <strong>${x.score}</strong> — ${esc(x.label)}</p></div>`;
+    else h+=`<div class="card"><h4>🧭 ${esc(x.title)}</h4><p class="m">${dt}</p><p style="margin-top:6px">سطح: ${x.severity==='high'?'نیاز به پیگیری':x.severity==='medium'?'نیاز به توجه':'قابل مدیریت'}</p></div>`;
+  });
+  h+=`<button class="btn bs" onclick="if(confirm('پاک شود؟')){ST.hist=[];localStorage.removeItem('mr_hist');vHist()}">🗑️ پاک کردن</button>`;
+  document.getElementById('app').innerHTML=h;
+}
+
+function vAbout(){
+  document.getElementById('app').innerHTML=`<button class="back" onclick="nav('/')">← بازگشت</button>
+    <h1>ℹ️ درباره</h1>
+    <div class="card"><p>«اتاق ذهن» یک فضای امن برای خودآگاهی، غربالگری و یادگیری مهارت‌های روان‌شناختی است.</p><p>هدف جایگزینی درمان تخصصی نیست.</p></div>
+    <div class="card"><h3>منابع علمی</h3><p>• GAD-7 — Spitzer et al., 2006</p><p>• PHQ-9 — Kroenke et al., 2001</p><p>• PSWQ — Meyer et al., 1990</p><p>• PSS-10 — Cohen et al., 1983</p><p>• ISI — Bastien et al., 2001</p><p>• WHO-5 — WHO, 1998</p><p>• Rosenberg — 1965</p><p>• ASRS — WHO, 2003</p></div>
+    <div class="warn"><strong>سلب مسئولیت:</strong> این اپ ابزار آموزشی است و <strong>جایگزین تشخیص یا درمان تخصصی نیست</strong>.</div>
+    <div class="card"><h3>📢 کانال</h3><button class="btn bs" onclick="window.open('https://t.me/otaghzehn','_blank')">@otaghzehn</button></div>`;
+}
+
+loadHist();
+window.addEventListener('hashchange',route);
+route();
 </script>
 </body>
 </html>
