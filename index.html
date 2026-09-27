@@ -6,520 +6,1847 @@
 <meta name="theme-color" content="#0B1220">
 <title>اتاق ذهن | Mind Room</title>
 <style>
-:root{--bg:#0B1220;--s:#151E32;--s2:#1C2842;--b:#2A3854;--t:#E8EEF7;--m:#94A3B8;--p:#38BDF8;--a:#A78BFA;--r:14px}
+:root{--bg:#0B1220;--s:#151E32;--s2:#1C2842;--b:#2A3854;--t:#E8EEF7;--m:#94A3B8;--p:#38BDF8;--a:#A78BFA;--ok:#10B981;--wn:#F59E0B;--dg:#EF4444;--r:16px}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{font-family:Tahoma,sans-serif;background:var(--bg);color:var(--t);line-height:1.85;font-size:15px;margin:0;min-height:100vh}
-#app{max-width:520px;margin:0 auto;padding:16px 16px 110px;min-height:100vh}
-h1{font-size:1.5rem;font-weight:700;margin:0 0 8px;color:var(--p)}
-h2{font-size:1.15rem;font-weight:700;margin:0 0 10px}
+#app{max-width:520px;margin:0 auto;padding:20px 16px 120px;min-height:100vh}
+h1{font-size:1.4rem;font-weight:700;margin:0 0 6px;color:var(--p)}
+h2{font-size:1.1rem;font-weight:700;margin:0 0 10px}
 h3{font-size:1rem;font-weight:700;margin:0 0 8px;color:var(--p)}
 p{margin:0 0 12px}
 .m{color:var(--m);font-size:.88rem}
+.q{font-size:1.15rem;font-weight:600;margin:0 0 18px;line-height:1.8;color:var(--t)}
 .card{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:16px;margin-bottom:12px}
-.card.c{cursor:pointer}
-.card.c:active{background:var(--s2)}
+.card.c{cursor:pointer;transition:all .2s}
+.card.c:active{transform:scale(.99);background:var(--s2)}
 .card h4{margin:0 0 6px;font-size:.98rem}
 .card p{margin:0;font-size:.86rem;color:var(--m);line-height:1.7}
-.ib{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--s);border:1px solid var(--b);border-radius:var(--r);cursor:pointer;text-align:right;width:100%;font-family:inherit;color:var(--t);font-size:.95rem;margin-bottom:10px}
+.big-choice{display:flex;align-items:center;gap:14px;padding:18px;background:linear-gradient(135deg,var(--s),var(--s2));border:1.5px solid var(--b);border-radius:var(--r);cursor:pointer;text-align:right;width:100%;font-family:inherit;color:var(--t);font-size:1.02rem;margin-bottom:12px;font-weight:600}
+.big-choice:active{transform:scale(.98)}
+.big-choice .e{font-size:1.8rem;flex-shrink:0;width:40px;text-align:center}
+.ib{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--s);border:1px solid var(--b);border-radius:14px;cursor:pointer;text-align:right;width:100%;font-family:inherit;color:var(--t);font-size:.95rem;margin-bottom:10px}
 .ib:active{background:var(--s2)}
 .ib .e{font-size:1.5rem;flex-shrink:0;width:32px;text-align:center}
 .ib .l{flex:1;font-weight:500}
 .ib .ch{color:var(--m)}
-.tag{display:inline-block;padding:2px 10px;border-radius:100px;font-size:.72rem;font-weight:600;background:rgba(56,189,248,.15);color:var(--p);margin-right:6px}
+.tag{display:inline-block;padding:2px 10px;border-radius:100px;font-size:.72rem;font-weight:600;background:rgba(56,189,248,.15);color:var(--p);margin-left:6px;margin-bottom:4px}
+.tag.g{background:rgba(16,185,129,.15);color:var(--ok)}
+.tag.o{background:rgba(245,158,11,.15);color:var(--wn)}
+.tag.r{background:rgba(239,68,68,.15);color:var(--dg)}
 .btn{display:block;width:100%;padding:14px;border:none;border-radius:12px;font-family:inherit;font-size:.95rem;font-weight:600;cursor:pointer;margin-top:10px}
 .bp{background:var(--p);color:#0B1220}
-.bs{0background:var(--s;2);color:var(--fontp);border:1-sizepx solid var(--b)}
-.btn:disabled:.{opacity:.4}
+.bs{background:var(--s2);color:var(--p);border:1px solid var(--b)}
+.btn:disabled{opacity:.4}
 .back{display:inline-flex;align-items:center;gap:6px;background:transparent;border:none;color:var(--m);font-family:inherit;font-size:.9rem;cursor:pointer;padding:8px 0;margin-bottom:14px}
-.dis{background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.35);border-radius:12px;padding:12px 14px;margin:14px 82rem;color:#C4B5FD;line-height:1.7}
+.dis{background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.35);border-radius:12px;padding:12px 14px;margin:14px 0;font-size:.82rem;color:#C4B5FD;line-height:1.7}
 .warn{background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.35);border-radius:12px;padding:12px 14px;margin:14px 0;font-size:.85rem;color:#FCA5A5}
 .pg{height:4px;background:var(--s2);border-radius:100px;overflow:hidden;margin:6px 0 18px}
 .pgb{height:100%;background:linear-gradient(90deg,var(--p),var(--a));transition:width .3s}
-.qn{color:var(--m);font-size:.78rem;margin-bottom:6px}
-.qt{font-size:1.05rem;font-weight:600;margin:0 0 18px}
 .opts{display:flex;flex-direction:column;gap:10px}
-.opt{padding:14px 16px;background:var(--s);border:1.5px solid var(--b);border-radius:12px;color:var(--t);font-family:inherit;font-size:.93rem;cursor:pointer;text-align:right}
+.opt{padding:14px 16px;background:var(--s);border:1.5px solid var(--b);border-radius:12px;color:var(--t);font-family:inherit;font-size:.93rem;cursor:pointer;text-align:right;font-weight:500}
 .opt:active{background:var(--s2)}
 .opt.sel{background:rgba(56,189,248,.12);border-color:var(--p);color:var(--p)}
 .sh{background:linear-gradient(135deg,rgba(56,189,248,.15),rgba(167,139,250,.1));border:1px solid rgba(56,189,248,.35);border-radius:20px;padding:26px;text-align:center;margin-bottom:16px}
 .sh .n{font-size:3rem;font-weight:800;color:var(--p);line-height:1}
-.sh .l{font-size:1.1rem;font-weight:700;margin-top:10px}
-.bn{position:fixed;bottom:0;left:0;right:0;background:rgba(21,30,50,.96);border-top:1px solid var(--b);padding:6px 0}
+.sh .l{font-size:1.05rem;font-weight:700;margin-top:10px;line-height:1.6}
+.comment{text-align:center;color:var(--a);font-size:.85rem;margin:14px 0;font-style:italic;opacity:.85}
+.bn{position:fixed;bottom:0;left:0;right:0;background:rgba(21,30,50,.97);backdrop-filter:blur(12px);border-top:1px solid var(--b);padding:6px 0 max(6px,env(safe-area-inset-bottom))}
 .bni{max-width:520px;margin:0 auto;display:flex;justify-content:space-around}
-.nv{flex:1;background:none;border:none;color:var(--m);font-family:inherit;font-size:.7rem;cursor:pointer;padding:8px 4px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.nv{flex:1;background:none;border:none;color:var(--m);font-family:inherit;font-size:.68rem;cursor:pointer;padding:8px 4px;display:flex;flex-direction:column;align-items:center;gap:3px}
 .nv .i{font-size:1.3rem}
 .nv.a{color:var(--p)}
+.ta{width:100%;min-height:90px;padding:12px;background:var(--s2);border:1.5px solid var(--b);border-radius:12px;color:var(--t);font-family:inherit;font-size:.9rem;line-height:1.7;resize:vertical}
+.ta:focus{outline:none;border-color:var(--p)}
+.stp{display:flex;gap:12px;align-items:flex-start;background:var(--s);border-radius:12px;padding:14px;margin-bottom:10px}
+.stp .n{background:var(--p);color:#0B1220;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0}
+.section{padding:6px 0}
+.stat{flex:1;background:var(--s);border:1px solid var(--b);border-radius:12px;padding:12px;text-align:center}
+.stat .n{font-size:1.3rem;font-weight:800;color:var(--p)}
+.stat .t{font-size:.72rem;color:var(--m);margin-top:2px}
+.sr{display:flex;gap:8px;margin-bottom:12px}
 .acc{background:var(--s);border:1px solid var(--b);border-radius:12px;margin-bottom:10px;overflow:hidden}
-.acc summary{padding:14px 16px;cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between}
+.acc summary{padding:14px 16px;cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center}
 .acc summary::-webkit-details-marker{display:none}
 .acc summary::after{content:'▾';color:var(--m)}
-.acc .bd{padding:0 16px 16px;font-size:.9rem;color:var(--m);line-height:1.8}
-.sr{display:flex;gap:8px;margin-bottom:12px}
-.stat{flex:1;background:var(--s);border:1px solid var(--b);border-radius:12px;padding:12px;text-align:center}
-.stat .n{font-size:1.4rem;font-weight:800;color:var(--p)}
-.stat .t{font-size:.72rem;color:var(--m)}
-.ltabs{display:flex;gap:6px;margin-bottom:16px}
-.ltab{padding:8px 14px;background:var(--s);border:1px solid var(--b);border-radius:100px;color:var(--m);font-family:inherit;font-size:.82rem;cursor:pointer}
-.ltab.a{background:var(--p);border-color:var(--p);color:#0B1220;font-weight:700}
+.acc .bd{padding:0 16px 16px;font-size:.9rem;color:var(--m);line-height:1.85}
+.player{background:linear-gradient(135deg,rgba(56,189,248,.15),rgba(167,139,250,.1));border:1px solid rgba(56,189,248,.35);border-radius:20px;padding:24px;text-align:center;margin-bottom:16px}
+.player .play-btn{width:80px;height:80px;border-radius:50%;background:var(--p);color:#0B1220;border:none;font-size:2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;box-shadow:0 8px 30px rgba(56,189,248,.4)}
+.player .play-btn:active{transform:scale(.95)}
+.player .track-name{font-weight:700;font-size:1.05rem;margin-bottom:4px}
+.player .track-desc{color:var(--m);font-size:.85rem;margin-bottom:14px}
+.volume{width:100%;margin-top:14px}
 .empty{text-align:center;padding:40px 20px;color:var(--m)}
+.empty .big{font-size:3rem;margin-bottom:12px}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.fd{animation:fade .3s ease}
 </style>
 </head>
 <body>
 <div id="app"></div>
 <div class="bn"><div class="bni">
 <button class="nv" data-r="/" onclick="nav('/')"><span class="i">🏠</span>خانه</button>
-<button class="nv" data-r="/tests" onclick="nav('/tests')"><span class="i">🧪</span>تست‌ها</button>
-<button class="nv" data-r="/enc" onclick="nav('/enc')"><span class="i">📖</span>دانشنامه</button>
-<button class="nv" data-r="/skills" onclick="nav('/skills')"><span class="i">🎯</span>مهارت‌ها</button>
-<button class="nv" data-r="/lib" onclick="nav('/lib')"><span class="i">📚</span>کتابخانه</button>
+<button class="nv" data-r="/discover" onclick="nav('/discover')"><span class="i">🔍</span>کشف</button>
+<button class="nv" data-r="/mood" onclick="nav('/mood')"><span class="i">🎧</span>حال من</button>
+<button class="nv" data-r="/with" onclick="nav('/with')"><span class="i">👥</span>با دیگران</button>
+<button class="nv" data-r="/me" onclick="nav('/me')"><span class="i">🪞</span>من</button>
 </div></div>
 <script>
-const O4F=[{l:'اصلاً',v:0},{l:'چند روز',v:1},{l:'بیش از نیمی',v:2},{l:'تقریباً هر روز',v:3}];
-const O5A=[{l:'کاملاً مخالفم',v:1},{l:'مخالفم',v:2},{l:'نظری ندارم',v:3},{l:'موافقم',v:4},{l:'کاملاً موافقم',v:5}];
-const O4A=[{l:'کاملاً مخالفم',v:1},{l:'مخالفم',v:2},{l:'موافقم',v:3},{l:'کاملاً موافقم',v:4}];
-const O5F=[{l:'هرگز',v:0},{l:'به‌ندرت',v:1},{l:'گاهی',v:2},{l:'اغلب',v:3},{l:'همیشه',v:4}];
-const O4I=[{l:'هیچ',v:0},{l:'خفیف',v:1},{l:'متوسط',v:2},{l:'شدید',v:3},{l:'خیلی شدید',v:4}];
 
-const TESTS={
-gad7:{id:'gad7',name:'مقیاس اضطراب فراگیر',sn:'GAD-7',tag:'اضطراب',dur:2,intro:'در ۲ هفتهٔ گذشته، چند وقت درگیر موارد زیر بودی؟',opts:O4F,
-qs:['احساس عصبی بودن، اضطراب یا بی‌قراری','ناتوانی در متوقف کردن یا کنترل نگرانی','نگرانی بیش از حد دربارهٔ مسائل مختلف','مشکل در آرام شدن','بی‌قراری به‌طوری که نشستن آرام سخت باشد','زودرنجی یا تحریک‌پذیری','ترس از اینکه چیز وحشتناکی اتفاق بیفتد'],rv:[],
-rs:[{m:4,l:'حداقل',c:'#10B981',d:'سطح اضطراب در محدودهٔ طبیعی.'},{m:9,l:'خفیف',c:'#84CC16',d:'علائم خفیف. آرام‌سازی کمک می‌کند.'},{m:14,l:'متوسط',c:'#F59E0B',d:'با روان‌شناس مشورت کن.'},{m:21,l:'شدید',c:'#EF4444',d:'با متخصص صحبت کن.'}]},
-phq9:{id:'phq9',name:'پرسشنامهٔ سلامت بیمار',sn:'PHQ-9',tag:'افسردگی',dur:3,intro:'در ۲ هفتهٔ گذشته، چند وقت درگیر موارد زیر بودی؟',opts:O4F,
-qs:['علاقه یا لذت کم در انجام کارها','احساس دلسردی، افسردگی یا ناامیدی','مشکل در خواب','احساس خستگی یا کمبود انرژی','کم‌اشتهایی یا پرخوری','احساس بد نسبت به خود','مشکل در تمرکز','حرکت یا صحبت آهسته','افکار خودآزاری یا اینکه بهتر بود مرده بودی'],rv:[],crit:8,
-rs:[{m:4,l:'حداقل',c:'#10B981',d:'علائم افسردگی دیده نمی‌شود.'},{m:9,l:'خفیف',c:'#84CC16',d:'مراقبت از خودت و فعالیت بدنی.'},{m:14,l:'متوسط',c:'#F59E0B',d:'با متخصص مشورت کن.'},{m:19,l:'نسبتاً شدید',c:'#F97316',d:'با روان‌شناس صحبت کن.'},{m:27,l:'شدید',c:'#EF4444',d:'حتماً امروز با متخصص تماس بگیر.'}]},
-pswq:{id:'pswq',name:'پرسشنامهٔ نگرانی',sn:'PSWQ',tag:'نگرانی',dur:4,intro:'این جملات چقدر دربارهٔ تو صادق است؟',opts:O5A,
-qs:['اگر فرصت کافی نداشته باشم، نگرانم که کارها را تمام نکنم.','نگرانی‌هایم مرا غرق می‌کند.','معمولاً دربارهٔ مسائل کوچک هم نگران می‌شوم.','وقتی نگرانم، نمی‌توانم تمرکز کنم.','همیشه دربارهٔ چیزهایی نگرانم که پیش آمده‌اند.','نگرانی‌هایم مداوم است.','وقتی کاری را انجام می‌دهم، دربارهٔ کارهای دیگر هم نگرانم.','از نگرانی‌هایم خسته شده‌ام.','به محض اینکه کاری تمام می‌شود، دربارهٔ کار بعدی نگران می‌شوم.','هیچ‌وقت نگرانی‌هایم تمام نمی‌شود.','نگرانی‌هایم قابل کنترل نیست.','وقتی نگرانم، احساس می‌کنم دارم دیوانه می‌شوم.','نگرانی‌هایم مرا فلج می‌کند.','وقتی نگرانم، نمی‌توانم کارها را انجام دهم.','همیشه نگرانم.','بیشتر از حد لازم نگرانم.'],rv:[],
-rs:[{m:30,l:'پایین',c:'#10B981',d:'سطح نگرانی طبیعی است.'},{m:50,l:'متوسط',c:'#F59E0B',d:'نگرانی‌ها روی زندگی اثر می‌گذارند.'},{m:65,l:'بالا',c:'#F97316',d:'با متخصص صحبت کن.'},{m:80,l:'بسیار بالا',c:'#EF4444',d:'حتماً با روان‌شناس مشورت کن.'}]},
-pss10:{id:'pss10',name:'مقیاس استرس ادراک‌شده',sn:'PSS-10',tag:'استرس',dur:3,intro:'در ماه گذشته، چند وقت...',opts:O5F,
-qs:['به‌خاطر اتفاقی غیرمنتظره ناراحت شده‌ای؟','احساس کرده‌ای که نمی‌توانی چیزهای مهم زندگی‌ات را کنترل کنی؟','احساس عصبی بودن و استرس داشته‌ای؟','احساس کرده‌ای که بر مشکلات غلبه می‌کنی؟','احساس کرده‌ای که چیزها به میل تو پیش می‌روند؟','احساس کرده‌ای که نمی‌توانی با همهٔ کارها کنار بیایی؟','توانسته‌ای جنبه‌های آزاردهندهٔ زندگی‌ات را کنترل کنی؟','احساس کرده‌ای که بر همه‌چیز مسلط هستی؟','به‌خاطر چیزهایی که خارج از کنترل تو بود عصبانی شده‌ای؟','احساس کرده‌ای که مشکلات آنقدر زیادند که نمی‌توانی از پسشان بربیایی؟'],rv:[3,4,6,7],
-rs:[{m:13,l:'پایین',c:'#10B981',d:'استرس در محدودهٔ سالم.'},{m:26,l:'متوسط',c:'#F59E0B',d:'مدیریت استرس توصیه می‌شود.'},{m:40,l:'بالا',c:'#EF4444',d:'با متخصص مشورت کن.'}]},
-isi:{id:'isi',name:'شاخص شدت بی‌خوابی',sn:'ISI',tag:'خواب',dur:2,intro:'شدت مشکلات خواب خود را در ۲ هفتهٔ گذشته ارزیابی کن:',opts:O4I,
-qs:['شدت مشکل در به خواب رفتن','شدت مشکل در خواب ماندن','شدت مشکل در بیدار شدن زودهنگام','میزان نارضایتی از الگوی فعلی خواب','میزان تداخل مشکل خواب با فعالیت‌های روزمره','میزان توجه دیگران به مشکل خواب','میزان نگرانی یا ناراحتی از مشکل خواب'],rv:[],
-rs:[{m:7,l:'بدون مشکل',c:'#10B981',d:'خوابت طبیعی است.'},{m:14,l:'زیرآستانه',c:'#84CC16',d:'بهداشت خواب کمک می‌کند.'},{m:21,l:'متوسط',c:'#F59E0B',d:'با متخصص خواب مشورت کن.'},{m:28,l:'شدید',c:'#EF4444',d:'لطفاً با متخصص خواب مشورت کن.'}]},
-who5:{id:'who5',name:'شاخص بهزیستی',sn:'WHO-5',tag:'بهزیستی',dur:1,intro:'در ۲ هفتهٔ گذشته، چند وقت...',opts:O5F,
-qs:['احساس سرخوشی داشته‌ای؟','احساس آرامش و آسودگی داشته‌ای؟','احساس فعال بودن و پرانرژی بودن داشته‌ای؟','از خوابت راضی بوده‌ای؟','زندگی‌ات پر از چیزهایی بوده که به آن‌ها علاقه داری؟'],rv:[],mult:4,
-rs:[{m:28,l:'پایین',c:'#EF4444',d:'با متخصص مشورت کن.'},{m:49,l:'متوسط',c:'#F59E0B',d:'بهزیستی کمتر از حد بهینه.'},{m:100,l:'خوب',c:'#10B981',d:'بهزیستی در محدودهٔ خوب.'}]},
-rosen:{id:'rosen',name:'مقیاس عزت نفس روزنبرگ',sn:'RSES',tag:'عزت نفس',dur:2,intro:'این جملات چقدر دربارهٔ تو صادق است؟',opts:O4A,
-qs:['در کل از خودم راضی‌ام.','گاهی فکر می‌کنم به هیچ دردی نمی‌خورم.','احساس می‌کنم ویژگی‌های خوبی دارم.','می‌توانم کارها را به خوبی دیگران انجام دهم.','احساس می‌کنم چیز زیادی برای افتخار ندارم.','گاهی واقعاً احساس بی‌ارزشی می‌کنم.','احساس می‌کنم آدم باارزشی هستم.','کاش برای خودم احترام بیشتری قائل بودم.','در کل احساس می‌کنم شکست‌خورده‌ام.','نگرشم به خودم مثبت است.'],rv:[1,4,5,7,8],
-rs:[{m:15,l:'پایین',c:'#EF4444',d:'کار روی عزت نفس با متخصص.'},{m:25,l:'متوسط',c:'#F59E0B',d:'نیاز به تقویت دارد.'},{m:40,l:'بالا',c:'#10B981',d:'عزت نفس سالم.'}]},
-asrs:{id:'asrs',name:'مقیاس ADHD بزرگسالان',sn:'ASRS',tag:'ADHD',dur:2,intro:'در ۶ ماه گذشته چقدر با این‌ها مواجه بوده‌ای؟',opts:O5F,
-qs:['پس از انجام آخرین بخش پروژه، در بستن آن مشکل داشته‌ای؟','در سازمان‌دهی کارها مشکل داشته‌ای؟','فراموش کرده‌ای قرارها را؟','از کارهایی که تفکر طولانی می‌خواهد اجتناب کرده‌ای؟','دست‌ها یا پاهایت را تکان داده‌ای؟','احساس کرده‌ای بیش از حد فعال هستی؟'],rv:[],
-rs:[{m:9,l:'پایین',c:'#10B981',d:'نشانهٔ قابل توجهی نیست.'},{m:14,l:'متوسط',c:'#F59E0B',d:'ارزیابی تخصصی توصیه می‌شود.'},{m:24,l:'بالا',c:'#EF4444',d:'با روان‌پزشک مشورت کن.'}]}
+// ============================================================
+// PROFILES - سوالات داستانی برای خودشناسی
+// ============================================================
+
+const PROFILE_PATHS = {
+  whoAmI: {
+    id:'whoAmI', title:'من واقعاً چه جور آدمی‌ام؟', e:'🪞',
+    qs:[
+      {t:'فرض کن یک هفتهٔ خیلی شلوغ داشتی. جمعه شب ترجیح می‌دی…',o:[
+        {l:'با چند نفر از دوستام بیرون برم',s:{extro:3,social:3}},
+        {l:'با یک نفر که باهاش راحتم وقت بگذرونم',s:{intro:1,deep:3}},
+        {l:'تنها باشم و برای خودم وقت داشته باشم',s:{intro:3,solo:3}},
+        {l:'بستگی داره؛ اول ببینم حالم چطوره',s:{balanced:3}}]},
+      {t:'وقتی با یک تصمیم سخت روبه‌رو می‌شی، معمولاً…',o:[
+        {l:'لیست مزایا و معایب می‌سازم',s:{logic:3}},
+        {l:'با خودم خلوت می‌کنم و به دلم گوش می‌دم',s:{intuition:3}},
+        {l:'با یکی که بهش اعتماد دارم مشورت می‌کنم',s:{social:3}},
+        {l:'عجله می‌کنم تا از بلاتکلیفی دربیام',s:{fast:3}}]},
+      {t:'اگه یکی از نزدیکانت کاری کنه که ناراحتت کنه…',o:[
+        {l:'مستقیم می‌گم ناراحت شدم',s:{direct:3}},
+        {l:'سکوت می‌کنم و منتظر می‌مونم خودش بفهمه',s:{indirect:3}},
+        {l:'مدتی فاصله می‌گیرم تا آروم شم',s:{distance:3}},
+        {l:'سعی می‌کنم درکش کنم و ناراحتی‌ام رو رها کنم',s:{forgive:3}}]},
+      {t:'کدوم جمله بیشتر شبیه توئه؟',o:[
+        {l:'«باید همه‌چیز رو برنامه‌ریزی کنم.»',s:{structured:3}},
+        {l:'«بذار ببینم چی پیش میاد.»',s:{spontaneous:3}},
+        {l:'«حالم مهم‌تره.»',s:{emotional:3}},
+        {l:'«بستگی به موقعیت داره.»',s:{flexible:3}}]}
+    ],
+    result: a => {
+      if((a.intro||0) >= 3 && (a.deep||0) >= 3) return {type:'intro_deep', title:'آدم عمیق و درون‌نگر', desc:'تو از اون آدم‌هایی هستی که ترجیح می‌دی با یکی دو نفر واقعی وقت بگذرونی تا با جمع زیادی سطحی. روابط عمیق برات از تعداد مهم‌تره.', likes:['گفت‌وگوهای عمیق','وقت گذاشتن با یک نفر خاص','تنهایی و خلوت'], challenges:['گاهی ممکنه از موقعیت‌های اجتماعی فاصله بگیری','پیدا کردن کسی که مثل خودت عمیق باشه سخته'], tryNow:'این هفته یک بار توی یه جمع که معمولاً ازش فرار می‌کنی شرکت کن و ببین چه حسی داری.'};
+      if((a.extro||0) >= 3 && (a.social||0) >= 3) return {type:'extro', title:'آدم اجتماعی و اهل ارتباط', desc:'تو از انرژی آدم‌ها می‌گیری. جمع دوستان برات مثل سوخت عمل می‌کنه.', likes:['جمع‌های دوستانه','آشنایی با آدم‌های جدید','فعالیت‌های گروهی'], challenges:['ممکنه تنهایی برات سنگین باشه','گاهی از درون خودت غافل می‌شی'], tryNow:'این هفته یه شب رو کامل تنها بگذرون و ببین چه چیزی از خودت کشف می‌کنی.'};
+      if((a.logic||0) >= 3) return {type:'logical', title:'آدم منطقی و تحلیل‌گر', desc:'تو قبل از تصمیم، همه‌چیز رو می‌سنجی. این یه نقطه قوته، ولی گاهی می‌تونه جلوی عمل رو بگیره.', likes:['وضوح و نظم','تحلیل موقعیت‌ها','دقت در تصمیم'], challenges:['ممکنه در احساسات غرق نشی','گاهی دیر تصمیم می‌گیری'], tryNow:'یه تصمیم کوچیک رو فقط با احساست بگیر، بدون تحلیل.'};
+      if((a.intuition||0) >= 3) return {type:'intuitive', title:'آدم شهودی و احساسی', desc:'تو به ندای درونت اعتماد می‌کنی و معمولاً حس درست رو می‌گیری.', likes:['آزادی انتخاب','تجربه‌های جدید','خلق لحظه‌ای'], challenges:['ممکنه تصمیم‌هات ناپایدار به نظر بیان','گاهی از استدلال غافل می‌شی'], tryNow:'یه تصمیم مهم رو این بار با لیست مزایا و معایب بگیر و مقایسه کن.'};
+      return {type:'balanced', title:'آدم متعادل و انعطاف‌پذیر', desc:'تو بسته به موقعیت، خودت رو تطبیق می‌دی. این انعطاف یه مزیت بزرگه.', likes:['موقعیت‌های متنوع','تعادل بین تنهایی و جمع','استقلال در انتخاب'], challenges:['گاهی ممکنه از خودت مطمئن نباشی','انتخاب سخت‌تره چون همه گزینه‌ها جذاب‌ان'], tryNow:'یه بار یه تصمیم رو فقط بر اساس حس درونی و بدون تردید بگیر.'};
+    }
+  },
+  values: {
+    id:'values', title:'چه چیزهایی برام مهمه؟', e:'💎',
+    qs:[
+      {t:'اگر مجبور باشی از یکی از این‌ها بگذری، کدوم برات سخت‌تره؟',o:[
+        {l:'آزادی‌ام',s:{freedom:3}},
+        {l:'امنیت‌ام',s:{security:3}},
+        {l:'روابط نزدیکم',s:{connection:3}},
+        {l:'رشد شخصی‌ام',s:{growth:3}}]},
+      {t:'موفقیت از نظر تو یعنی…',o:[
+        {l:'رسیدن به اهداف مشخص',s:{achievement:3}},
+        {l:'آرامش درونی',s:{peace:3}},
+        {l:'تأثیر گذاشتن روی دیگران',s:{impact:3}},
+        {l:'زندگی بدون پشیمانی',s:{authentic:3}}]},
+      {t:'وقتی به آینده فکر می‌کنی، بیشتر چی برات مهمه؟',o:[
+        {l:'ثبات مالی',s:{security:3}},
+        {l:'کار معنادار',s:{meaning:3}},
+        {l:'روابط گرم',s:{connection:3}},
+        {l:'آزادی برای انتخاب سبک زندگی',s:{freedom:3}}]}
+    ],
+    result: a => {
+      let top = Object.entries(a).sort((x,y)=>y[1]-x[1])[0][0];
+      const map = {freedom:'آزادی',security:'امنیت',connection:'ارتباط',growth:'رشد',achievement:'دستاورد',peace:'آرامش',impact:'تأثیر',authentic:'اصالت',meaning:'معنا'};
+      return {type:top, title:'ارزش اصلی تو: '+map[top], desc:'تو معمولاً تصمیم‌هات رو حول محور «'+map[top]+'» می‌گیری. این یعنی در لحظه‌های سخت، این ارزش راهنمای توئه.', likes:['موقعیت‌هایی که این ارزش رو تقویت می‌کنن'], challenges:['گاهی ممکنه بین این ارزش و نیازهای دیگه تضاد پیش بیاد'], tryNow:'این هفته یه تصمیم روزمره‌ات رو آگاهانه با این ارزش بسنج.'};
+    }
+  },
+  relationships: {
+    id:'relationships', title:'توی رابطه‌ها چطورم؟', e:'❤️',
+    qs:[
+      {t:'وقتی با یه نفر صمیمی می‌شی، معمولاً…',o:[
+        {l:'همه‌چیز رو تعریف می‌کنم',s:{open:3}},
+        {l:'کم‌کم باز می‌شم',s:{slow:3}},
+        {l:'مرزهام رو حفظ می‌کنم',s:{boundary:3}}]},
+      {t:'اگه کسی ازت انتقاد کنه…',o:[
+        {l:'ناراحت می‌شم ولی می‌پذیرم',s:{open:3}},
+        {l:'ممکنه دفاع کنم',s:{defensive:3}},
+        {l:'به خودم شک می‌کنم',s:{selfdoubt:3}},
+        {l:'می‌فهمم نظرشه، احساسی نمی‌گیرم',s:{secure:3}}]},
+      {t:'توی رابطه بیشتر دنبال چی هستی؟',o:[
+        {l:'فهمیده شدن',s:{seen:3}},
+        {l:'امنیت عاطفی',s:{secure:3}},
+        {l:'آزادی و استقلال',s:{independent:3}},
+        {l:'رشد مشترک',s:{growth:3}}]}
+    ],
+    result: a => {
+      if((a.secure||0)>=3) return {type:'secure', title:'سبک دلبستگی ایمن', desc:'تو توی روابط حس اعتماد داری و می‌تونی هم صمیمی باشی، هم مرزهات رو حفظ کنی.', likes:['روابط پایدار'], challenges:['گاهی ممکنه دیگران وابسته‌تر از تو باشن'], tryNow:'به یه رابطه‌ای که برات مهمه، این هفته یه وقت با کیفیت اختصاص بده.'};
+      if((a.defensive||0)>=3) return {type:'anxious', title:'سبک دلبستگی مضطرب', desc:'گاهی نگران می‌شی که مبادا طرف مقابل فاصله بگیره. این واکنش طبیعی وقتی یه نیاز قدیمی دلبستگی فعال می‌شه.', likes:['شفافیت در رابطه'], challenges:['ممکنه بیش از حد تحلیل کنی'], tryNow:'دفعهٔ بعدی که حس کردی طرف مقابل سرد شده، قبل از هر واکنشی، ۱۰ دقیقه با خودت خلوت کن.'};
+      if((a.selfdoubt||0)>=3) return {type:'avoidant', title:'سبک دلبستگی اجتنابی', desc:'تو معمولاً ترجیح می‌دی روی پای خودت وایسی و از وابستگی فاصله بگیری.', likes:['استقلال'], challenges:['ممکنه در درخواست کمک سخت باشی'], tryNow:'این هفته از یک نفر یه کمک کوچیک بخواه و ببین چه حسی داره.'};
+      return {type:'mixed', title:'سبک دلبستگی ترکیبی', desc:'احساسات تو بسته به موقعیت و طرف مقابل تغییر می‌کنه. این یعنی انعطاف‌پذیری، ولی گاهی گیج‌کننده‌ست.', likes:['روابطی که فضا برای رشد بدن'], challenges:['ممکنه نتونی الگوی مشخصی برای خودت تعریف کنی'], tryNow:'به یک رابطهٔ اخیرت فکر کن و ببین کدوم سبک بیشتر ظاهر شده.'};
+    }
+  },
+  energy: {
+    id:'energy', title:'چی بهم انرژی می‌ده و چی خستگیم می‌کنه؟', e:'⚡',
+    qs:[
+      {t:'کدوم بیشتر بهت انرژی می‌ده؟',o:[
+        {l:'یه گفت‌وگوی عمیق',s:{deep:3}},
+        {l:'یه پروژهٔ خلاقانه',s:{creative:3}},
+        {l:'یه پیاده‌روی طولانی',s:{body:3}},
+        {l:'تنهایی و کتاب',s:{solo:3}}]},
+      {t:'کدوم بیشتر خسته‌ات می‌کنه؟',o:[
+        {l:'جمع‌های شلوغ',s:{social_drain:3}},
+        {l:'کارهای تکراری',s:{routine_drain:3}},
+        {l:'تصمیم‌های سریع',s:{decision_drain:3}},
+        {l:'وقت‌گذرانی سطحی',s:{superficial_drain:3}}]},
+      {t:'آخرین بار کی حس کردی «این لحظه رو دوست دارم»؟',o:[
+        {l:'امروز',s:{present:3}},
+        {l:'این هفته',s:{week:3}},
+        {l:'یادم نمیاد',s:{disconnected:3}}]}
+    ],
+    result: a => {
+      if((a.disconnected||0)>=3) return {type:'disconnected', title:'یه علامت مهم', desc:'اینکه یادت نمیاد آخرین بار کِی از یه لحظه لذت بردی، یه نشونه‌ست که نیاز داری به خودت توجه کنی. این تشخیص نیست، ولی ارزش یه نگاه جدی رو داره.', likes:['چیزهایی که قبلاً دوست داشتی'], challenges:['ممکنه حالت به‌تدریج کدر شده'], tryNow:'هر روز ۵ دقیقه به کاری که قبلاً دوست داشتی اختصاص بده، حتی اگه الان انگیزه نداری.'};
+      if((a.creative||0)>=3) return {type:'creative', title:'انرژی از خلاقیت', desc:'تو وقتی خلق می‌کنی، پر انرژی می‌شی. حتی نوشتن یه پاراگراف یا کشیدن یه خط.', likes:['کارهای خلاقانه'], challenges:['بعضی روزها انگیزه نیست، پس باید شروع کنی بدون انتظار'], tryNow:'امروز ۱۰ دقیقه یه کار خلاقانه بدون قضاوت انجام بده.'};
+      if((a.deep||0)>=3) return {type:'deep', title:'انرژی از ارتباط عمیق', desc:'تو از گفت‌وگوهای واقعی شارژ می‌شی، نه جمع‌های الکی.', likes:['یک نفر واقعی'], challenges:['پیدا کردن اون یک نفر همیشه راحت نیست'], tryNow:'این هفته یه تماس عمیق با یک نفر قدیمی بگیر.'};
+      if((a.body||0)>=3) return {type:'body', title:'انرژی از بدن', desc:'تو با حرکت و بدن، حالت بهتر می‌شه. ورزش، پیاده‌روی، رقص.', likes:['حرکت'], challenges:['وقتی حوصله نداری، اولین چیزیه که کنار می‌ذاری'], tryNow:'امروز ۱۵ دقیقه پیاده‌روی کن، حتی اگه حالش نیست.'};
+      return {type:'introspective', title:'انرژی از درون', desc:'تو در تنهایی و تأمل، خودت رو بازسازی می‌کنی.', likes:['خلوت'], challenges:['ممکنه زیادی از جمع فاصله بگیری'], tryNow:'این هفته یه تعادل بین تنهایی و یک ارتباط کوچیک بساز.'};
+    }
+  },
+  fears: {
+    id:'fears', title:'از چی می‌ترسم؟', e:'🌑',
+    qs:[
+      {t:'اگه بخوای صادق باشی، کدوم ترس بیشتر باهاته؟',o:[
+        {l:'تنها موندن',s:{alone:3}},
+        {l:'شکست خوردن',s:{failure:3}},
+        {l:'قضاوت شدن',s:{judged:3}},
+        {l:'از دست دادن کنترل',s:{control:3}}]},
+      {t:'وقتی از چیزی می‌ترسی…',o:[
+        {l:'بهش فکر می‌کنم تا حلش کنم',s:{active:3}},
+        {l:'ازش فرار می‌کنم',s:{avoid:3}},
+        {l:'با یکی حرف می‌زنم',s:{talk:3}},
+        {l:'با خودم نگه می‌دارم',s:{alone_in:3}}]},
+      {t:'اگه ترست به حقیقت بپیونده…',o:[
+        {l:'می‌تونم تحملش کنم',s:{resilient:3}},
+        {l:'فکر می‌کنم نمی‌تونم',s:{fragile:3}},
+        {l:'نمی‌دونم',s:{unknown:3}}]}
+    ],
+    result: a => {
+      if((a.resilient||0)>=3) return {type:'resilient', title:'تو انعطاف‌پذیری بالایی داری', desc:'حتی وقتی از چیزی می‌ترسی، می‌دونی که تحملش می‌کنی. این یه نقطه قوت بزرگه.', likes:['مواجهه با چالش'], challenges:['ممکنه دیگران توان تو رو دست‌کم بگیرن'], tryNow:'به یکی از ترسهات که به نظرت کوچیکه، یه قدم نزدیک‌تر شو.'};
+      if((a.fragile||0)>=3) return {type:'fragile', title:'یه نیاز به حمایت', desc:'حس می‌کنی ممکنه نتونی از پسش بربیای. این یعنی نیاز داری به حمایت واقعی، نه یعنی ضعیفی.', likes:['فضای امن'], challenges:['ممکنه ترس‌ها بزرگ‌تر از واقعیت به نظر بیان'], tryNow:'با یک نفر قابل اعتماد در مورد ترست حرف بزن.'};
+      return {type:'common', title:'ترس‌های معمولی و انسانی', desc:'ترس‌هایی که داری، بخشی از تجربهٔ انسانیه. مهم اینه که چطور باهاشون روبه‌رو می‌شی.', likes:['صداقت با خودت'], challenges:['ترس‌ها می‌تونن جلوی رشد رو بگیرن'], tryNow:'یه ترس کوچیک این هفته رو شناسایی کن و یه قدم بردار.'};
+    }
+  }
 };
 
-const PATHS={
-worry:{id:'worry',title:'نشخوار فکری / نگرانی',e:'🌀',d:'وقتی ذهن مدام درگیر فکرهاست.',
-qs:[{t:'بیشتر دربارهٔ آینده فکر می‌کنی یا گذشته؟',o:[{l:'آینده',s:{fu:2}},{l:'گذشته',s:{pa:2}},{l:'هر دو',s:{fu:1,pa:1}}]},{t:'فکرها قابل کنترل‌اند؟',o:[{l:'تا حدی',s:{c1:1}},{l:'خارج از کنترل',s:{c2:2}}]},{t:'خواب و تمرکزت را مختل کرده؟',o:[{l:'خواب',s:{sl:2}},{l:'تمرکز',s:{fo:2}},{l:'هر دو',s:{sl:2,fo:2}},{l:'نه',s:{}}]},{t:'چه احساسی داری؟',o:[{l:'اضطراب',s:{an:2}},{l:'غم',s:{sa:2}},{l:'عصبانیت',s:{ag:2}}]},{t:'چقدر ادامه داشته؟',o:[{l:'چند روز',s:{dd:1}},{l:'چند هفته',s:{ww:2}},{l:'چند ماه+',s:{mm:3}}]}],
-rt:['pswq','gad7'],sk:[3,4,0,2]},
-dep:{id:'dep',title:'افسردگی / بی‌انگیزگی',e:'🌧️',d:'وقتی لذت‌ها رنگ می‌بازند.',
-qs:[{t:'چقدر از کارها لذت می‌بری؟',o:[{l:'همان‌قدر',s:{pl:0}},{l:'کمتر',s:{pl:2}},{l:'هیچی',s:{pl:3}}]},{t:'انرژیت؟',o:[{l:'خوب',s:{en:0}},{l:'کم',s:{en:2}},{l:'خیلی کم',s:{en:3}}]},{t:'خوابت؟',o:[{l:'خوب',s:{sl:0}},{l:'کم',s:{sl:2}},{l:'زیاد/بی‌نظم',s:{sl:2}}]},{t:'احساست به خودت؟',o:[{l:'مثبت',s:{se:0}},{l:'خنثی',s:{se:1}},{l:'منفی',s:{se:3}}]},{t:'چقدر ادامه داشته؟',o:[{l:'چند روز',s:{dd:1}},{l:'چند هفته',s:{ww:2}},{l:'چند ماه+',s:{mm:3}}]}],
-rt:['phq9','who5'],sk:[5,4,0,7]},
-anx:{id:'anx',title:'اضطراب / حملات پانیک',e:'⚡',d:'بدن و ذهن در حالت هشدار دائمی.',
-qs:[{t:'چقدر دلشوره داری؟',o:[{l:'گاهی',s:{fq:1}},{l:'اغلب',s:{fq:2}},{l:'همیشه',s:{fq:3}}]},{t:'علائم بدنی؟',o:[{l:'تپش قلب',s:{bd:2}},{l:'تنگی نفس',s:{bd:2}},{l:'سرگیجه',s:{bd:2}},{l:'ندارم',s:{}}]},{t:'از چه می‌ترسی؟',o:[{l:'از دست دادن کنترل',s:{fr:2}},{l:'مرگ/بیماری',s:{fr:2}},{l:'قضاوت',s:{fr:2}},{l:'نامشخص',s:{fr:1}}]},{t:'چقدر مختل کرده؟',o:[{l:'کم',s:{im:1}},{l:'متوسط',s:{im:2}},{l:'زیاد',s:{im:3}}]},{t:'چقدر ادامه داشته؟',o:[{l:'چند روز',s:{dd:1}},{l:'چند هفته',s:{ww:2}},{l:'چند ماه+',s:{mm:3}}]}],
-rt:['gad7','pss10'],sk:[0,1,6,2]},
-sleep:{id:'sleep',title:'مشکلات خواب',e:'🌙',d:'سختی در خوابیدن یا خواب ماندن.',
-qs:[{t:'بیشترین مشکلت؟',o:[{l:'به خواب رفتن',s:{on:2}},{l:'بیدار شدن شب',s:{ma:2}},{l:'زود بیدار شدن',s:{ea:2}},{l:'چند تا',s:{mu:3}}]},{t:'چند ساعت؟',o:[{l:'۷+',s:{du:0}},{l:'۵-۷',s:{du:1}},{l:'زیر ۵',s:{du:2}}]},{t:'خستگی روزانه؟',o:[{l:'کم',s:{fa:1}},{l:'متوسط',s:{fa:2}},{l:'زیاد',s:{fa:3}}]},{t:'چقدر ادامه داشته؟',o:[{l:'چند روز',s:{dd:1}},{l:'چند هفته',s:{ww:2}},{l:'چند ماه+',s:{mm:3}}]}],
-rt:['isi','phq9'],sk:[7,0,6]},
-se:{id:'se',title:'عزت نفس پایین',e:'💎',d:'احساس بی‌ارزشی و مقایسهٔ مداوم.',
-qs:[{t:'چقدر مقایسه می‌کنی؟',o:[{l:'کم',s:{cm:1}},{l:'گاهی',s:{cm:2}},{l:'زیاد',s:{cm:3}}]},{t:'صدای درونی؟',o:[{l:'مهربان',s:{vo:0}},{l:'انتقادی',s:{vo:2}},{l:'تحقیرکننده',s:{vo:3}}]},{t:'وقتی اشتباه می‌کنی؟',o:[{l:'می‌پذیرم',s:{er:0}},{l:'ناراحت',s:{er:1}},{l:'سرزنش طولانی',s:{er:3}}]},{t:'در جمع؟',o:[{l:'راحت',s:{so:0}},{l:'کمی مضطرب',s:{so:1}},{l:'خیلی مضطرب',s:{so:3}}]},{t:'چقدر ادامه داشته؟',o:[{l:'چند هفته',s:{ww:2}},{l:'چند ماه+',s:{mm:3}}]}],
-rt:['rosen','phq9'],sk:[8,9,4]},
-anger:{id:'anger',title:'خشم / تحریک‌پذیری',e:'🔥',d:'واکنش‌های شدید خشم.',
-qs:[{t:'چقدر عصبانی می‌شوی؟',o:[{l:'کم',s:{fq:1}},{l:'اغلب',s:{fq:2}},{l:'هر روز',s:{fq:3}}]},{t:'واکنشت؟',o:[{l:'کنترل',s:{co:1}},{l:'بلند حرف',s:{co:2}},{l:'فریاد/شکستن',s:{co:3}}]},{t:'بعدش؟',o:[{l:'پشیمانی کم',s:{rg:1}},{l:'پشیمانی زیاد',s:{rg:2}},{l:'گناه شدید',s:{rg:3}}]},{t:'روی روابط؟',o:[{l:'کم',s:{im:1}},{l:'متوسط',s:{im:2}},{l:'زیاد',s:{im:3}}]},{t:'چقدر ادامه داشته؟',o:[{l:'چند هفته',s:{ww:2}},{l:'چند ماه+',s:{mm:3}}]}],
-rt:['gad7','pss10'],sk:[0,1,9,2]}
+// ============================================================
+// STATES - حالت‌های فعلی
+// ============================================================
+
+const STATE_FLOWS = {
+  mindBusy: {
+    title:'ذهن شلوغ / فشار ذهنی', e:'😵',
+    questions:[
+      {t:'بیشتر دربارهٔ چی ذهنت شلوغه؟',o:[
+        {l:'آینده و نگرانی‌ها',s:{future:2}},
+        {l:'اتفاقاتی که گذشته',s:{past:2}},
+        {l:'یک تصمیم مهم',s:{decision:2}},
+        {l:'همه‌چیز با هم',s:{everything:3}}]},
+      {t:'قبل از خواب چطوره؟',o:[
+        {l:'ذهنم آروم نمی‌شه',s:{sleep:2}},
+        {l:'خسته‌ام ولی ذهنم بیداره',s:{sleep:3}},
+        {l:'زود خوابم می‌بره ولی کیفیت نداره',s:{sleep:2}}]},
+      {t:'چقدر این وضعیت طول کشیده؟',o:[
+        {l:'چند روز',s:{days:1}},
+        {l:'چند هفته',s:{weeks:2}},
+        {l:'چند ماه یا بیشتر',s:{months:3}}]}
+    ],
+    result: a => {
+      let msg = 'به نظر میاد این روزها ذهنت بیشتر در حالت «فشار و درگیری ذهنی» قرار گرفته. ';
+      let signs = [];
+      if(a.future>=2) signs.push('زیاد به اتفاقاتی که هنوز نیفتاده فکر می‌کنی');
+      if(a.past>=2) signs.push('به اتفاقات گذشته برمی‌گردی و از نو تحلیلشون می‌کنی');
+      if(a.sleep>=2) signs.push('قبل از خواب، ذهنت آروم نمی‌شه');
+      if(a.everything>=3) signs.push('همه‌چیز با هم روی ذهنت سنگینی می‌کنه');
+      const urgency = a.months>=3 ? 'high' : a.weeks>=2 ? 'medium' : 'low';
+      return {msg, signs, urgency, suggestions:[
+        {t:'🌱 یه تمرین ۳ دقیقه‌ای', a:'breathing'},
+        {t:'🧠 بیشتر بفهمم چرا این اتفاق می‌افته', a:'explain'},
+        {t:'🎧 یه موسیقی متناسب با این حالت', a:'music_calm'},
+        {t:'📖 یه مطلب کوتاه درباره‌اش', a:'read_mind'}
+      ]};
+    }
+  },
+  noMood: {
+    title:'بی‌حوصله / بی‌انگیزه', e:'😔',
+    questions:[
+      {t:'چقدر این حالت ادامه داره؟',o:[
+        {l:'چند روز',s:{days:1}},
+        {l:'چند هفته',s:{weeks:2}},
+        {l:'چند ماه یا بیشتر',s:{months:3}}]},
+      {t:'چیزی هست که قبلاً ازش لذت می‌بردی؟',o:[
+        {l:'بله، ولی الان جذاب نیست',s:{anhedonia:2}},
+        {l:'دیگه یادم نمیاد چی بود',s:{anhedonia:3}},
+        {l:'هنوز چیزهایی هست',s:{anhedonia:0}}]},
+      {t:'خواب و اشتهایت چطوره؟',o:[
+        {l:'هر دو تغییر کرده',s:{body:2}},
+        {l:'یکی تغییر کرده',s:{body:1}},
+        {l:'فرقی نکرده',s:{body:0}}]}
+    ],
+    result: a => {
+      let signs = [];
+      if(a.anhedonia>=2) signs.push('چیزهایی که قبلاً برات جذاب بودن، الان کمرنگ شدن');
+      if(a.body>=2) signs.push('خواب و اشتهایت تغییر کرده');
+      const urgency = a.months>=3 ? 'high' : a.weeks>=2 ? 'medium' : 'low';
+      return {msg:'به نظر میاد این روزها یه حالت «کرختی و بی‌انگیزگی» داری. ', signs, urgency, suggestions:[
+        {t:'🌱 یه تمرین ۳ دقیقه‌ای', a:'grounding'},
+        {t:'🧠 بیشتر بفهمم چرا این اتفاق می‌افته', a:'explain_dep'},
+        {t:'🎧 یه موسیقی که حالتو کمی تغییر بده', a:'music_lift'},
+        {t:'📖 یه مطلب کوتاه درباره‌اش', a:'read_dep'}
+      ]};
+    }
+  },
+  angry: {
+    title:'زود عصبانی می‌شم', e:'😤',
+    questions:[
+      {t:'چی بیشتر عصبانی‌ات می‌کنه؟',o:[
+        {l:'بی‌احترامی',s:{disrespected:2}},
+        {l:'بی‌نظمی',s:{chaos:2}},
+        {l:'وقتی کسی حرفم رو نمی‌فهمه',s:{unheard:2}},
+        {l:'خیلی چیزها',s:{everything:3}}]},
+      {t:'وقتی عصبانی می‌شی، معمولاً…',o:[
+        {l:'بلند حرف می‌زنم',s:{loud:2}},
+        {l:'سکوت می‌کنم',s:{silent:2}},
+        {l:'فکر نمی‌کنم و واکنش می‌دم',s:{reactive:3}}]},
+      {t:'چقدر ادامه داشته؟',o:[
+        {l:'چند روز',s:{days:1}},
+        {l:'چند هفته',s:{weeks:2}},
+        {l:'چند ماه یا بیشتر',s:{months:3}}]}
+    ],
+    result: a => {
+      let signs = ['آستانهٔ تحملت پایین‌تر اومده','واکنش‌ها سریع‌تر از فکر میان'];
+      const urgency = a.months>=3 ? 'high' : a.weeks>=2 ? 'medium' : 'low';
+      return {msg:'به نظر میاد این روزها یه حالت «حساسیت و تحریک‌پذیری» داری. ', signs, urgency, suggestions:[
+        {t:'🌱 یه تمرین ۳ دقیقه‌ای', a:'breathing'},
+        {t:'🧠 بیشتر بفهمم چرا این اتفاق می‌افته', a:'explain_anger'},
+        {t:'🎧 یه موسیقی که آرومت کنه', a:'music_calm'},
+        {t:'📖 یه مطلب کوتاه درباره‌اش', a:'read_anger'}
+      ]};
+    }
+  },
+  anxious: {
+    title:'نگرانم', e:'😟',
+    questions:[
+      {t:'بیشتر دربارهٔ چی نگرانی؟',o:[
+        {l:'سلامتی خودم یا دیگران',s:{health:2}},
+        {l:'آیندهٔ کاری یا مالی',s:{work:2}},
+        {l:'روابط',s:{relationships:2}},
+        {l:'خیلی چیزها',s:{many:3}}]},
+      {t:'چقدر روی بدنت اثر گذاشته؟',o:[
+        {l:'تپش قلب، تنش، تعریق',s:{physical:3}},
+        {l:'فقط ذهنمه',s:{mental:2}},
+        {l:'خوابم رو بهم ریخته',s:{physical:2}}]},
+      {t:'چقدر ادامه داشته؟',o:[
+        {l:'چند روز',s:{days:1}},
+        {l:'چند هفته',s:{weeks:2}},
+        {l:'چند ماه یا بیشتر',s:{months:3}}]}
+    ],
+    result: a => {
+      let signs = [];
+      if(a.physical>=2) signs.push('نگرانی به بدنت هم راه پیدا کرده');
+      if(a.many>=3) signs.push('تقریباً همه‌چیز نگرانت می‌کنه');
+      const urgency = a.months>=3 ? 'high' : a.weeks>=2 ? 'medium' : 'low';
+      return {msg:'به نظر میاد این روزها بیشتر در «حالت اضطراب و نگرانی» هستی. ', signs, urgency, suggestions:[
+        {t:'🌱 یه تمرین ۳ دقیقه‌ای', a:'breathing'},
+        {t:'🧠 بیشتر بفهمم چرا این اتفاق می‌افته', a:'explain_anx'},
+        {t:'🎧 یه موسیقی که آرومت کنه', a:'music_calm'},
+        {t:'📖 یه مطلب کوتاه درباره‌اش', a:'read_anx'}
+      ]};
+    }
+  },
+  numb: {
+    title:'هیچی حس نمی‌کنم', e:'🫥',
+    questions:[
+      {t:'چقدر این حالت ادامه داره؟',o:[
+        {l:'چند روز',s:{days:1}},
+        {l:'چند هفته',s:{weeks:2}},
+        {l:'چند ماه یا بیشتر',s:{months:3}}]},
+      {t:'قبلاً این حالت رو تجربه کردی؟',o:[
+        {l:'بله، قبلاً هم بوده',s:{recurring:2}},
+        {l:'نه، این بار جدیده',s:{new:3}}]}
+    ],
+    result: a => {
+      const urgency = a.months>=3 || a.new>=3 ? 'high' : a.weeks>=2 ? 'medium' : 'low';
+      return {msg:'احساس کرختی و بی‌حسی، معمولاً یه نشانه‌ست که ذهنت برای محافظت از خودش، یه لایه بین تو و احساسات کشیده. ', signs:['انگار از احساساتت جدا شدی','چیزها برات کمرنگ شدن'], urgency, suggestions:[
+        {t:'🌱 یه تمرین ۳ دقیقه‌ای', a:'grounding'},
+        {t:'🧠 بیشتر بفهمم چرا این اتفاق می‌افته', a:'explain_numb'},
+        {t:'🎧 یه موسیقی که یه حسی رو بیدار کنه', a:'music_lift'},
+        {t:'📖 یه مطلب کوتاه درباره‌اش', a:'read_numb'}
+      ]};
+    }
+  },
+  sad: {
+    title:'یه چیزی ناراحتم کرده', e:'💔',
+    questions:[
+      {t:'این ناراحتی بیشتر مربوط به…',o:[
+        {l:'یه اتفاق تازه',s:{recent:1}},
+        {l:'یه چیز قدیمی که هنوز رهاش نکردم',s:{old:2}},
+        {l:'نمی‌دونم',s:{unknown:3}}]},
+      {t:'چقدر ادامه داشته؟',o:[
+        {l:'چند روز',s:{days:1}},
+        {l:'چند هفته',s:{weeks:2}},
+        {l:'چند ماه یا بیشتر',s:{months:3}}]}
+    ],
+    result: a => {
+      const urgency = a.months>=3 || a.old>=2 ? 'high' : a.weeks>=2 ? 'medium' : 'low';
+      return {msg:'ناراحتی یه پیام داره، نه یه مشکل. '+(a.old>=2 ? 'وقتی ناراحتی موندگار می‌شه، معمولاً یه نیاز برآورده نشده پشتشه. ' : ''), signs:['حالت پایین‌تر از حد معمول‌ـه','ممکنه تمرکز و انرژیت کم شده باشه'], urgency, suggestions:[
+        {t:'🌱 یه تمرین ۳ دقیقه‌ای', a:'grounding'},
+        {t:'🧠 بیشتر بفهمم چرا این اتفاق می‌افته', a:'explain_sad'},
+        {t:'🎧 یه موسیقی که با حالت همراه بشه', a:'music_accompany'},
+        {t:'📖 یه مطلب کوتاه درباره‌اش', a:'read_sad'}
+      ]};
+    }
+  },
+  unknown: {
+    title:'نمی‌دونم دقیقاً چه حسی دارم', e:'🌀',
+    questions:[
+      {t:'اگه بخوای با یه کلمه بگی، حالت بیشتر شبیه چیه؟',o:[
+        {l:'خستگی',s:{tired:2}},
+        {l:'دلشوره',s:{restless:2}},
+        {l:'بی‌تفاوتی',s:{numb:2}},
+        {l:'سنگینی',s:{heavy:2}}]},
+      {t:'چقدر این حالت ادامه داشته؟',o:[
+        {l:'چند روز',s:{days:1}},
+        {l:'چند هفته',s:{weeks:2}},
+        {l:'چند ماه یا بیشتر',s:{months:3}}]}
+    ],
+    result: a => {
+      const urgency = a.months>=3 ? 'high' : a.weeks>=2 ? 'medium' : 'low';
+      return {msg:'اینکه نمی‌تونی دقیقاً اسم حالتت رو بذاری، خودش یه نشانه‌ست. معمولاً یعنی چند تا احساس با هم قاطی شدن. ', signs:['حالت شبیه چیزی هست ولی مشخص نیست چی','شاید چند تا احساس همزمان داری'], urgency, suggestions:[
+        {t:'🌱 یه تمرین ۳ دقیقه‌ای برای روشن‌تر شدن', a:'grounding'},
+        {t:'🧠 بیشتر بفهمم چرا این اتفاق می‌افته', a:'explain_numb'},
+        {t:'🎧 یه موسیقی که با حالت همراه بشه', a:'music_accompany'},
+        {t:'📖 یه مطلب کوتاه درباره‌اش', a:'read_numb'}
+      ]};
+    }
+  }
 };
 
-const ENC=[
-{id:'gad',t:'اختلال اضطراب فراگیر (GAD)',e:'😰',i:'نگرانی مزمن و بیش از حد.',w:'در GAD فرد حداقل ۶ ماه دربارهٔ موضوعات گوناگون نگران است.',sim:['اضطراب اجتماعی','پانیک','وسواس'],scr:'GAD-7 (۷ سؤال)',ws:['بیش از ۶ ماه','مختل کردن خواب و کار'],sk:['تنفس ۴-۷-۸','برنامهٔ نگرانی'],tr:['CBT','SSRI','MBCT'],wp:['GAD-7 بالای ۱۰','بیش از ۶ ماه'],bk:['قدرت اکنون'],ex:['برنامهٔ نگرانی'],fl:['Inside Out'],mu:['Ludovico Einaudi'],rt:['gad7','pswq']},
-{id:'mdd',t:'افسردگی اساسی (MDD)',e:'🌧️',i:'حالت افسرده یا از دست دادن علاقه حداقل ۲ هفته.',w:'با احساس غم، بی‌حالی، کاهش لذت، تغییر خواب و اشتها همراه است.',sim:['دیس‌تایمی','دوقطبی','سوگ'],scr:'PHQ-9 یا WHO-5',ws:['افکار خودکشی','عدم توانایی در کارها'],sk:['فعال‌سازی رفتاری','ثبت افکار'],tr:['CBT','SSRI','IPT'],wp:['PHQ-9 بالای ۱۰','افکار خودکشی (فوری)'],bk:['احساس ارزشمند بودن'],ex:['فعال‌سازی رفتاری'],fl:['A Man Called Otto'],mu:['Max Richter'],rt:['phq9','who5','rosen']},
-{id:'ocd',t:'وسواس فکری-عملی (OCD)',e:'🔁',i:'افکار مزاحم و رفتارهای اجباری.',w:'افکار ناخواسته و رفتارهای تکرارشونده برای کاهش اضطراب.',sim:['GAD','فوبیا','تیک'],scr:'ییل-براون',ws:['بیش از یک ساعت در روز','مختل کردن روابط'],sk:['ERP','توقف فکر'],tr:['CBT با ERP','SSRI دوز بالا'],wp:['همیشه نیاز به درمان تخصصی'],bk:['رهایی از OCD'],ex:['جدول ERP'],fl:['The Aviator'],mu:['Nils Frahm'],rt:['gad7']},
-{id:'panic',t:'حملات پانیک',e:'💥',i:'حملات ناگهانی ترس شدید.',w:'اوج ناگهانی اضطراب با علائم جسمی.',sim:['GAD','فوبیا','مشکلات قلبی'],scr:'GAD-7',ws:['اجتناب','بیش از یک بار در ماه'],sk:['تنفس ۴-۷-۸','۵-۴-۳-۲-۱'],tr:['CBT با مواجهه','SSRI'],wp:['همیشه نیاز به ارزیابی'],bk:['غلبه بر اضطراب'],ex:['مواجههٔ تدریجی'],fl:['Copycat'],mu:['Ludovico Einaudi'],rt:['gad7','pss10']},
-{id:'ptsd',t:'استرس پس از سانحه (PTSD)',e:'⚔️',i:'واکنش روانی به رویداد آسیب‌زا.',w:'با فلاش‌بک، کابوس و اجتناب همراه است.',sim:['استرس حاد','افسردگی','سوگ پیچیده'],scr:'PCL-5',ws:['همیشه نیاز به درمان تخصصی','افکار خودکشی'],sk:['۵-۴-۳-۲-۱','ذهن‌آگاهی'],tr:['CPT','EMDR','CBT'],wp:['همیشه','اسرع وقت با متخصص'],bk:['بدن فراموش نمی‌کند'],ex:['ذهن‌آگاهی'],fl:['Perks of Being a Wallflower'],mu:['Max Richter'],rt:['phq9','gad7']},
-{id:'adhd',t:'ADHD',e:'🎯',i:'بی‌توجهی، بی‌قراری یا تکانشگری مزمن.',w:'مشکل تمرکز، فراموشکاری، بی‌نظمی و به تعویق انداختن.',sim:['GAD','افسردگی','خواب'],scr:'ASRS-v1.1',ws:['مختل کردن کار یا تحصیل'],sk:['ساختاردهی','پومودورو'],tr:['دارودرمانی','CBT'],wp:['ASRS بالا','برای تشخیص'],bk:['مدیریت ADHD'],ex:['پومودورو'],fl:['A Beautiful Mind'],mu:['Hans Zimmer'],rt:['asrs','gad7']},
-{id:'ins',t:'بی‌خوابی',e:'🌙',i:'مشکل مزمن خواب.',w:'حداقل ۳ شب در هفته و به مدت ۳ ماه.',sim:['آپنه','پای بی‌قرار','افسردگی'],scr:'شاخص ISI',ws:['بیش از ۳ ماه','خستگی شدید'],sk:['بهداشت خواب','تنفس ۴-۷-۸'],tr:['CBT-I','نوردرمانی'],wp:['بیش از ۳ ماه'],bk:['بهداشت خواب'],ex:['ثبت خواب'],fl:['Fight Club'],mu:['Max Richter'],rt:['isi','phq9']},
-{id:'soc',t:'اضطراب اجتماعی',e:'👥',i:'ترس از موقعیت‌های اجتماعی.',w:'ترس از قضاوت و اجتناب از موقعیت‌ها.',sim:['GAD','پانیک','کم‌رویی'],scr:'GAD-7',ws:['اجتناب از کار','همراه با افسردگی'],sk:['مواجههٔ تدریجی','بازسازی شناختی'],tr:['CBT','SSRI'],wp:['GAD-7 بالای ۱۰'],bk:['اضطراب اجتماعی'],ex:['نردبان مواجهه'],fl:['The King Speech'],mu:['Ludovico Einaudi'],rt:['gad7','rosen']},
-{id:'bp',t:'دوقطبی',e:'🌗',i:'نوسان شدید خلق.',w:'دوره‌های افسردگی و شیدایی.',sim:['افسردگی','ADHD','مرزی'],scr:'MDQ',ws:['همیشه نیاز به درمان تخصصی'],sk:['ثبت خلق','بهداشت خواب'],tr:['تثبیت‌کننده خلق','روان‌درمانی'],wp:['اسرع وقت با روان‌پزشک'],bk:['زندگی با دوقطبی'],ex:['نمودار خلق'],fl:['Silver Linings Playbook'],mu:['Nils Frahm'],rt:['phq9']},
-{id:'eat',t:'اختلالات خوردن',e:'🍽️',i:'الگوهای ناسالم غذا.',w:'نگرانی شدید دربارهٔ وزن و رفتارهای جبرانی.',sim:['افسردگی','اضطراب','وسواس'],scr:'EAT-26',ws:['همیشه نیاز به ارزیابی','کاهش وزن سریع'],sk:['غذای آگاهانه'],tr:['CBT-E','خانواده‌درمانی'],wp:['حتماً — می‌تواند خطرناک باشد'],bk:['رهایی از پرخوری'],ex:['غذای آگاهانه'],fl:['To the Bone'],mu:['Ludovico Einaudi'],rt:['phq9','gad7']}
+// ============================================================
+// SKILLS - مهارت‌های روان‌شناختی
+// ============================================================
+
+const SKILLS = [
+  {id:'calm', t:'آرام کردن ذهن', e:'🧘', c:'آرام‌سازی', time:5,
+    concept:'ذهن برای محافظت از تو، همیشه در حالت آماده‌باشه. برای آرام کردن، باید به بدن بگی که الان خطری نیست.',
+    example:'تصور کن وسط یه روز شلوغ، یه لحظه می‌ایستی و به بدنت اجازه می‌دی که شل بشه.',
+    exercise:'تکنیک ۴-۷-۸: ۴ ثانیه دم، ۷ ثانیه نگه‌دار، ۸ ثانیه بازدم. سه دور.',
+    challenge:'امروز سه بار، وقتی حس کردی ذهنت شلوغ شده، این تمرین رو انجام بده.'},
+  {id:'no', t:'نه گفتن بدون عذاب وجدان', e:'🗣️', c:'ارتباطی', time:5,
+    concept:'خیلی وقت‌ها مشکل ما «نه گفتن» نیست؛ ترس از ناراحت کردن دیگرانه.',
+    example:'دوستت ازت می‌خواد کاری براش انجام بدی، ولی واقعاً وقت نداری. کدوم جمله بهت نزدیک‌تره؟ «باشه هرچند گرفتارم» / «نه نمی‌تونم» / «بذار ببینم»',
+    exercise:'جملهٔ جدید: «این بار نمی‌تونم انجامش بدم، ولی امیدوارم راه دیگه‌ای پیدا کنی.»',
+    challenge:'این هفته یه بار از این جمله استفاده کن و حس بعدش رو یادداشت کن.'},
+  {id:'hardTalk', t:'گفت‌وگوی سخت', e:'💬', c:'ارتباطی', time:5,
+    concept:'گفت‌وگوی سخت، وقتی به وجود میاد که یه نیاز مهم داره با احترام بیان می‌شه.',
+    example:'به‌جای «تو همیشه دیر میای!» بگو «وقتی دیر میای، حس می‌کنم وقتم مهم نیست.»',
+    exercise:'الگوی «من»: من احساس می‌کنم [احساس]، وقتی [موقعیت]، چون [نیاز].',
+    challenge:'یه گفت‌وگویی که مدت‌ها به تعویق انداختی رو با این الگو شروع کن.'},
+  {id:'boundary', t:'مرزبندی در رابطه', e:'🛡️', c:'ارتباطی', time:5,
+    concept:'مرز یعنی مشخص کردن چی برات قابل قبوله، نه دیوار کشیدن.',
+    example:'«من دوست دارم وقت بیشتری با هم بگذرونیم، ولی الان به تنهایی نیاز دارم.»',
+    exercise:'سه موردی که مرزهات رو نقض می‌کنه رو بنویس.',
+    challenge:'این هفته یه بار به‌آرومی مرزهات رو یادآوری کن.'},
+  {id:'reaction', t:'کنترل واکنش‌های لحظه‌ای', e:'⏸️', c:'شناختی', time:5,
+    concept:'بین محرک و واکنش، یه فضا هست. توی اون فضا، انتخاب ما شکل می‌گیره.',
+    example:'وقتی کسی حرفی می‌زنه که عصبانی‌ات می‌کنه، قبل از پاسخ، سه نفس عمیق بکش.',
+    exercise:'قانون ۶ ثانیه: قبل از هر واکنش شدید، ۶ ثانیه صبر کن.',
+    challenge:'این هفته یه بار این قانون رو اجرا کن.'},
+  {id:'negThoughts', t:'شناخت افکار منفی', e:'🧠', c:'شناختی', time:5,
+    concept:'افکار منفی معمولاً خودشون رو به‌عنوان «واقعیت» جا می‌زنن، در حالی که فقط «تفسیر» هستن.',
+    example:'فکر «هیچ‌کس منو دوست نداره» یه تفسیره، نه یه واقعیت. شواهد چیه؟',
+    exercise:'برگهٔ ثبت افکار: موقعیت → فکر → شواهد موافق → شواهد مخالف → فکر جایگزین.',
+    challenge:'امروز یکی از افکار منفیت رو این‌طوری بررسی کن.'},
+  {id:'decide', t:'تصمیم‌گیری بهتر', e:'🎯', c:'شناختی', time:5,
+    concept:'تصمیم‌های سخت، معمولاً به خاطر نداشتن اطلاعات کافی نیستن؛ به خاطر ترس از دست دادنه.',
+    example:'بین دو گزینه گیر کردی؟ بنویس هر کدوم چه چیزی رو ازت می‌گیره.',
+    exercise:'تکنیک ۱۰-۱۰-۱۰: این تصمیم ۱۰ دقیقه، ۱۰ ماه، ۱۰ سال دیگه چقدر مهمه؟',
+    challenge:'یه تصمیم معلق رو با این تکنیک ببین.'},
+  {id:'confidence', t:'افزایش اعتمادبه‌نفس', e:'💪', c:'شناختی', time:5,
+    concept:'اعتمادبه‌نفس از موفقیت نمیاد؛ از «انجام دادن» میاد، حتی وقتی مطمئن نیستی.',
+    example:'قبل از اینکه آماده باشی، یه قدم کوچیک بردار.',
+    exercise:'هر روز یه کار کوچیک انجام بده که یه کم ازت سخت باشه.',
+    challenge:'این هفته سه کار کوچیک از لیست «بعداً انجام می‌دم» رو انجام بده.'},
+  {id:'conflict', t:'مدیریت تعارض', e:'👥', c:'ارتباطی', time:5,
+    concept:'تعارض به معنی دعوا نیست؛ به معنی تفاوت نیازهاست. تفاوت طبیعی‌ه.',
+    example:'«به نظر من این‌طوره. تو چی فکر می‌کنی؟» — شروع کنجکاوانه.',
+    exercise:'توی تعارض، اول سعی کن حرف طرف مقابل رو با کلمات خودت تکرار کنی.',
+    challenge:'دفعهٔ بعد که اختلاف نظر پیش اومد، این کار رو انجام بده.'},
+  {id:'selfcompassion', t:'خودشفقتی', e:'🌱', c:'شناختی', time:5,
+    concept:'با خودت همون‌طور رفتار کن که با یه دوست خوب رفتار می‌کنی.',
+    example:'اگه دوستت اشتباه می‌کرد، بهش می‌گفتی «چقدر بی‌عرضه‌ای»؟ پس چرا به خودت می‌گی؟',
+    exercise:'جملهٔ خودشفقتی: «این سخته، و من دارم تلاشم رو می‌کنم.»',
+    challenge:'این هفته وقتی خودت رو سرزنش کردی، این جمله رو جایگزین کن.'}
 ];
 
-const SKILLS=[
-{id:'breathing478',t:'تنفس ۴-۷-۸',e:'🌬️',c:'آرام‌سازی',d:3,i:'آرام کردن سیستم عصبی.',st:['بنشین و چشمانت را ببند.','۴ ثانیه دم از بینی.','۷ ثانیه نگه‌دار.','۸ ثانیه بازدم از دهان.','۳-۴ بار تکرار کن.'],wy:'سیستم پاراسمپاتیک را فعال می‌کند.',wn:'قبل از خواب، در اضطراب.'},
-{id:'grounding',t:'تکنیک ۵-۴-۳-۲-۱',e:'🌍',c:'زمین‌گیری',d:2,i:'برای وقتی ذهن جدا از لحظهٔ حال است.',st:['۵ چیز که می‌بینی.','۴ چیز که لمس می‌کنی.','۳ چیز که می‌شنوی.','۲ چیز که بو می‌کنی.','۱ چیز که می‌چشی.'],wy:'توجه را به حواس برمی‌گرداند.',wn:'پانیک، فلاش‌بک.'},
-{id:'stopThought',t:'توقف فکر',e:'✋',c:'شناختی',d:1,i:'قطع چرخهٔ افکار مزاحم.',st:['بلند بگو «توقف!»','کش لاستیکی به مچت بزن.','توجه به کار حسی.','بعد ۲ دقیقه برگرد.'],wy:'چرخهٔ خودکار را می‌شکند.',wn:'نشخوار شدید.'},
-{id:'worryTime',t:'برنامهٔ نگرانی',e:'⏰',c:'شناختی',d:15,i:'به نگرانی وقت مشخص بده.',st:['یک ساعت مشخص برای نگرانی.','در طول روز یادداشت کن.','در ساعت مقرر ۱۵ دقیقه فکر کن.','راه‌حل بنویس.','بعدش کار بعدی.'],wy:'ذهن یاد می‌گیرد نگرانی تمام‌وقت نیست.',wn:'نگرانی مزمن.'},
-{id:'thoughtRecord',t:'برگهٔ ثبت افکار',e:'📝',c:'شناختی',d:10,i:'ابزار CBT.',st:['موقعیت بنویس.','فکر خودآیند.','هیجان و شدت.','شواهد موافق.','شواهد مخالف.','فکر جایگزین.'],wy:'فاصله از افکار.',wn:'افکار منفی.'},
-{id:'behavioralActivation',t:'فعال‌سازی رفتاری',e:'🚶',c:'رفتاری',d:30,i:'اول عمل، بعد انگیزه.',st:['کارهای کوچک بنویس.','هر روز یکی.','قبل از آمادگی شروع کن.','حال را نمره بده.'],wy:'انگیزه بعد از عمل می‌آید.',wn:'افسردگی.'},
-{id:'pmr',t:'آرام‌سازی پیشرونده',e:'💪',c:'آرام‌سازی',d:10,i:'تنش بدنی را کم کن.',st:['راحت بنشین.','پاها: ۵ ثانیه منقبض، ۱۰ ثانیه رها.','شکم، دست‌ها، شانه‌ها.','اسکن بدن.'],wy:'رهاسازی عضلات = آرامش.',wn:'قبل از خواب.'},
-{id:'sleepHygiene',t:'بهداشت خواب',e:'🛏️',c:'خواب',d:0,i:'قواعد خواب بهتر.',st:['ساعت مشخص بخواب و بیدار شو.','۱ ساعت قبل صفحه خاموش.','اتاق تاریک و خنک.','کافئین بعد ۱۴ نباشد.','اگر ۲۰ دقیقه بیدار ماندی، بلند شو.'],wy:'ریتم شبانه‌روزی بهتر.',wn:'بی‌خوابی خفیف.'},
-{id:'cognitiveRestr',t:'بازسازی شناختی',e:'🔧',c:'شناختی',d:15,i:'شناسایی افکار غیرمنطقی.',st:['فکر منفی را شناسایی کن.','خطای شناختی را پیدا کن.','شواهد موافق و مخالف.','فکر جایگزین بنویس.'],wy:'تغییر افکار = تغییر حال.',wn:'افسردگی، اضطراب.'},
-{id:'assert',t:'ابزار وجودی',e:'🗣️',c:'ارتباطی',d:0,i:'بیان نیازها محترمانه.',st:['الگوی «من»: من احساس می‌کنم...','مستقیم نگاه کن.','صدای محکم اما آرام.','به نه گفتن عادت کن.'],wy:'ارتباط سالم‌تر.',wn:'روابط.'}
+// ============================================================
+// TESTS - تست‌های کوتاه
+// ============================================================
+
+const TESTS = {
+  decideStyle: {
+    id:'decideStyle', name:'سبک تصمیم‌گیری تو', time:1, cat:'من',
+    qs:[
+      {t:'وقتی باید یه تصمیم مهم بگیری…', o:['همه‌چیز رو تحلیل می‌کنم','به دلم گوش می‌دم','با دیگران مشورت می‌کنم','سریع تصمیم می‌گیرم','منتظر می‌مونم ببینم چی پیش میاد']}
+    ],
+    result: i => {
+      const opts = [
+        {title:'تحلیل‌گر', desc:'تو قبل از هر تصمیمی، همه‌چیز رو می‌سنجی. این نقطه قوته، ولی ممکنه گاهی زیادی طول بکشه.', likes:['اطمینان','وضوح'], challenges:['ممکنه فرصت‌ها از دست بره'], tryNow:'یه تصمیم کوچیک رو این بار سریع بگیر و ببین چه حسی داری.'},
+        {title:'شهودی', desc:'تو به ندای درونت اعتماد می‌کنی. این شهود معمولاً از تجربه‌هات میاد.', likes:['خودانگیختگی'], challenges:['گاهی تصمیم‌ها ناپایدار به نظر می‌رسن'], tryNow:'یه بار تصمیمت رو با یه دوست منطقی چک کن.'},
+        {title:'جمعی', desc:'تو در تصمیم‌گیری، نظر دیگران رو مهم می‌دونی. این یعنی بلدی از تجربهٔ دیگران استفاده کنی.', likes:['همراهی'], challenges:['ممکنه نظر خودت گم بشه'], tryNow:'یه بار فقط بر اساس نظر خودت تصمیم بگیر.'},
+        {title:'سریع', desc:'تو ترجیح می‌دی سریع از بلاتکلیفی دربیای. این یعنی اهل عمل، ولی ممکنه بعضی زوایا رو ببینی.', likes:['پیشرفت'], challenges:['ممکنه پشیمون بشی'], tryNow:'یه بار قبل از تصمیم، ۲۴ ساعت صبر کن.'},
+        {title:'منتظر', desc:'تو ترجیح می‌دی صبر کنی تا موقعیت خودش روشن بشه.', likes:['وضوح'], challenges:['ممکنه فرصت از دست بره'], tryNow:'این هفته یه تصمیم معلق رو با یه اقدام کوچیک به حرکت دربیار.'}
+      ];
+      return opts[i];
+    }
+  },
+  energySource: {
+    id:'energySource', name:'منبع انرژی تو', time:1, cat:'من',
+    qs:[
+      {t:'بعد از یه روز طولانی، کدوم بیشتر حالت رو خوب می‌کنه؟', o:['یه گفت‌وگوی عمیق','تنهایی و آرامش','یه پیاده‌روی','یه کار خلاقانه','خواب']}
+    ],
+    result: i => {
+      const opts = [
+        {title:'انرژی از ارتباط عمیق', desc:'تو با گفت‌وگوهای واقعی شارژ می‌شی.', likes:['یک نفر واقعی'], challenges:['پیدا کردن اون یک نفر همیشه راحت نیست'], tryNow:'این هفته یه تماس عمیق با کسی که دلت می‌خواد بگیر.'},
+        {title:'انرژی از تنهایی', desc:'تو در خلوت، خودت رو بازسازی می‌کنی.', likes:['فضای شخصی'], challenges:['ممکنه از جمع فاصله بگیری'], tryNow:'این هفته یه تعادل بین تنهایی و یک ارتباط کوچیک بساز.'},
+        {title:'انرژی از بدن', desc:'با حرکت، حالت بهتر می‌شه.', likes:['حرکت','فضای باز'], challenges:['وقتی حوصله نداری، اولین چیزیه که کنار می‌ذاری'], tryNow:'امروز ۱۵ دقیقه پیاده‌روی کن.'},
+        {title:'انرژی از خلاقیت', desc:'تو با ساختن، پر انرژی می‌شی.', likes:['خلق کردن'], challenges:['بعضی روزها انگیزه نیست'], tryNow:'امروز ۱۰ دقیقه کار خلاقانه بدون قضاوت.'},
+        {title:'انرژی از استراحت', desc:'بدنت الان استراحت می‌خواد.', likes:['آرامش'], challenges:['ممکنه استراحت واقعی با فرار اشتباه گرفته بشه'], tryNow:'این هفته یه خواب با کیفیت رو جدی بگیر.'}
+      ];
+      return opts[i];
+    }
+  },
+  currentMood: {
+    id:'currentMood', name:'حال فعلی تو', time:3, cat:'حال من',
+    qs:[
+      {t:'این هفته چقدر پر انرژی بودی؟', o:['زیاد','متوسط','کم','تقریباً هیچ']},
+      {t:'خوابت چطور بوده؟', o:['خوب','متوسط','بی‌نظم','کم']},
+      {t:'رابطه‌هات چطور بوده؟', o:['خوب','خوب ولی کمرنگ','کم','دور']},
+      {t:'آینده رو چطور می‌بینی؟', o:['روشن','نسبتاً روشن','نامشخص','تیره']}
+    ],
+    result: a => {
+      const s = a.reduce((x,y)=>x+y,0);
+      if(s<=3) return {title:'حال خوب', desc:'حالت الان خوبه. اینو جدی بگیر و ازش استفاده کن.', likes:['ادامه بده'], challenges:['مراقب باش از خودت غافل نشی'], tryNow:'یه کار که مدت‌ها به تعویق انداختی رو انجام بده.'};
+      if(s<=6) return {title:'حال متوسط', desc:'حالت یه‌جور معمولی و بی‌رنگه. یه نشونه که نیاز داری به خودت توجه کنی.', likes:['یه تغییر کوچیک'], challenges:['ممکنه کم‌کم سنگین‌تر بشه'], tryNow:'امروز ۱۰ دقیقه فقط برای خودت وقت بذار.'};
+      return {title:'حال سنگین', desc:'حالت الان سنگینه. این یه علامت مهمه که نباید تنهاش بذاری.', likes:['حمایت'], challenges:['ممکنه تنهایی سخت‌ترش کنه'], tryNow:'با یه نفر قابل اعتماد حرف بزن یا با ۱۴۸۰ تماس بگیر.'};
+    }
+  },
+  relationStyle: {
+    id:'relationStyle', name:'سبک ارتباطی تو', time:3, cat:'رابطه',
+    qs:[
+      {t:'وقتی با یه نفر صمیمی می‌شی…', o:['همه‌چیز رو می‌گم','کم‌کم باز می‌شم','مرزهام رو حفظ می‌کنم']},
+      {t:'اگه کسی ازت انتقاد کنه…', o:['ناراحت می‌شم','دفاع می‌کنم','به خودم شک می‌کنم','می‌فهمم نظرشه']},
+      {t:'توی رابطه بیشتر دنبال چی هستی؟', o:['فهمیده شدن','امنیت عاطفی','آزادی','رشد مشترک']}
+    ],
+    result: a => {
+      if(a[2]===0) return {title:'نیاز به دیده شدن', desc:'برات مهمه که طرف مقابل واقعاً تو رو ببینه و بفهمه.', likes:['گفت‌وگوی عمیق'], challenges:['ممکنه ناامید بشی وقتی عمق نبینی'], tryNow:'به یکی از نزدیکات بگو چه چیزی این هفته برات مهم بوده.'};
+      if(a[2]===1) return {title:'نیاز به امنیت', desc:'برای تو، اعتماد پایه‌ست.', likes:['پایداری'], challenges:['ممکنه در مقابل تغییر مقاومت کنی'], tryNow:'یه گفت‌وگوی روشن درباره انتظارات با یکی از نزدیکات داشته باش.'};
+      if(a[2]===2) return {title:'نیاز به آزادی', desc:'تو در رابطه‌ای که فضای شخصی داشته باشه، بهتری.', likes:['احترام به استقلال'], challenges:['ممکنه دیگران فاصله رو اشتباه بفهمن'], tryNow:'با یه نفر نزدیک درباره نیازت به فضای شخصی حرف بزن.'};
+      return {title:'نیاز به رشد', desc:'تو دنبال رابطه‌ای هستی که تو رو به نسخهٔ بهتری از خودت تبدیل کنه.', likes:['یادگیری مشترک'], challenges:['ممکنه رابطه‌های ساده برات کافی نباشن'], tryNow:'با یکی از نزدیکات یه هدف مشترک تعریف کن.'};
+    }
+  }
+};
+
+// ============================================================
+// BOOKS / FILMS / MUSIC
+// ============================================================
+
+const BOOKS_MAP = {
+  self: ['قدرت اکنون — اکهارت تال','احساس ارزشمند بودن — مک‌کی','مرد در جستجوی معنا — فرانکل'],
+  relation: ['وقتی نیچه گریست — یالوم','هنر عشق ورزیدن — فروم','قفس تنهایی — یالوم'],
+  goal: ['عادت‌های اتمی — جیمز کلیر','تغییر — چرچ و همکاران','هدف — برایان تریسی'],
+  calm: ['رهایی از نشخوار فکری — نولن-هوکسما','قدرت اکنون — تال','راهنمای ذهن‌آگاهی'],
+  confidence: ['احساس ارزشمند بودن — مک‌کی','شجاعت — برنه براون','نه گفتن — جانسون'],
+  change: ['عادت‌های اتمی — کلیر','قدرت عادت — داهیگ','تغییر — برایان تریسی'],
+  justRead: ['وقتی نیچه گریست — یالوم','مرد در جستجوی معنا — فرانکل','قفس تنهایی — یالوم']
+};
+
+const FILMS_MAP = {
+  light: ['Sing — انیمیشن شاد','The Intern','Amelie'],
+  emotional: ['Manchester by the Sea','A Man Called Otto','Marriage Story'],
+  philosophical: ['Soul','Good Will Hunting','The Secret Life of Walter Mitty'],
+  exciting: ['Inception','Whiplash','Dune'],
+  inspiring: ['A Beautiful Mind','The Pursuit of Happyness','Soul'],
+  accompany: ['Manchester by the Sea','Her','Lost in Translation']
+};
+
+// ============================================================
+// QUIZ BANK - روانشناختی
+// ============================================================
+
+const QUIZ_BANK = [
+  {q:'وقتی حالم بده، بیشتر دوست دارم…',o:['تنها باشم','یکی کنارم باشه','حواسم پرت بشه','خودم هم نمی‌دونم!']},
+  {q:'وقتی با کسی اختلاف دارم، معمولاً…',o:['مستقیم می‌گم','سکوت می‌کنم','فکر می‌کنم شاید حق با اونه','دنبال راه میانه می‌گردم']},
+  {q:'چی بیشتر بهم انرژی می‌ده؟',o:['حرف عمیق','تنهایی','حرکت و ورزش','خلق کردن']},
+  {q:'وقتی تصمیم سختی دارم…',o:['تحلیل می‌کنم','به دلم گوش می‌دم','مشورت می‌کنم','صبر می‌کنم']},
+  {q:'از چی بیشتر می‌ترسم؟',o:['تنهایی','شکست','قضاوت','از دست دادن کنترل']},
+  {q:'اگه یه روز کامل آزاد داشتم…',o:['کتاب می‌خوندم','سفر می‌رفتم','با دوستام بودم','فقط می‌خوابیدم']},
+  {q:'بیشتر کِی حس می‌کنم «خودمم»؟',o:['توی خلوت','توی جمع صمیمی','وسط طبیعت','وقتی خلق می‌کنم']},
+  {q:'وقتی اشتباه می‌کنم…',o:['خودم رو می‌بخشم','مدتی خودمو سرزنش می‌کنم','سریع می‌رم جلو','با یکی حرف می‌زنم']},
+  {q:'یه چیز که کمتر به کسی گفتم…',o:['خیلی وقتا خسته‌ام','دلم توجه می‌خواد','نمی‌دونم چی می‌خوام','از تنها موندن می‌ترسم']},
+  {q:'از کدوم یاد گرفتن بیشتر لذت می‌برم؟',o:['کتاب','تجربه','آدم‌ها','درون خودم']}
 ];
 
-const BOOKS=[
-{t:'قدرت اکنون',a:'اکهارت تال',d:'رهایی از ذهن و زیستن در لحظه.',g:'ذهن‌آگاهی'},
-{t:'وقتی نیچه گریست',a:'اروین یالوم',d:'رمانی دربارهٔ معنادرمانی.',g:'معنا'},
-{t:'احساس ارزشمند بودن',a:'متیو مک‌کی',d:'کار عملی بر عزت نفس.',g:'عزت نفس'},
-{t:'رهایی از نشخوار فکری',a:'سوزان نولن-هوکسما',d:'تکنیک‌های قطع چرخهٔ افکار.',g:'نشخوار'},
-{t:'قفس تنهایی',a:'اروین یالوم',d:'داستان‌هایی از روان‌درمانی.',g:'روان‌درمانی'},
-{t:'بدن فراموش نمی‌کند',a:'بسل ون در کولک',d:'رویکرد تروما-محور.',g:'تروما'},
-{t:'غلبه بر اضطراب و پانیک',a:'دیوید برنز',d:'راهنمای عملی اضطراب.',g:'اضطراب'},
-{t:'مرد در جستجوی معنا',a:'ویکتور فرانکل',d:'معنادرمانی.',g:'معنا'}
-];
-const FILMS=[
-{t:'ذهن زیبا',y:2001,d:'زندگی جان نش — اسکیزوفرنی.',g:'اسکیزوفرنی'},
-{t:'Inside Out',y:2015,d:'انیمیشن احساسات.',g:'هیجان'},
-{t:'Good Will Hunting',y:1997,d:'درمان و رشد.',g:'درمان'},
-{t:'The Perks of Being a Wallflower',y:2012,d:'نوجوانی و تروما.',g:'تروما'},
-{t:'Silver Linings Playbook',y:2012,d:'دوقطبی و عشق.',g:'دوقطبی'},
-{t:'A Man Called Otto',y:2022,d:'سوگ و بازگشت.',g:'سوگ'},
-{t:'Manchester by the Sea',y:2016,d:'سوگ پیچیده.',g:'سوگ'},
-{t:'Soul',y:2020,d:'معنا و هدف زندگی.',g:'معنا'}
-];
-const MUSIC=[
-{t:'Ludovico Einaudi — Piano',d:'پیانو آرام.',g:'آرام‌سازی'},
-{t:'Max Richter — Sleep',d:'آرامش عمیق.',g:'خواب'},
-{t:'Marconi Union — Weightless',d:'کاهش اضطراب.',g:'اضطراب'},
-{t:'صدای باران و طبیعت',d:'برای خواب.',g:'خواب'},
-{t:'Hans Zimmer — Interstellar',d:'تمرکز.',g:'تمرکز'},
-{t:'Nils Frahm — Felt',d:'مینیمال.',g:'آرام‌سازی'}
-];
+// ============================================================
+// WEB AUDIO - موسیقی آرامش‌بخش
+// ============================================================
 
-const QB=[
-{q:'غذای موردعلاقه‌ام؟',o:['پیتزا','قورمه‌سبزی','سوشی','پاستا']},
-{q:'آخر هفته؟',o:['خانه','گردش','مهمانی','کار']},
-{q:'استعداد پنهانم؟',o:['آشپزی','نقاشی','نوشتن','موسیقی']},
-{q:'چی اذیتم می‌کند؟',o:['دروغ','بی‌نظمی','دیرکرد','شلوغی']},
-{q:'رؤیای سفرم؟',o:['ژاپن','ایسلند','ایتالیا','نیوزیلند']},
-{q:'چی خوشحالم می‌کند؟',o:['کتاب','طبیعت','موسیقی','خواب']},
-{q:'از چی می‌ترسم؟',o:['تنهایی','شکست','قضاوت','ناشناخته']},
-{q:'ژانر فیلم؟',o:['درام','کمدی','علمی-تخیلی','ترسناک']},
-{q:'صبح یا شب؟',o:['صبح','بعدازظهر','شب','بستگی دارد']},
-{q:'قهوه یا چای؟',o:['قهوه','چای سیاه','چای سبز','هیچ‌کدام']},
-{q:'وقتی ناراحتم؟',o:['حرف می‌زنم','سکوت','می‌نویسم','موسیقی']},
-{q:'چی مهم است؟',o:['آزادی','امنیت','خلاقیت','رابطه']}
-];
+let audioCtx = null;
+let audioNodes = [];
+let currentTrack = null;
 
-let ST={aT:null,aTA:[],aP:null,aPS:0,aPA:{},last:null,hist:[],qD:null,qA:null,qDc:null};
-function loadHist(){try{ST.hist=JSON.parse(localStorage.getItem('mr_hist')||'[]')}catch(e){ST.hist=[]}}
-function saveHist(x){x.ts=Date.now();ST.hist.push(x);if(ST.hist.length>100)ST.hist.shift();try{localStorage.setItem('mr_hist',JSON.stringify(ST.hist))}catch(e){}}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function b64e(s){try{const b=new TextEncoder().encode(s);let r='';b.forEach(x=>r+=String.fromCharCode(x));return btoa(r).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}catch(e){return''}}
-function b64d(s){try{let x=s.replace(/-/g,'+').replace(/_/g,'/');while(x.length%4)x+='=';const b=atob(x);const u=new Uint8Array(b.length);for(let i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return new TextDecoder().decode(u)}catch(e){return null}}
-function appUrl(){return location.origin+location.pathname}
-async function share(t,x,u){try{if(navigator.share){await navigator.share({title:t,text:x,url:u});return true}else if(navigator.clipboard){await navigator.clipboard.writeText(u);alert('لینک کپی شد ✅');return true}else{prompt('کپی کن:',u);return true}}catch(e){return false}}
-async function copyT(t){try{await navigator.clipboard.writeText(t);alert('کپی شد ✅')}catch(e){prompt('کپی کن:',t)}}
+function stopAudio(){
+  audioNodes.forEach(n=>{try{n.stop?n.stop():n.disconnect()}catch(e){}});
+  audioNodes = [];
+  currentTrack = null;
+}
 
-function nav(p){if(location.hash==='#'+p)route();else location.hash=p}
+function playRain(){
+  if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  stopAudio();
+  const bufferSize = 2 * audioCtx.sampleRate;
+  const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+  const output = buffer.getChannelData(0);
+  for(let i=0;i<bufferSize;i++) output[i] = Math.random()*2-1;
+  const noise = audioCtx.createBufferSource();
+  noise.buffer = buffer; noise.loop = true;
+  const filter = audioCtx.createBiquadFilter();
+  filter.type = 'lowpass'; filter.frequency.value = 800;
+  const gain = audioCtx.createGain(); gain.gain.value = 0.15;
+  noise.connect(filter); filter.connect(gain); gain.connect(audioCtx.destination);
+  noise.start(); audioNodes.push(noise);
+  currentTrack = 'rain';
+}
+
+function playWaves(){
+  if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  stopAudio();
+  const bufferSize = 2 * audioCtx.sampleRate;
+  const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+  const output = buffer.getChannelData(0);
+  for(let i=0;i<bufferSize;i++) output[i] = Math.random()*2-1;
+  const noise = audioCtx.createBufferSource();
+  noise.buffer = buffer; noise.loop = true;
+  const filter = audioCtx.createBiquadFilter();
+  filter.type = 'lowpass'; filter.frequency.value = 500;
+  const lfo = audioCtx.createOscillator(); lfo.frequency.value = 0.1;
+  const lfoGain = audioCtx.createGain(); lfoGain.gain.value = 250;
+  lfo.connect(lfoGain); lfoGain.connect(filter.frequency);
+  const gain = audioCtx.createGain(); gain.gain.value = 0.15;
+  noise.connect(filter); filter.connect(gain); gain.connect(audioCtx.destination);
+  lfo.start(); noise.start(); audioNodes.push(noise, lfo);
+  currentTrack = 'waves';
+}
+
+function playForest(){
+  if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  stopAudio();
+  const bufferSize = 2 * audioCtx.sampleRate;
+  const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+  const output = buffer.getChannelData(0);
+  for(let i=0;i<bufferSize;i++) output[i] = Math.random()*2-1;
+  const noise = audioCtx.createBufferSource();
+  noise.buffer = buffer; noise.loop = true;
+  const filter = audioCtx.createBiquadFilter();
+  filter.type = 'bandpass'; filter.frequency.value = 2000; filter.Q.value = 0.5;
+  const gain = audioCtx.createGain(); gain.gain.value = 0.08;
+  noise.connect(filter); filter.connect(gain); gain.connect(audioCtx.destination);
+  noise.start(); audioNodes.push(noise);
+  currentTrack = 'forest';
+}
+
+function playCalm(){
+  if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  stopAudio();
+  const notes = [220, 277.18, 329.63, 440];
+  notes.forEach((f,i)=>{
+    const osc = audioCtx.createOscillator();
+    osc.type = 'sine'; osc.frequency.value = f;
+    const gain = audioCtx.createGain();
+    gain.gain.value = 0.04;
+    const lfo = audioCtx.createOscillator(); lfo.frequency.value = 0.1 + i*0.05;
+    const lfoGain = audioCtx.createGain(); lfoGain.gain.value = 0.02;
+    lfo.connect(lfoGain); lfoGain.connect(gain.gain);
+    osc.connect(gain); gain.connect(audioCtx.destination);
+    osc.start(); lfo.start();
+    audioNodes.push(osc, lfo);
+  });
+  currentTrack = 'calm';
+}
+
+function playLift(){
+  if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  stopAudio();
+  const notes = [261.63, 329.63, 392.00, 523.25];
+  notes.forEach((f,i)=>{
+    const osc = audioCtx.createOscillator();
+    osc.type = 'triangle'; osc.frequency.value = f;
+    const gain = audioCtx.createGain(); gain.gain.value = 0.03;
+    const lfo = audioCtx.createOscillator(); lfo.frequency.value = 0.2;
+    const lfoGain = audioCtx.createGain(); lfoGain.gain.value = 0.015;
+    lfo.connect(lfoGain); lfoGain.connect(gain.gain);
+    osc.connect(gain); gain.connect(audioCtx.destination);
+    osc.start(); lfo.start();
+    audioNodes.push(osc, lfo);
+  });
+  currentTrack = 'lift';
+}
+
+function toggleTrack(name){
+  if(currentTrack === name){ stopAudio(); return; }
+  if(name === 'rain') playRain();
+  else if(name === 'waves') playWaves();
+  else if(name === 'forest') playForest();
+  else if(name === 'calm') playCalm();
+  else if(name === 'lift') playLift();
+  render();
+}
+
+// ============================================================
+// STATE
+// ============================================================
+
+let ST = {
+  aT: null, aTA: [],
+  aState: null, aSq: 0, aSA: {},
+  aProfile: null, aPq: 0, aPA: {},
+  lastResult: null,
+  hist: [],
+  mem: {},
+  qD: null, qA: null, qDc: null,
+  situation: {step:0, data:{}}
+};
+
+function loadMem(){
+  try{ ST.mem = JSON.parse(localStorage.getItem('mr_mem') || '{}'); }catch(e){ ST.mem = {}; }
+}
+function saveMem(k, v){
+  ST.mem[k] = {v, ts: Date.now()};
+  try{ localStorage.setItem('mr_mem', JSON.stringify(ST.mem)); }catch(e){}
+}
+function loadHist(){
+  try{ ST.hist = JSON.parse(localStorage.getItem('mr_hist') || '[]'); }catch(e){ ST.hist = []; }
+}
+function saveHist(x){
+  x.ts = Date.now();
+  ST.hist.push(x);
+  if(ST.hist.length > 200) ST.hist.shift();
+  try{ localStorage.setItem('mr_hist', JSON.stringify(ST.hist)); }catch(e){}
+}
+
+// ============================================================
+// HELPERS
+// ============================================================
+
+function esc(s){ return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function b64e(s){ try{ const b=new TextEncoder().encode(s); let r=''; b.forEach(x=>r+=String.fromCharCode(x)); return btoa(r).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,''); }catch(e){ return ''; } }
+function b64d(s){ try{ let x=s.replace(/-/g,'+').replace(/_/g,'/'); while(x.length%4) x+='='; const b=atob(x); const u=new Uint8Array(b.length); for(let i=0;i<b.length;i++)u[i]=b.charCodeAt(i); return new TextDecoder().decode(u); }catch(e){ return null; } }
+function appUrl(){ return location.origin + location.pathname; }
+
+async function share(t,x,u){
+  try{
+    if(navigator.share){ await navigator.share({title:t,text:x,url:u}); return true; }
+    else if(navigator.clipboard){ await navigator.clipboard.writeText(u); alert('لینک کپی شد ✅'); return true; }
+    else { prompt('کپی کن:', u); return true; }
+  }catch(e){ return false; }
+}
+
+async function copyT(t){
+  try{ await navigator.clipboard.writeText(t); alert('کپی شد ✅'); }
+  catch(e){ prompt('کپی کن:', t); }
+}
+
+// ============================================================
+// ROUTER
+// ============================================================
+
+function nav(p){ if(location.hash === '#'+p) route(); else location.hash = p; }
+
 function route(){
-  const h=location.hash.slice(1)||'/';
-  const parts=h.split('/').filter(Boolean);
-  const [r,p]=parts;
+  const h = location.hash.slice(1) || '/';
+  const parts = h.split('/').filter(Boolean);
+  const [r, p] = parts;
   window.scrollTo(0,0);
-  document.querySelectorAll('.nv').forEach(b=>{const rr=b.getAttribute('data-r');b.classList.toggle('a',rr===h||(rr!=='/'&&h.startsWith(rr)))});
+  document.querySelectorAll('.nv').forEach(b=>{
+    const rr = b.getAttribute('data-r');
+    b.classList.toggle('a', rr === h || (rr !== '/' && h.startsWith(rr)));
+  });
   switch(r){
-    case undefined:return vHome();
-    case 'tests':return vTests();
-    case 'test':return vTestIntro(p);
-    case 'trun':return vTestRun(p);
-    case 'tres':return vTestRes(p);
-    case 'paths':return vPaths();
-    case 'path':return vPathIntro(p);
-    case 'prun':return vPathRun(p);
-    case 'pres':return vPathRes(p);
-    case 'enc':return vEnc();
-    case 'entry':return vEntry(p);
-    case 'skills':return vSkills();
-    case 'skill':return vSkill(p);
-    case 'lib':return vLib(p||'books');
-    case 'quiz':return p?vQuizTake(p):vQuizCreate();
-    case 'emergency':return vEmergency();
-    case 'hist':return vHist();
-    case 'about':return vAbout();
-    default:return vHome()
+    case undefined: return vHome();
+    case 'discover': return vDiscover();
+    case 'me': return vMe();
+    case 'mood': return vMood();
+    case 'with': return vWithOthers();
+    case 'profile': return vProfileList();
+    case 'profile-run': return vProfileRun(p);
+    case 'profile-result': return vProfileResult(p);
+    case 'state': return vStateList();
+    case 'state-run': return vStateRun(p);
+    case 'state-result': return vStateResult(p);
+    case 'skills': return vSkills();
+    case 'skill': return vSkill(p);
+    case 'tests': return vTestsList();
+    case 'test': return vTestIntro(p);
+    case 'test-run': return vTestRun(p);
+    case 'test-result': return vTestResult(p);
+    case 'situation': return vSituation();
+    case 'music': return vMusic();
+    case 'film': return vFilmIntro();
+    case 'film-result': return vFilmResult();
+    case 'book': return vBookIntro();
+    case 'book-result': return vBookResult();
+    case 'emergency': return vEmergency();
+    case 'hist': return vHist();
+    case 'about': return vAbout();
+    case 'quiz': return p ? vQuizTake(p) : vQuizCreate();
+    case 'quiz-create': return vQuizCreate();
+    default: return vHome();
   }
 }
 
+// ============================================================
+// HOME
+// ============================================================
+
 function vHome(){
-  const menu=[['/paths','🧭','مسیر شخصی من'],['/tests','🧪','تست‌های روان‌شناختی'],['/enc','📖','دانشنامهٔ اختلالات'],['/skills','🎯','مهارت‌های کاربردی'],['/lib','📚','کتابخانهٔ محتوا'],['/quiz','👥','منو چقدر می‌شناسی؟'],['/hist','📈','تاریخچهٔ من'],['/emergency','🆘','الان حالم خوب نیست',true],['/about','ℹ️','درباره']];
-  let h=`<div style="margin-bottom:20px"><h1>🧠 اتاق ذهن</h1><p class="m">Mind Room — فضایی امن برای شناخت بهتر خودت</p></div><p style="font-size:1.05rem;font-weight:600;margin-bottom:14px">الان از اتاق ذهن چی می‌خوای؟</p>`;
-  menu.forEach(([u,e,l,warn])=>{h+=`<button class="ib" onclick="nav('${u}')" ${warn?'style="border-color:rgba(239,68,68,.5);background:rgba(239,68,68,.08)"':''}><span class="e">${e}</span><span class="l" ${warn?'style="color:#F87171"':''}>${l}</span><span class="ch">›</span></button>`});
-  h+=`<div class="dis" style="margin-top:20px"><strong>یادآوری:</strong> این اپ ابزار خودآگاهی و غربالگری است و <strong>جایگزین تشخیص یا درمان تخصصی نیست</strong>.</div>`;
-  document.getElementById('app').innerHTML=h;
+  const hour = new Date().getHours();
+  let greet = 'سلام';
+  if(hour < 12) greet = 'صبح بخیر';
+  else if(hour < 18) greet = 'وقت بخیر';
+  else greet = 'شب بخیر';
+
+  document.getElementById('app').innerHTML = `
+    <div class="fd">
+      <h1>🧠 اتاق ذهن</h1>
+      <p class="m" style="margin-bottom:24px">${greet} 🌱</p>
+
+      <p style="font-size:1.15rem;font-weight:600;margin-bottom:20px;line-height:1.7">
+        الان بیشتر دلت می‌خواد خودتو بفهمی یا حالت رو بهتر کنی؟
+      </p>
+
+      <button class="big-choice" onclick="nav('/profile')">
+        <span class="e">🪞</span>
+        <span>امروز خودمو بهتر بفهمم</span>
+      </button>
+
+      <button class="big-choice" onclick="nav('/state')">
+        <span class="e">🔍</span>
+        <span>بفهمم چرا این‌طوری‌ام</span>
+      </button>
+
+      <button class="big-choice" onclick="nav('/skills')">
+        <span class="e">🌱</span>
+        <span>یه چیز جدید یاد بگیرم</span>
+      </button>
+
+      <button class="big-choice" onclick="nav('/tests')">
+        <span class="e">🧪</span>
+        <span>یه تست انجام بدم</span>
+      </button>
+
+      <button class="big-choice" onclick="nav('/situation')">
+        <span class="e">💭</span>
+        <span>یه چیزی ذهنمو درگیر کرده</span>
+      </button>
+
+      <button class="big-choice" onclick="nav('/mood')">
+        <span class="e">🎧</span>
+        <span>یه چیزی متناسب با حالم می‌خوام</span>
+      </button>
+
+      <div class="dis" style="margin-top:24px">
+        <strong>یادآوری:</strong> این اپ ابزار خودآگاهی و غربالگری است و <strong>جایگزین تشخیص یا درمان تخصصی نیست</strong>.
+      </div>
+    </div>
+  `;
 }
 
-function vPaths(){
-  let h=`<button class="back" onclick="nav('/')">← بازگشت</button><h1>🧭 مسیر شخصی</h1><p class="m" style="margin-bottom:18px">چند سؤال کوتاه، بعد یک مسیر پیشنهادی.</p>`;
-  Object.values(PATHS).forEach(p=>{h+=`<div class="card c" onclick="nav('/path/${p.id}')"><h4><span>${p.e}</span> ${p.title}</h4><p>${p.d}</p></div>`});
-  h+=`<div class="dis" style="margin-top:16px"><strong>توجه:</strong> مسیر شخصی، تشخیص پزشکی نیست.</div>`;
-  document.getElementById('app').innerHTML=h;
+// ============================================================
+// PROFILE - خودشناسی
+// ============================================================
+
+function vProfileList(){
+  let h = `<button class="back" onclick="nav('/')">← بازگشت</button>
+    <h1>🪞 خودمو بهتر بشناسم</h1>
+    <p class="m" style="margin-bottom:18px">چند مسیر کوتاه که با سؤال‌های داستانی، یه تیکه از خودت رو نشونت می‌ده.</p>`;
+
+  Object.values(PROFILE_PATHS).forEach(p=>{
+    const remembered = ST.mem['profile_'+p.id];
+    h += `<div class="card c" onclick="nav('/profile-run/${p.id}')">
+      <h4><span>${p.e}</span> ${p.title}</h4>
+      ${remembered ? `<p style="color:var(--a);font-size:.8rem;margin-top:6px">قبلاً این مسیر رو رفتی — دوباره امتحان کن</p>` : `<p>${p.qs.length} سؤال کوتاه</p>`}
+    </div>`;
+  });
+
+  h += `<div class="dis" style="margin-top:16px"><strong>یادآوری:</strong> این نتایج ابزار خودشناسی است، نه تشخیص روان‌شناختی.</div>`;
+  document.getElementById('app').innerHTML = h;
 }
 
-function vPathIntro(id){
-  const p=PATHS[id];if(!p)return nav('/paths');
-  ST.aP=p;ST.aPS=0;ST.aPA={};
-  document.getElementById('app').innerHTML=`<button class="back" onclick="nav('/paths')">← بازگشت</button>
-    <div class="card"><h1 style="font-size:1.3rem">${p.e} ${p.title}</h1><p class="m">${p.d}</p>
-    <p style="margin-top:14px;font-size:.9rem"><strong>${p.qs.length} سؤال</strong> — حدود ۲ دقیقه</p>
-    <button class="btn bp" onclick="nav('/prun/${p.id}')">شروع</button></div>
-    <div class="dis">این مسیر <strong>تشخیص پزشکی نیست</strong>.</div>`;
+function vProfileRun(id){
+  const p = PROFILE_PATHS[id];
+  if(!p) return nav('/profile');
+  ST.aProfile = p;
+  ST.aPq = 0;
+  ST.aPA = {};
+
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="nav('/profile')">← بازگشت</button>
+    <div class="pg"><div class="pgb" style="width:0%"></div></div>
+    <p class="qn">سؤال ۱ از ${p.qs.length}</p>
+    <p class="q">${esc(p.qs[0].t)}</p>
+    <div class="opts">
+      ${p.qs[0].o.map((o,i)=>`<button class="opt" onclick="ansPq(${i})">${esc(o.l)}</button>`).join('')}
+    </div>
+    <p class="comment">این یکی جالبه 👀</p>
+  `;
 }
 
-function vPathRun(id){
-  const p=PATHS[id];if(!p)return nav('/paths');ST.aP=p;
-  const q=p.qs[ST.aPS],t=p.qs.length,pr=(ST.aPS/t)*100;
-  document.getElementById('app').innerHTML=`<button class="back" onclick="nav('/path/${p.id}')">← بازگشت</button>
-    <div class="pg"><div class="pgb" style="width:${pr}%"></div></div>
-    <p class="qn">سؤال ${ST.aPS+1} از ${t}</p>
-    <p class="qt">${esc(q.t)}</p>
-    <div class="opts">${q.o.map((o,i)=>`<button class="opt" onclick="ansP(${i})">${esc(o.l)}</button>`).join('')}</div>`;
-  window.scrollTo(0,0);
+function ansPq(oi){
+  const p = ST.aProfile;
+  const q = p.qs[ST.aPq];
+  const opt = q.o[oi];
+  for(const [k,v] of Object.entries(opt.s || {})){ ST.aPA[k] = (ST.aPA[k]||0) + v; }
+  ST.aPq++;
+  if(ST.aPq < p.qs.length) renderProfileQ();
+  else nav('/profile-result/' + p.id);
 }
 
-function ansP(i){
-  const p=ST.aP,q=p.qs[ST.aPS],o=q.o[i];
-  for(const[k,v]of Object.entries(o.s||{})){ST.aPA[k]=(ST.aPA[k]||0)+v}
-  ST.aPS++;
-  if(ST.aPS<p.qs.length)vPathRun(p.id);
-  else nav('/pres/'+p.id);
+function renderProfileQ(){
+  const p = ST.aProfile;
+  const q = p.qs[ST.aPq];
+  const prog = (ST.aPq / p.qs.length) * 100;
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="nav('/profile')">← بازگشت</button>
+    <div class="pg"><div class="pgb" style="width:${prog}%"></div></div>
+    <p class="qn">سؤال ${ST.aPq+1} از ${p.qs.length}</p>
+    <p class="q">${esc(q.t)}</p>
+    <div class="opts">
+      ${q.o.map((o,i)=>`<button class="opt" onclick="ansPq(${i})">${esc(o.l)}</button>`).join('')}
+    </div>
+  `;
 }
 
-function vPathRes(id){
-  const p=PATHS[id];if(!p)return nav('/paths');
-  const a=ST.aPA;
-  let sev='low';
-  const hi=(a.mm||0)+(a.c2||0)+(a.se||0)+(a.fq||0)+(a.vo||0)+(a.bd||0);
-  const md=(a.ww||0)+(a.sl||0)+(a.fo||0)+(a.im||0)+(a.cm||0);
-  if(hi>=4)sev='high';else if(hi>=2||md>=3)sev='medium';
-  const cf={low:{l:'قابل مدیریت',c:'#10B981',m:'وضعیتت در محدودهٔ قابل مدیریت است.'},medium:{l:'نیاز به توجه',c:'#F59E0B',m:'بهتر است به این موضوع توجه کنی.'},high:{l:'نیاز به پیگیری جدی',c:'#EF4444',m:'توصیه می‌شود با متخصص صحبت کنی.'}}[sev];
-  const rT=(p.rt||[]).map(t=>TESTS[t]).filter(Boolean);
-  const rS=(p.sk||[]).map(i=>SKILLS[i]).filter(Boolean);
-  saveHist({type:'path',id:p.id,title:p.title,severity:sev});
-  let h=`<button class="back" onclick="nav('/paths')">← بازگشت</button>
-    <div class="card" style="border-color:${cf.c}40"><span class="tag" style="background:${cf.c}20;color:${cf.c}">${cf.l}</span><h2 style="margin-top:8px">مسیر: ${p.title}</h2><p>${cf.m}</p></div>`;
-  if(rT.length){h+=`<h3 style="margin-top:20px">🧪 تست‌های مرتبط</h3>`;rT.forEach(t=>{h+=`<div class="card c" onclick="nav('/test/${t.id}')"><h4>${t.name}</h4><p>${t.sn} — ${t.dur} دقیقه</p></div>`})}
-  if(rS.length){h+=`<h3 style="margin-top:20px">🎯 مهارت‌های پیشنهادی</h3>`;rS.forEach(s=>{h+=`<div class="card c" onclick="nav('/skill/${s.id}')"><h4>${s.e} ${s.t}</h4><p>${s.i}</p></div>`})}
-  h+=`<h3 style="margin-top:20px">📅 تمرین ۷ روزه</h3><div class="card"><p>• روز ۱-۲: ۱۰ دقیقه نوشتن افکار</p><p>• روز ۳-۴: تنفس ۴-۷-۸ سه بار در روز</p><p>• روز ۵-۶: برنامهٔ نگرانی</p><p>• روز ۷: مرور و یادداشت</p></div>`;
-  if(sev==='high')h+=`<div class="warn"><strong>⚠️ توصیه:</strong> اگر بیش از چند هفته ادامه دارد، با روان‌شناس مشورت کن.<br>☎️ صدای مشاور: <strong>۱۴۸۰</strong> — اورژانس اجتماعی: <strong>۱۲۳</strong></div>`;
-  h+=`<button class="btn bp" onclick="shareR('${p.id}','${sev}')">📤 اشتراک‌گذاری</button><button class="btn bs" onclick="nav('/')">بازگشت به خانه</button>`;
-  document.getElementById('app').innerHTML=h;
+function vProfileResult(id){
+  const p = PROFILE_PATHS[id];
+  if(!p) return nav('/profile');
+  const r = p.result(ST.aPA);
+  saveMem('profile_'+p.id, ST.aPA);
+  saveHist({type:'profile', id:p.id, title:p.title, result:r.title});
+
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="nav('/profile')">← بازگشت</button>
+    <div class="fd">
+      <div class="sh">
+        <div class="l">${esc(r.title)}</div>
+      </div>
+      <div class="card"><p>${esc(r.desc)}</p></div>
+      ${r.likes ? `<div class="card"><h4>احتمالاً از این‌ها لذت می‌بری</h4><p>${r.likes.map(x=>'• '+esc(x)).join('<br>')}</p></div>` : ''}
+      ${r.challenges ? `<div class="card"><h4>ممکنه اینجاها به چالش بخوری</h4><p>${r.challenges.map(x=>'• '+esc(x)).join('<br>')}</p></div>` : ''}
+      ${r.tryNow ? `<div class="card" style="border-color:rgba(56,189,248,.4)"><h4>🌱 یک چیز که می‌تونی امتحان کنی</h4><p>${esc(r.tryNow)}</p></div>` : ''}
+
+      <button class="btn bp" onclick="shareProfile('${p.id}')">📤 اشتراک‌گذاری</button>
+      <button class="btn bs" onclick="nav('/profile')">مسیر دیگه</button>
+    </div>
+  `;
 }
 
-async function shareR(pid,sev){const p=PATHS[pid],l={low:'قابل مدیریت',medium:'نیاز به توجه',high:'نیاز به پیگیری'}[sev];await share('نتیجهٔ اتاق ذهن',`🧭 ${p.title}\nسطح: ${l}\n\nتو هم امتحان کن:`,appUrl())}
-
-function vTests(){
-  let h=`<button class="back" onclick="nav('/')">← بازگشت</button><h1>🧪 تست‌های روان‌شناختی</h1><p class="m" style="margin-bottom:16px">ابزارهای غربالگری معتبر</p><div class="dis"><strong>⚠️ مهم:</strong> این تست‌ها <strong>تشخیص پزشکی نیستند</strong>.</div>`;
-  Object.values(TESTS).forEach(t=>{h+=`<div class="card c" onclick="nav('/test/${t.id}')"><h4>${t.name} <span class="tag">${t.sn}</span></h4><p>${t.qs.length} سؤال • ${t.dur} دقیقه • ${t.tag}</p></div>`});
-  document.getElementById('app').innerHTML=h;
+async function shareProfile(pid){
+  const p = PROFILE_PATHS[pid];
+  const r = p.result(ST.aPA);
+  await share('نتیجهٔ اتاق ذهن', `🪞 ${r.title}\n\nتو هم امتحان کن:`, appUrl());
 }
 
-function vTestIntro(id){
-  const t=TESTS[id];if(!t)return nav('/tests');
-  ST.aT=t;ST.aTA=new Array(t.qs.length).fill(null);
-  document.getElementById('app').innerHTML=`<button class="back" onclick="nav('/tests')">← بازگشت</button>
-    <div class="card"><h1 style="font-size:1.3rem">${t.name}</h1><p class="m">${t.sn}</p><p style="margin-top:12px">${t.intro}</p>
-    <p style="margin-top:10px"><strong>${t.qs.length} سؤال</strong> • حدود ${t.dur} دقیقه</p>
-    <button class="btn bp" onclick="nav('/trun/${t.id}')">شروع تست</button></div>
-    <div class="dis">نتیجه <strong>تشخیص پزشکی نیست</strong>.</div>`;
-  window.scrollTo(0,0);
+// ============================================================
+// STATE - حالت فعلی
+// ============================================================
+
+function vStateList(){
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="nav('/')">← بازگشت</button>
+    <h1>🔍 الان چی داره توی من می‌گذره؟</h1>
+    <p class="m" style="margin-bottom:18px">اول یک سؤال. بعد چند سؤال کوتاه. در پایان، مسیر پیشنهادی.</p>
+    <p class="q">الان بیشتر کدومو تجربه می‌کنی؟</p>
+    <div class="opts">
+      ${Object.values(STATE_FLOWS).map(s=>`
+        <button class="opt" onclick="nav('/state-run/${s.title}')">${s.e} ${s.title}</button>
+      `).join('')}
+    </div>
+    <div class="dis" style="margin-top:20px"><strong>یادآوری:</strong> این بخش <strong>تشخیص پزشکی نیست</strong>. یه ابزار خودآگاهی‌ه که مسیر بعدی رو بهت نشون می‌ده.</div>
+  `;
 }
 
-function vTestRun(id){
-  const t=TESTS[id];if(!t)return nav('/tests');ST.aT=t;
-  if(ST.aTA.length!==t.qs.length)ST.aTA=new Array(t.qs.length).fill(null);
-  const ans=ST.aTA.filter(a=>a!==null).length,pr=(ans/t.qs.length)*100;
-  let h=`<button class="back" onclick="nav('/test/${t.id}')">← بازگشت</button>
-    <h2 style="font-size:1.1rem">${t.sn}</h2><p class="m" style="margin-bottom:10px">${t.intro}</p>
-    <div class="pg"><div class="pgb" style="width:${pr}%"></div></div>
-    <p class="m" style="font-size:.82rem;margin-bottom:14px">${ans} از ${t.qs.length}</p>`;
-  t.qs.forEach((q,qi)=>{h+=`<div class="card"><p style="font-size:.9rem;margin-bottom:10px"><strong>${qi+1}.</strong> ${esc(q)}</p><div class="opts" style="gap:6px">${t.opts.map((o,oi)=>`<button class="opt ${ST.aTA[qi]===oi?'sel':''}" style="padding:10px 14px;font-size:.85rem" onclick="ansT(${qi},${oi})">${esc(o.l)}</button>`).join('')}</div></div>`});
-  h+=`<button class="btn bp" onclick="subT()" ${ans<t.qs.length?'disabled':''}>${ans<t.qs.length?`پاسخ به همه (${ans}/${t.qs.length})`:'مشاهدهٔ نتیجه'}</button>`;
-  document.getElementById('app').innerHTML=h;
+function vStateRun(title){
+  const flow = Object.values(STATE_FLOWS).find(s=>s.title === title);
+  if(!flow) return nav('/state');
+  ST.aState = flow;
+  ST.aSq = 0;
+  ST.aSA = {};
+  renderStateQ();
 }
 
-function ansT(qi,oi){ST.aTA[qi]=oi;vTestRun(ST.aT.id)}
-
-function subT(){
-  const t=ST.aT;let s=0;
-  t.qs.forEach((_,i)=>{let v=t.opts[ST.aTA[i]].v;if(t.rv&&t.rv.includes(i)){const mx=Math.max(...t.opts.map(o=>o.v));const mn=Math.min(...t.opts.map(o=>o.v));v=(mx+mn)-v}s+=v});
-  if(t.mult)s*=t.mult;
-  let crit=false;
-  if(t.crit!==undefined){const o=t.opts[ST.aTA[t.crit]];if(o&&o.v>0)crit=true}
-  const rg=t.rs.find(r=>s<=r.m)||t.rs[t.rs.length-1];
-  saveHist({type:'test',id:t.id,title:t.name,score:s,label:rg.l});
-  ST.last={type:'test',id:t.id,s,rg,crit};
-  nav('/tres/'+t.id);
+function renderStateQ(){
+  const s = ST.aState;
+  const q = s.questions[ST.aSq];
+  const prog = (ST.aSq / s.questions.length) * 100;
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="nav('/state')">← بازگشت</button>
+    <div class="pg"><div class="pgb" style="width:${prog}%"></div></div>
+    <p class="qn">سؤال ${ST.aSq+1} از ${s.questions.length}</p>
+    <p class="q">${esc(q.t)}</p>
+    <div class="opts">
+      ${q.o.map((o,i)=>`<button class="opt" onclick="ansSq(${i})">${esc(o.l)}</button>`).join('')}
+    </div>
+  `;
 }
 
-function vTestRes(id){
-  const t=TESTS[id];if(!t)return nav('/tests');
-  const r=ST.last;if(!r||r.type!=='test')return nav('/test/'+id);
-  let h=`<button class="back" onclick="nav('/tests')">← بازگشت</button>
-    <div class="sh"><div class="n">${r.s}</div><div class="l" style="color:${r.rg.c}">${r.rg.l}</div></div>
-    <div class="card"><p>${r.rg.d}</p></div>`;
-  if(r.crit)h+=`<div class="warn"><strong>🆘 توجه فوری:</strong> پاسخ‌هایت نشان می‌دهد ممکن است به خودت آسیب برسانی. لطفاً همین حالا با یکی از این خطوط تماس بگیر:<br>☎️ اورژانس اجتماعی: <strong>۱۲۳</strong><br>☎️ صدای مشاور: <strong>۱۴۸۰</strong></div>`;
-  h+=`<div class="dis"><strong>⚠️ یادآوری:</strong> این نتیجه <strong>غربالگری اولیه</strong> است و <strong>تشخیص قطعی نیست</strong>.</div>`;
-  h+=`<button class="btn bp" onclick="shareT('${t.id}',${r.s})">📤 اشتراک‌گذاری</button><button class="btn bs" onclick="ST.aTA=[];nav('/test/${t.id}')">تکرار تست</button>`;
-  document.getElementById('app').innerHTML=h;
+function ansSq(oi){
+  const s = ST.aState;
+  const q = s.questions[ST.aSq];
+  const opt = q.o[oi];
+  for(const [k,v] of Object.entries(opt.s||{})){ ST.aSA[k] = (ST.aSA[k]||0) + v; }
+  ST.aSq++;
+  if(ST.aSq < s.questions.length) renderStateQ();
+  else nav('/state-result/' + encodeURIComponent(s.title));
 }
 
-async function shareT(tid,s){const t=TESTS[tid];await share('نتیجهٔ اتاق ذهن',`🧪 ${t.sn}\nنمره: ${s}\n\nتو هم امتحان کن:`,appUrl())}
+function vStateResult(title){
+  const flow = Object.values(STATE_FLOWS).find(s=>s.title === title);
+  if(!flow) return nav('/state');
+  const r = flow.result(ST.aSA);
+  saveHist({type:'state', title:flow.title, result:r.msg, urgency:r.urgency});
 
-function vEnc(){
-  let h=`<button class="back" onclick="nav('/')">← بازگشت</button><h1>📖 دانشنامه</h1><p class="m" style="margin-bottom:14px">توضیح دقیق اختلالات</p>`;
-  ENC.forEach(e=>{h+=`<div class="card c" onclick="nav('/entry/${e.id}')"><h4><span>${e.e}</span> ${e.t}</h4><p>${e.i}</p></div>`});
-  h+=`<div class="dis" style="margin-top:16px">این دانشنامه صرفاً برای آموزش است.</div>`;
-  document.getElementById('app').innerHTML=h;
+  const suggestions = r.suggestions || [];
+  const urgent = r.urgency === 'high';
+  const medium = r.urgency === 'medium';
+
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="nav('/state')">← بازگشت</button>
+    <div class="fd">
+      <div class="card" style="border-color:${urgent?'rgba(239,68,68,.5)':medium?'rgba(245,158,11,.5)':'rgba(56,189,248,.5)'}">
+        <p style="font-size:1.05rem;line-height:1.9">${esc(r.msg)}</p>
+      </div>
+
+      ${r.signs && r.signs.length ? `
+        <h3 style="margin-top:20px">چند نشانه‌ای که از جواب‌هات دیده می‌شه:</h3>
+        <div class="card">
+          ${r.signs.map(s=>`<p>• ${esc(s)}</p>`).join('')}
+        </div>
+      ` : ''}
+
+      ${urgent ? `
+        <div class="warn">
+          <strong>⚠️ توجه:</strong> این وضعیت ممکنه مدت‌ها ادامه داشته. توصیه می‌شه با یک متخصص صحبت کنی.<br>
+          ☎️ صدای مشاور: <strong>۱۴۸۰</strong> — اورژانس اجتماعی: <strong>۱۲۳</strong>
+        </div>
+      ` : medium ? `
+        <div class="dis">
+          <strong>ℹ️ توجه:</strong> اگه این حالت بیش از چند هفته ادامه داشت، مشورت با متخصص ارزش داره.
+        </div>
+      ` : ''}
+
+      <h3 style="margin-top:20px">حالا دوست داری کدومو انجام بدی؟</h3>
+      ${suggestions.map(s=>`
+        <button class="ib" onclick="handleStateAction('${s.a}', '${flow.title}')">
+          <span class="l">${esc(s.t)}</span>
+          <span class="ch">›</span>
+        </button>
+      `).join('')}
+
+      <button class="btn bs" onclick="nav('/state')">حالت دیگه</button>
+    </div>
+  `;
 }
 
-function vEntry(id){
-  const e=ENC.find(x=>x.id===id);if(!e)return nav('/enc');
-  let h=`<button class="back" onclick="nav('/enc')">← بازگشت</button>
-    <div class="card"><h1 style="font-size:1.3rem">${e.e} ${e.t}</h1><p class="m">${e.i}</p></div>
-    <details class="acc" open><summary>این چیست؟</summary><div class="bd">${esc(e.w)}</div></details>
-    <details class="acc"><summary>چه چیزهایی شبیه آن است؟</summary><div class="bd">${e.sim.map(s=>'• '+esc(s)).join('<br>')}</div></details>
-    <details class="acc"><summary>غربالگری</summary><div class="bd">${esc(e.scr)}</div></details>
-    <details class="acc"><summary>چه زمانی جدی گرفته شود؟</summary><div class="bd">${e.ws.map(s=>'• '+esc(s)).join('<br>')}</div></details>
-    <details class="acc"><summary>مهارت‌های کمک‌کننده</summary><div class="bd">${e.sk.map(s=>'• '+esc(s)).join('<br>')}</div></details>
-    <details class="acc"><summary>درمان‌ها</summary><div class="bd">${e.tr.map(s=>'• '+esc(s)).join('<br>')}</div></details>
-    <details class="acc"><summary>چه زمانی متخصص لازم است؟</summary><div class="bd">${e.wp.map(s=>'• '+esc(s)).join('<br>')}</div></details>
-    <details class="acc"><summary>📚 کتاب‌های مرتبط</summary><div class="bd">${e.bk.map(s=>'• '+esc(s)).join('<br>')}</div></details>
-    <details class="acc"><summary>🧪 تمرین‌ها</summary><div class="bd">${e.ex.map(s=>'• '+esc(s)).join('<br>')}</div></details>
-    <details class="acc"><summary>🎬 فیلم‌های مرتبط</summary><div class="bd">${e.fl.map(s=>'• '+esc(s)).join('<br>')}</div></details>
-    <details class="acc"><summary>🎧 موسیقی مرتبط</summary><div class="bd">${e.mu.map(s=>'• '+esc(s)).join('<br>')}</div></details>`;
-  if(e.rt.length){h+=`<h3 style="margin-top:20px">تست‌های مرتبط</h3>`;e.rt.forEach(tid=>{if(TESTS[tid])h+=`<div class="card c" onclick="nav('/test/${tid}')"><h4>${TESTS[tid].name}</h4><p>${TESTS[tid].sn} — ${TESTS[tid].dur} دقیقه</p></div>`})}
-  h+=`<div class="dis" style="margin-top:20px"><strong>یادآوری:</strong> این مطلب آموزشی است.</div>`;
-  document.getElementById('app').innerHTML=h;
+function handleStateAction(action, stateTitle){
+  if(action === 'breathing') { nav('/skill/calm'); return; }
+  if(action === 'grounding') { nav('/skill/calm'); return; }
+  if(action === 'explain') { showExplain(stateTitle); return; }
+  if(action === 'explain_dep') { showExplain('افسردگی'); return; }
+  if(action === 'explain_anx') { showExplain('اضطراب'); return; }
+  if(action === 'explain_anger') { showExplain('خشم'); return; }
+  if(action === 'explain_numb') { showExplain('بی‌حسی'); return; }
+  if(action === 'explain_sad') { showExplain('غم'); return; }
+  if(action === 'music_calm') { nav('/music'); return; }
+  if(action === 'music_lift') { nav('/music'); return; }
+  if(action === 'music_accompany') { nav('/music'); return; }
+  if(action === 'read_mind') { showRead('ذهن شلوغ'); return; }
+  if(action === 'read_dep') { showRead('افسردگی'); return; }
+  if(action === 'read_anx') { showRead('اضطراب'); return; }
+  if(action === 'read_anger') { showRead('خشم'); return; }
+  if(action === 'read_numb') { showRead('بی‌حسی'); return; }
+  if(action === 'read_sad') { showRead('غم'); return; }
 }
+
+const EXPLAINS = {
+  'ذهن شلوغ / فشار ذهنی': {title:'چرا ذهنم شلوغه؟', body:'ذهن ما برای محافظت ازمون طراحی شده که مدام سناریو بسازه. وقتی استرس بیشتره، این کار بیشتر می‌شه. شلوغی ذهن معمولاً یعنی یه چیزی توی زندگی‌ات هست که ذهنت می‌خواد حلش کنه، ولی راه‌حلش رو نمی‌دونه.'},
+  'افسردگی': {title:'چرا این حال رو دارم؟', body:'حالت‌های شبیه افسردگی، معمولاً ترکیبی هستن از: عوامل زیستی، رویدادهای زندگی، الگوهای فکری، و شرایط محیطی. این یک ضعف نیست، یک وضعیت پیچیده‌ست که به توجه نیاز داره.'},
+  'اضطراب': {title:'اضطراب از کجا میاد؟', body:'اضطراب یه سیستم هشداره که وقتی خطری رو پیش‌بینی می‌کنه فعال می‌شه. وقتی این سیستم حساس‌تر از حد لازم می‌شه، برای موقعیت‌هایی که خطر واقعی نیستن هم روشن می‌شه.'},
+  'خشم': {title:'چرا زود عصبانی می‌شم؟', body:'خشم معمولاً پاسخ به یه نیاز برآورده نشده‌ست. وقتی حس می‌کنی مرزهات نقض شده، یا دیده نمی‌شی، خشم به‌عنوان یک سیگنال ظاهر می‌شه.'},
+  'بی‌حسی': {title:'چرا هیچی حس نمی‌کنم؟', body:'بی‌حسی معمولاً مکانیزم دفاعی ذهنه. وقتی احساسات زیادی سنگین می‌شن، ذهن یه لایه بین تو و احساساتت می‌کشه. این یه محافظت موقتیه، ولی مانع تجربه کامل زندگی هم می‌شه.'},
+  'غم': {title:'این غم از کجاست؟', body:'غم یه احساس پایه‌ست که وقتی از دست دادن یا نیاز برآورده نشده تجربه می‌شه. اگه غم موندگار شده، معمولاً یه بخشی از زندگیت هست که نیاز به توجه داره.'}
+};
+
+function showExplain(title){
+  const e = EXPLAINS[title] || EXPLAINS['ذهن شلوغ / فشار ذهنی'];
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="history.back()">← بازگشت</button>
+    <div class="card fd">
+      <h1>🧠 ${esc(e.title)}</h1>
+      <p style="line-height:1.9">${esc(e.body)}</p>
+    </div>
+    <div class="dis">این توضیح کلی است. برای موقعیت خاص خودت، با یه متخصص صحبت کن.</div>
+    <button class="btn bp" onclick="nav('/skills')">یادگیری مهارت‌های کمک‌کننده</button>
+  `;
+}
+
+const READS = {
+  'ذهن شلوغ': 'ذهن شلوغی، وقتی شدید می‌شه، به «نشخوار فکری» تبدیل می‌شه. سه تا کار می‌تونه کمک کنه: (۱) برنامهٔ نگرانی روزانه، (۲) نوشتن افکار، (۳) برگشتن به لحظهٔ حال با تکنیک ۵-۴-۳-۲-۱.',
+  'افسردگی': 'افسردگی یه اختلال شایع‌ه. کمک‌های اولیه: فعالیت بدنی منظم، نور خورشید، ارتباط اجتماعی، ساختار روزانه. اگه بیش از دو هفته طول کشید، مشورت با متخصص مهمه.',
+  'اضطراب': 'اضطراب با تنفس و آرام‌سازی بدن قابل مدیریت‌تر می‌شه. یه تکنیک ساده: ۴-۷-۸. تکنیک دیگه: رفتن به حواس پنج‌گانه. برای اضطراب مزمن، CBT مؤثرترین رویکرده.',
+  'خشم': 'خشم وقتی شدید می‌شه، سه تا کار کمک می‌کنه: (۱) پیش از واکنش، ۶ ثانیه صبر، (۲) توجه به نیاز پشتش، (۳) بیان محترمانه اون نیاز.',
+  'بی‌حسی': 'بی‌حسی معمولاً نشانه‌ی اینه که ذهنت داره ازت محافظت می‌کنه. بی‌زور کردن حس‌ها کارساز نیست. کمک‌کننده‌ها: حرکت بدنی، مواجههٔ تدریجی با احساسات، و در موارد شدید کار با متخصص.',
+  'غم': 'غم اگه به‌درستی تجربه بشه، مسیر عبور داره. کمک‌کننده‌ها: اجازه دادن به خودت برای گریه، نوشتن، حرف زدن، و اجازه دادن به زمان.'
+};
+
+function showRead(title){
+  const text = READS[title] || READS['ذهن شلوغ'];
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="history.back()">← بازگشت</button>
+    <div class="card fd">
+      <h2>📖 ${esc(title)} — یک نگاه کوتاه</h2>
+      <p style="line-height:1.9">${esc(text)}</p>
+    </div>
+    <button class="btn bp" onclick="nav('/skills')">مهارت‌های مرتبط</button>
+    <button class="btn bs" onclick="nav('/mood')">محتوای متناسب با حالم</button>
+  `;
+}
+
+// ============================================================
+// SKILLS
+// ============================================================
 
 function vSkills(){
-  let h=`<button class="back" onclick="nav('/')">← بازگشت</button><h1>🎯 مهارت‌ها</h1><p class="m" style="margin-bottom:16px">تمرین‌های عملی</p>`;
-  SKILLS.forEach(s=>{h+=`<div class="card c" onclick="nav('/skill/${s.id}')"><h4>${s.e} ${s.t}</h4><p>${s.i}</p><div style="margin-top:8px"><span class="tag">${s.c}</span>${s.d?`<span class="tag">${s.d} دقیقه</span>`:''}</div></div>`});
-  document.getElementById('app').innerHTML=h;
+  let h = `<button class="back" onclick="nav('/')">← بازگشت</button>
+    <h1>🎯 آموزش مهارت‌های روانشناسی</h1>
+    <p class="m" style="margin-bottom:18px">هر مهارت: یک مفهوم کوتاه، یک مثال، یک تمرین، یک چالش.</p>`;
+
+  SKILLS.forEach(s=>{
+    h += `<div class="card c" onclick="nav('/skill/${s.id}')">
+      <h4><span>${s.e}</span> ${s.t}</h4>
+      <p>${s.c} • ${s.time} دقیقه</p>
+    </div>`;
+  });
+
+  document.getElementById('app').innerHTML = h;
 }
 
 function vSkill(id){
-  const s=SKILLS.find(x=>x.id===id);if(!s)return nav('/skills');
-  let h=`<button class="back" onclick="nav('/skills')">← بازگشت</button>
-    <div class="card"><h1 style="font-size:1.3rem">${s.e} ${s.t}</h1><p class="m">${s.i}</p></div>
-    <h3 style="margin-top:16px">مراحل</h3>`;
-  s.st.forEach((st,i)=>{h+=`<div class="card" style="display:flex;gap:12px;align-items:flex-start"><div style="background:var(--p);color:#0B1220;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0">${i+1}</div><div style="flex:1">${esc(st)}</div></div>`});
-  if(s.wy)h+=`<h3 style="margin-top:16px">چرا کار می‌کند؟</h3><div class="card"><p>${esc(s.wy)}</p></div>`;
-  if(s.wn)h+=`<h3 style="margin-top:16px">کِی استفاده کنیم؟</h3><div class="card"><p>${esc(s.wn)}</p></div>`;
-  document.getElementById('app').innerHTML=h;
+  const s = SKILLS.find(x=>x.id === id);
+  if(!s) return nav('/skills');
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="nav('/skills')">← بازگشت</button>
+    <div class="fd">
+      <div class="card">
+        <h1 style="font-size:1.3rem">${s.e} ${s.t}</h1>
+        <p class="m">${s.c} • ${s.time} دقیقه</p>
+      </div>
+
+      <h3>💡 مفهوم</h3>
+      <div class="card"><p style="line-height:1.9">${esc(s.concept)}</p></div>
+
+      <h3>📖 یک موقعیت واقعی</h3>
+      <div class="card"><p style="line-height:1.9">${esc(s.example)}</p></div>
+
+      <h3>🎯 تمرین</h3>
+      <div class="card" style="border-color:rgba(56,189,248,.4)"><p style="line-height:1.9">${esc(s.exercise)}</p></div>
+
+      <h3>🌱 چالش امروز</h3>
+      <div class="card" style="border-color:rgba(167,139,250,.4)"><p style="line-height:1.9">${esc(s.challenge)}</p></div>
+
+      <button class="btn bp" onclick="saveHist({type:'skill',title:'${s.t}'});alert('ثبت شد ✅')">ثبت کردم که تمرین کردم</button>
+      <button class="btn bs" onclick="nav('/skills')">مهارت دیگه</button>
+    </div>
+  `;
 }
 
-function vLib(tab){
-  const tabs=[['books','📖 کتاب‌ها'],['films','🎬 فیلم‌ها'],['music','🎧 موسیقی']];
-  const cur=['books','films','music'].includes(tab)?tab:'books';
-  let h=`<button class="back" onclick="nav('/')">← بازگشت</button><h1>📚 کتابخانه</h1>
-    <div class="ltabs">${tabs.map(([id,l])=>`<button class="ltab ${id===cur?'a':''}" onclick="nav('/lib/${id}')">${l}</button>`).join('')}</div>`;
-  if(cur==='books')BOOKS.forEach(b=>{h+=`<div class="card"><h4>📖 ${b.t}</h4><p style="color:var(--t);font-size:.85rem;margin-bottom:4px">${b.a}</p><p>${b.d}</p><div style="margin-top:8px"><span class="tag">${b.g}</span></div></div>`});
-  else if(cur==='films')FILMS.forEach(f=>{h+=`<div class="card"><h4>🎬 ${f.t}</h4><p style="color:var(--t);font-size:.85rem;margin-bottom:4px">${f.y}</p><p>${f.d}</p><div style="margin-top:8px"><span class="tag">${f.g}</span></div></div>`});
-  else MUSIC.forEach(m=>{h+=`<div class="card"><h4>🎧 ${m.t}</h4><p>${m.d}</p><div style="margin-top:8px"><span class="tag">${m.g}</span></div></div>`});
-  document.getElementById('app').innerHTML=h;
+// ============================================================
+// TESTS
+// ============================================================
+
+function vTestsList(){
+  const byTime = {1:[], 3:[], 10:[]};
+  Object.values(TESTS).forEach(t=>{
+    if(t.time === 1) byTime[1].push(t);
+    else if(t.time === 3) byTime[3].push(t);
+    else byTime[10].push(t);
+  });
+
+  let h = `<button class="back" onclick="nav('/')">← بازگشت</button>
+    <h1>🧪 یک تست انجام بدم</h1>
+    <p class="q">الان حوصله چند دقیقه تست داری؟</p>`;
+
+  if(byTime[1].length){
+    h += `<h3 style="margin-top:20px">⚡ ۱ دقیقه‌ای</h3>`;
+    byTime[1].forEach(t=>{ h += `<div class="card c" onclick="nav('/test/${t.id}')"><h4>${t.name}</h4><p>${t.cat} • ۱ دقیقه</p></div>`; });
+  }
+  if(byTime[3].length){
+    h += `<h3 style="margin-top:20px">🌱 ۳ دقیقه‌ای</h3>`;
+    byTime[3].forEach(t=>{ h += `<div class="card c" onclick="nav('/test/${t.id}')"><h4>${t.name}</h4><p>${t.cat} • ۳ دقیقه</p></div>`; });
+  }
+
+  h += `<div class="dis" style="margin-top:20px">این تست‌ها خودشناسی‌ان، نه تشخیص پزشکی.</div>`;
+  document.getElementById('app').innerHTML = h;
+}
+
+function vTestIntro(id){
+  const t = TESTS[id];
+  if(!t) return nav('/tests');
+  ST.aT = t;
+  ST.aTA = new Array(t.qs.length).fill(null);
+
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="nav('/tests')">← بازگشت</button>
+    <div class="card fd">
+      <h1 style="font-size:1.2rem">${t.name}</h1>
+      <p class="m">${t.cat} • ${t.time} دقیقه</p>
+      <p style="margin-top:14px">${t.qs.length} سؤال کوتاه. هر کدوم رو با حس اولت جواب بده.</p>
+      <button class="btn bp" onclick="nav('/test-run/${t.id}')">شروع</button>
+    </div>
+    <div class="dis">این تست برای خودشناسی است، نه تشخیص.</div>
+  `;
+}
+
+function vTestRun(id){
+  const t = TESTS[id];
+  if(!t) return nav('/tests');
+  const prog = (ST.aTA.filter(a=>a!==null).length / t.qs.length) * 100;
+  let h = `<button class="back" onclick="nav('/test/${t.id}')">← بازگشت</button>
+    <div class="pg"><div class="pgb" style="width:${prog}%"></div></div>`;
+
+  t.qs.forEach((q, qi)=>{
+    h += `<div class="card">
+      <p class="q" style="font-size:1rem">${qi+1}. ${esc(q.t)}</p>
+      <div class="opts" style="gap:6px">
+        ${q.o.map((o, oi)=>`<button class="opt ${ST.aTA[qi]===oi?'sel':''}" style="padding:10px 14px;font-size:.9rem" onclick="ansT(${qi},${oi})">${esc(o)}</button>`).join('')}
+      </div>
+    </div>`;
+  });
+
+  const all = ST.aTA.every(a=>a!==null);
+  h += `<button class="btn bp" onclick="subT()" ${all?'':'disabled'}>${all?'مشاهدهٔ نتیجه':'پاسخ به همهٔ سؤال‌ها'}</button>`;
+  document.getElementById('app').innerHTML = h;
+}
+
+function ansT(qi, oi){
+  ST.aTA[qi] = oi;
+  vTestRun(ST.aT.id);
+}
+
+function subT(){
+  const t = ST.aT;
+  const r = t.result(ST.aTA);
+  saveHist({type:'test', title:t.name, result:r.title});
+  ST.lastResult = {t, r};
+  nav('/test-result/' + t.id);
+}
+
+function vTestResult(id){
+  const t = TESTS[id];
+  if(!t) return nav('/tests');
+  const data = ST.lastResult;
+  if(!data || data.t.id !== id) return nav('/test/' + id);
+  const r = data.r;
+
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="nav('/tests')">← بازگشت</button>
+    <div class="fd">
+      <div class="sh">
+        <div class="l">${esc(r.title)}</div>
+      </div>
+      <div class="card"><p style="line-height:1.9">${esc(r.desc)}</p></div>
+      ${r.likes ? `<div class="card"><h4>احتمالاً از این‌ها لذت می‌بری</h4><p>${r.likes.map(x=>'• '+esc(x)).join('<br>')}</p></div>` : ''}
+      ${r.challenges ? `<div class="card"><h4>ممکنه اینجاها به چالش بخوری</h4><p>${r.challenges.map(x=>'• '+esc(x)).join('<br>')}</p></div>` : ''}
+      ${r.tryNow ? `<div class="card" style="border-color:rgba(56,189,248,.4)"><h4>🌱 یک چیز که می‌تونی امتحان کنی</h4><p>${esc(r.tryNow)}</p></div>` : ''}
+      <div class="dis">این نتیجه یک غربالگری خودشناسی است، نه تشخیص قطعی.</div>
+      <button class="btn bp" onclick="shareTestResult('${t.id}')">📤 اشتراک‌گذاری</button>
+      <button class="btn bs" onclick="nav('/tests')">تست دیگه</button>
+    </div>
+  `;
+}
+
+async function shareTestResult(tid){
+  const t = TESTS[tid];
+  const r = ST.lastResult.r;
+  await share('نتیجهٔ اتاق ذهن', `🧪 ${t.name}\nنتیجه: ${r.title}\n\nتو هم امتحان کن:`, appUrl());
+}
+
+// ============================================================
+// SITUATION
+// ============================================================
+
+const SIT_STEPS = [
+  {key:'event', q:'چه اتفاقی افتاد؟', hint:'فقط واقعیت‌ها رو بنویس، بدون تفسیر.', multiline:true},
+  {key:'you', q:'تو چی گفتی؟', hint:'اگه چیزی نگفتی، همین رو بنویس.', multiline:true},
+  {key:'them', q:'طرف مقابل چی گفت یا چه کار کرد؟', hint:'دقیقاً چی شد؟', multiline:true},
+  {key:'feel', q:'اون لحظه چه حسی داشتی؟', hint:'حتی اگه مبهمه، سعی کن اسمش رو پیدا کنی.', multiline:true},
+  {key:'want', q:'الان بیشتر دنبال چی هستی؟', opts:['بفهمم حق با کی بوده','بفهمم چرا اینقدر ناراحت شدم','بدونم چی جواب بدم','رابطه‌مون رو بهتر کنم','فقط می‌خوام یکی کمکم کنه موضوع رو مرتب کنم']}
+];
+
+function vSituation(){
+  ST.situation = {step:0, data:{}};
+  renderSituation();
+}
+
+function renderSituation(){
+  const step = ST.situation.step;
+  const s = SIT_STEPS[step];
+  const prog = (step / SIT_STEPS.length) * 100;
+
+  let content = `
+    <button class="back" onclick="nav('/')">← بازگشت</button>
+    <div class="pg"><div class="pgb" style="width:${prog}%"></div></div>
+    <p class="qn">قدم ${step+1} از ${SIT_STEPS.length}</p>
+    <p class="q">${esc(s.q)}</p>
+    <p class="m" style="margin-bottom:14px">${esc(s.hint||'')}</p>
+  `;
+
+  if(s.multiline){
+    content += `<textarea class="ta" id="sit-input" placeholder="بنویس…">${esc(ST.situation.data[s.key]||'')}</textarea>
+      <button class="btn bp" onclick="nextSit()">ادامه</button>`;
+  } else {
+    content += `<div class="opts">${s.opts.map((o,i)=>`<button class="opt" onclick="pickSit(${i})">${esc(o)}</button>`).join('')}</div>`;
+  }
+
+  document.getElementById('app').innerHTML = content;
+  window.scrollTo(0,0);
+}
+
+function nextSit(){
+  const step = ST.situation.step;
+  const s = SIT_STEPS[step];
+  const val = document.getElementById('sit-input')?.value.trim();
+  if(!val) { alert('یه چیزی بنویس'); return; }
+  ST.situation.data[s.key] = val;
+  ST.situation.step++;
+  if(ST.situation.step >= SIT_STEPS.length) showSitResult();
+  else renderSituation();
+}
+
+function pickSit(oi){
+  const step = ST.situation.step;
+  const s = SIT_STEPS[step];
+  ST.situation.data[s.key] = s.opts[oi];
+  ST.situation.step++;
+  if(ST.situation.step >= SIT_STEPS.length) showSitResult();
+  else renderSituation();
+}
+
+function showSitResult(){
+  const d = ST.situation.data;
+  saveHist({type:'situation', event:d.event});
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="nav('/')">← بازگشت</button>
+    <div class="fd">
+      <h1>🧩 یه نگاه به این موقعیت</h1>
+
+      <div class="card">
+        <h4>🧩 اتفاق</h4>
+        <p>${esc(d.event||'')}</p>
+      </div>
+
+      <div class="card">
+        <h4>💭 برداشت‌ها</h4>
+        <p>تو گفتی: «${esc(d.you||'')}»<br>
+        طرف مقابل: «${esc(d.them||'')}»<br><br>
+        این احتمالاً دو تا برداشت متفاوت از یه واقعیته. هرکدوم از زاویهٔ نیازهای خودش دیده.</p>
+      </div>
+
+      <div class="card">
+        <h4>❤️ احساسی که پشت واکنش تو بود</h4>
+        <p>نوشتی: «${esc(d.feel||'')}»<br><br>
+        معمولاً پشت احساسات شدید، یکی از این نیازها هست: دیده شدن، احترام، امنیت، یا فهمیده شدن.</p>
+      </div>
+
+      <div class="card">
+        <h4>🎯 چیزی که دنبالشی</h4>
+        <p>«${esc(d.want||'')}»<br><br>
+        این خواسته، در واقع راهنمای توئه که بفهمی الان کدوم نیازت مهم‌تره.</p>
+      </div>
+
+      <div class="card" style="border-color:rgba(56,189,248,.4)">
+        <h4>💬 اگه بخوای دوباره صحبت کنی</h4>
+        <p>• با «من احساس کردم…» شروع کن، نه با «تو همیشه…»<br>
+        • یه نیاز مشخص رو بیان کن<br>
+        • به طرف مقابل فرصت بده تا دیدگاهش رو بگه، بدون اینکه وسط حرفش بپری<br>
+        • اگه داغه، الان صحبت نکن. بذار برای وقتی هر دو آروم‌ترید</p>
+      </div>
+
+      <div class="dis">این تحلیل برای خودآگاهی توئه، نه برای قضاوت درست و غلط.</div>
+
+      <button class="btn bp" onclick="nav('/situation')">موقعیت دیگه</button>
+    </div>
+  `;
+  window.scrollTo(0,0);
+}
+
+// ============================================================
+// MOOD - music / film / book
+// ============================================================
+
+function vMood(){
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="nav('/')">← بازگشت</button>
+    <h1>🎧 حال من</h1>
+    <p class="m" style="margin-bottom:20px">بر اساس حالت الان، چیزی که بهت می‌خوره رو انتخاب کن.</p>
+
+    <button class="big-choice" onclick="nav('/music')">
+      <span class="e">🎧</span><span>موسیقی متناسب با حالم</span>
+    </button>
+    <button class="big-choice" onclick="nav('/film')">
+      <span class="e">🎬</span><span>فیلم مناسب امشبم</span>
+    </button>
+    <button class="big-choice" onclick="nav('/book')">
+      <span class="e">📚</span><span>کتابی که الان به کارم میاد</span>
+    </button>
+    <button class="big-choice" onclick="nav('/skills')">
+      <span class="e">🌱</span><span>یه تمرین ۵ دقیقه‌ای</span>
+    </button>
+  `;
+}
+
+function vMusic(){
+  const moods = [
+    {k:'calm', l:'😌 آرومم کنه', fn:'calm'},
+    {k:'lift', l:'⚡ انرژی بده', fn:'lift'},
+    {k:'rain', l:'🌧️ صدای آرام‌بخش', fn:'rain'},
+    {k:'waves', l:'🌊 صدای امواج', fn:'waves'},
+    {k:'forest', l:'🌲 صدای جنگل', fn:'forest'}
+  ];
+
+  const playing = currentTrack;
+  let h = `<button class="back" onclick="nav('/mood')">← بازگشت</button>
+    <h1>🎧 موسیقی</h1>
+    <p class="q">دوست داری موسیقی چه کاری با حالت بکنه؟</p>`;
+
+  if(playing){
+    const cur = moods.find(m=>m.fn === playing);
+    h += `<div class="player">
+      <div class="play-btn" onclick="toggleTrack('${playing}')">⏸</div>
+      <div class="track-name">${cur ? cur.l : 'در حال پخش'}</div>
+      <div class="track-desc">برای توقف، دکمه رو بزن</div>
+    </div>`;
+  }
+
+  h += `<div class="opts">`;
+  moods.forEach(m=>{
+    h += `<button class="opt ${playing===m.fn?'sel':''}" onclick="toggleTrack('${m.fn}');render()">
+      ${m.l} ${playing===m.fn?'🔊':'▶'}
+    </button>`;
+  });
+  h += `</div>
+    <div class="dis" style="margin-top:20px">
+      این صداها با تکنولوژی Audio ساخته می‌شن و آفلاین کار می‌کنن. اگه خواستی صدا قطع بشه، دکمهٔ ⏸ رو بزن.
+    </div>`;
+  document.getElementById('app').innerHTML = h;
+}
+
+function render(){ route(); }
+
+function vFilmIntro(){
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="nav('/mood')">← بازگشت</button>
+    <h1>🎬 فیلم</h1>
+    <p class="q">امشب چی می‌خوای؟</p>
+    <div class="opts">
+      <button class="opt" onclick="filmResult('light')">😂 یه چیزی سبک</button>
+      <button class="opt" onclick="filmResult('emotional')">❤️ یه داستان احساسی</button>
+      <button class="opt" onclick="filmResult('philosophical')">🧠 یه فیلم که به فکر فرو ببرتم</button>
+      <button class="opt" onclick="filmResult('exciting')">🔥 هیجان</button>
+      <button class="opt" onclick="filmResult('inspiring')">🌱 یه چیزی الهام‌بخش</button>
+      <button class="opt" onclick="filmResult('accompany')">🌧️ می‌خوام با حالم همراه باشه</button>
+    </div>
+  `;
+}
+
+function filmResult(key){
+  const films = FILMS_MAP[key] || [];
+  const pick = films[Math.floor(Math.random()*films.length)];
+  const reasons = {
+    light:'برای وقتی که می‌خوای ذهنت سبک بشه.',
+    emotional:'برای وقتی که می‌خوای احساساتت جاری بشن.',
+    philosophical:'برای وقتی که دنبال یه سؤال عمیق تری.',
+    exciting:'برای وقتی که می‌خوای از فکر کردن بیای بیرون.',
+    inspiring:'برای وقتی که دنبال یه جرقه‌ای.',
+    accompany:'برای وقتی که می‌خوای تنها نباشی توی این حالت.'
+  };
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="nav('/film')">← بازگشت</button>
+    <div class="fd">
+      <div class="sh"><div class="l">🎬 این فیلم به حال امشبت می‌خوره</div></div>
+      <div class="card">
+        <h4>${esc(pick)}</h4>
+        <p>${esc(reasons[key])}</p>
+      </div>
+      <button class="btn bs" onclick="nav('/film')">یه پیشنهاد دیگه</button>
+    </div>
+  `;
+}
+
+function vBookIntro(){
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="nav('/mood')">← بازگشت</button>
+    <h1>📚 کتاب</h1>
+    <p class="q">برای چی دنبال کتابی؟</p>
+    <div class="opts">
+      <button class="opt" onclick="bookResult('self')">🧠 می‌خوام خودمو بهتر بفهمم</button>
+      <button class="opt" onclick="bookResult('relation')">❤️ رابطه‌هام</button>
+      <button class="opt" onclick="bookResult('goal')">🎯 هدف و انگیزه</button>
+      <button class="opt" onclick="bookResult('calm')">😌 آرامش و ذهن</button>
+      <button class="opt" onclick="bookResult('confidence')">💪 اعتمادبه‌نفس</button>
+      <button class="opt" onclick="bookResult('change')">🔄 تغییر عادت‌ها</button>
+      <button class="opt" onclick="bookResult('justRead')">📖 فقط دنبال یه کتاب جذابم</button>
+    </div>
+  `;
+}
+
+function bookResult(key){
+  const books = BOOKS_MAP[key] || BOOKS_MAP.justRead;
+  const pick = books[Math.floor(Math.random()*books.length)];
+  const reasons = {
+    self:'چون دنبال شناخت خودت و الگوهای رفتاری‌ات هستی.',
+    relation:'چون رابطه‌ها برات مهمن و می‌خوای عمیق‌ترشون کنی.',
+    goal:'چون دنبال انگیزه و مسیر مشخص‌تری.',
+    calm:'چون ذهنت شلوغه و دنبال آرامش.',
+    confidence:'چون می‌خوای رابطت با خودت بهتر بشه.',
+    change:'چون می‌خوای عادت‌های جدید بسازی.',
+    justRead:'چون دنبال یه کتاب جذاب و عمیقی.'
+  };
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="nav('/book')">← بازگشت</button>
+    <div class="fd">
+      <div class="sh"><div class="l">📚 انتخاب امروز تو</div></div>
+      <div class="card">
+        <h4>${esc(pick)}</h4>
+        <p>${esc(reasons[key])}</p>
+      </div>
+      <button class="btn bs" onclick="nav('/book')">یه پیشنهاد دیگه</button>
+    </div>
+  `;
+}
+
+function vFilmResult(){ vFilmIntro(); }
+function vBookResult(){ vBookIntro(); }
+
+// ============================================================
+// WITH OTHERS - quiz
+// ============================================================
+
+function vWithOthers(){
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="nav('/')">← بازگشت</button>
+    <h1>👥 ببینم یک نفر چقدر منو می‌شناسه</h1>
+    <p class="m" style="margin-bottom:18px">به چند سؤال دربارهٔ خودت جواب بده، لینک بساز، بفرست برای دوستت.</p>
+
+    <button class="big-choice" onclick="nav('/quiz-create')">
+      <span class="e">👥</span><span>ساخت بازی «چقدر منو می‌شناسی؟»</span>
+    </button>
+
+    <div class="dis">
+      این بخش می‌تونه به یه گفت‌وگوی واقعی با طرف مقابل تبدیل بشه. بعد از دیدن نتیجه، می‌تونید دربارهٔ تفاوت‌ها حرف بزنید — اینجاست که شناخت عمیق‌تر شکل می‌گیره.
+    </div>
+  `;
 }
 
 function vQuizCreate(){
-  document.getElementById('app').innerHTML=`<button class="back" onclick="nav('/')">← بازگشت</button>
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="nav('/with')">← بازگشت</button>
     <h1>👥 منو چقدر می‌شناسی؟</h1>
     <p class="m" style="margin-bottom:16px">به ۵ سؤال دربارهٔ خودت جواب بده، لینک بساز، بفرست.</p>
-    <div class="card"><p style="font-weight:600;margin-bottom:8px">اسم تو</p><input id="qn" style="width:100%;padding:12px;background:var(--s2);border:1px solid var(--b);border-radius:10px;color:var(--t);font-family:inherit" placeholder="مثلاً: علی" maxlength="20"></div>
+    <div class="card">
+      <p style="font-weight:600;margin-bottom:8px">اسم تو</p>
+      <input id="qn" style="width:100%;padding:12px;background:var(--s2);border:1px solid var(--b);border-radius:10px;color:var(--t);font-family:inherit" placeholder="مثلاً: علی" maxlength="20">
+    </div>
     <div id="qpk"></div>
-    <button class="btn bp" id="qcb" onclick="subQC()" disabled>ساخت لینک اشتراک</button>`;
-  const sh=[...QB].sort(()=>Math.random()-.5).slice(0,5);
-  ST.qD={name:'',picks:sh,ans:new Array(5).fill(null)};
-  rQPk();
+    <button class="btn bp" id="qcb" onclick="subQC()" disabled>ساخت لینک اشتراک</button>
+  `;
+  const shuffled = [...QUIZ_BANK].sort(()=>Math.random()-0.5).slice(0,5);
+  ST.qD = {name:'', picks:shuffled, ans:new Array(5).fill(null)};
+  renderQuizPicker();
 }
 
-function rQPk(){
-  const c=document.getElementById('qpk');if(!c)return;
-  c.innerHTML=ST.qD.picks.map((p,i)=>`<div class="card"><p style="font-size:.9rem;font-weight:600;margin-bottom:10px">${i+1}. ${esc(p.q)}</p><div class="opts" style="gap:6px">${p.o.map((o,oi)=>`<button class="opt ${ST.qD.ans[i]===oi?'sel':''}" style="padding:10px 14px;font-size:.85rem" onclick="pkQA(${i},${oi})">${esc(o)}</button>`).join('')}</div></div>`).join('');
-  const all=ST.qD.ans.every(a=>a!==null);
-  const b=document.getElementById('qcb');if(b)b.disabled=!all;
+function renderQuizPicker(){
+  const c = document.getElementById('qpk');
+  if(!c) return;
+  c.innerHTML = ST.qD.picks.map((p,i)=>`
+    <div class="card">
+      <p style="font-size:.95rem;font-weight:600;margin-bottom:10px">${i+1}. ${esc(p.q)}</p>
+      <div class="opts" style="gap:6px">
+        ${p.o.map((o,oi)=>`<button class="opt ${ST.qD.ans[i]===oi?'sel':''}" style="padding:10px 14px;font-size:.85rem" onclick="pickQuiz(${i},${oi})">${esc(o)}</button>`).join('')}
+      </div>
+    </div>
+  `).join('');
+  const all = ST.qD.ans.every(a=>a!==null);
+  const btn = document.getElementById('qcb');
+  if(btn) btn.disabled = !all;
 }
-function pkQA(qi,oi){ST.qD.ans[qi]=oi;rQPk()}
+
+function pickQuiz(qi, oi){ ST.qD.ans[qi] = oi; renderQuizPicker(); }
 
 async function subQC(){
-  const n=document.getElementById('qn')?.value.trim()||'یک دوست';
-  const qI=ST.qD.picks.map(p=>QB.indexOf(p));
-  const data={n,q:qI,a:ST.qD.ans};
-  const enc=b64e(JSON.stringify(data));
-  const url=appUrl()+'#/quiz/'+enc;
-  document.getElementById('app').innerHTML=`<button class="back" onclick="nav('/quiz')">← ساخت مجدد</button>
-    <h1>✅ لینک ساخته شد</h1><p class="m">برای دوستت بفرست:</p>
-    <div style="display:flex;gap:8px;margin:10px 0"><input id="ql" readonly value="${esc(url)}" style="flex:1;padding:12px;background:var(--s2);border:1px solid var(--b);border-radius:10px;color:var(--t);font-size:.8rem;direction:ltr"><button onclick="copyT('${esc(url)}')" style="padding:0 16px;background:var(--p);color:#0B1220;border:none;border-radius:10px;font-weight:700">کپی</button></div>
-    <button class="btn bp" onclick="share('منو چقدر می‌شناسی؟','بیا ببینم چقدر منو می‌شناسی!','${esc(url)}')">📤 اشتراک‌گذاری</button>
-    <button class="btn bs" onclick="nav('/quiz')">ساخت بازی جدید</button>`;
+  const name = document.getElementById('qn')?.value.trim() || 'یک دوست';
+  const picks = ST.qD.picks.map(p => QUIZ_BANK.indexOf(p));
+  const data = {n:name, q:picks, a:ST.qD.ans};
+  const enc = b64e(JSON.stringify(data));
+  const url = appUrl() + '#/quiz/' + enc;
+
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="nav('/quiz-create')">← ساخت جدید</button>
+    <h1>✅ لینک ساخته شد</h1>
+    <p class="m">این لینک رو برای دوستت بفرست:</p>
+    <div style="display:flex;gap:8px;margin:10px 0">
+      <input readonly value="${esc(url)}" style="flex:1;padding:12px;background:var(--s2);border:1px solid var(--b);border-radius:10px;color:var(--t);font-size:.78rem;direction:ltr">
+      <button onclick="copyT('${esc(url)}')" style="padding:0 16px;background:var(--p);color:#0B1220;border:none;border-radius:10px;font-weight:700">کپی</button>
+    </div>
+    <button class="btn bp" onclick="share('چقدر منو می‌شناسی؟','بیا ببینم چقدر منو می‌شناسی 👀','${esc(url)}')">📤 اشتراک‌گذاری</button>
+  `;
   window.scrollTo(0,0);
 }
 
 function vQuizTake(enc){
-  const d=b64d(enc);let data;
-  try{data=JSON.parse(d)}catch(e){data=null}
-  if(!data||!data.q||!data.a){document.getElementById('app').innerHTML=`<button class="back" onclick="nav('/')">← بازگشت</button><div class="empty"><p>🔗 لینک نامعتبر است.</p></div>`;return}
-  ST.qA=new Array(data.q.length).fill(null);ST.qDc=data;
-  rQTS();
+  const d = b64d(enc);
+  let data;
+  try{ data = JSON.parse(d); }catch(e){ data = null; }
+  if(!data || !data.q || !data.a){
+    document.getElementById('app').innerHTML = `<button class="back" onclick="nav('/')">← بازگشت</button><div class="empty"><p>🔗 لینک نامعتبر است.</p></div>`;
+    return;
+  }
+  ST.qA = new Array(data.q.length).fill(null);
+  ST.qDc = data;
+  renderQuizTake();
 }
 
-function rQTS(){
-  const d=ST.qDc;
-  document.getElementById('app').innerHTML=`<button class="back" onclick="nav('/')">← بازگشت</button>
-    <div class="card"><h1 style="font-size:1.3rem">👥 ${esc(d.n)} را چقدر می‌شناسی؟</h1><p class="m">به ${d.q.length} سؤال جواب بده.</p></div>
-    ${d.q.map((bi,i)=>{const it=QB[bi];if(!it)return '';return `<div class="card"><p style="font-size:.95rem;font-weight:600;margin-bottom:10px">${i+1}. ${esc(it.q)}</p><div class="opts" style="gap:6px">${it.o.map((o,oi)=>`<button class="opt ${ST.qA[i]===oi?'sel':''}" style="padding:10px 14px;font-size:.85rem" onclick="ansQT(${i},${oi})">${esc(o)}</button>`).join('')}</div></div>`}).join('')}
-    <button class="btn bp" onclick="subQT()" ${ST.qA.some(a=>a===null)?'disabled':''}>${ST.qA.some(a=>a===null)?'پاسخ به همه':'مشاهدهٔ نتیجه'}</button>`;
+function renderQuizTake(){
+  const d = ST.qDc;
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="nav('/')">← بازگشت</button>
+    <div class="card fd">
+      <h1 style="font-size:1.2rem">👥 ${esc(d.n)} را چقدر می‌شناسی؟</h1>
+      <p class="m">${d.q.length} سؤال کوتاه. با حس اولت جواب بده.</p>
+    </div>
+    ${d.q.map((bi,i)=>{
+      const it = QUIZ_BANK[bi];
+      if(!it) return '';
+      return `<div class="card">
+        <p style="font-size:.95rem;font-weight:600;margin-bottom:10px">${i+1}. ${esc(it.q)}</p>
+        <div class="opts" style="gap:6px">
+          ${it.o.map((o,oi)=>`<button class="opt ${ST.qA[i]===oi?'sel':''}" style="padding:10px 14px;font-size:.85rem" onclick="ansQTake(${i},${oi})">${esc(o)}</button>`).join('')}
+        </div>
+      </div>`;
+    }).join('')}
+    <button class="btn bp" onclick="subQTake()" ${ST.qA.some(a=>a===null)?'disabled':''}>${ST.qA.some(a=>a===null)?'پاسخ به همه':'مشاهدهٔ نتیجه'}</button>
+  `;
 }
 
-function ansQT(qi,oi){ST.qA[qi]=oi;rQTS()}
+function ansQTake(qi, oi){ ST.qA[qi] = oi; renderQuizTake(); }
 
-function subQT(){
-  const d=ST.qDc;let cor=0;
-  const rs=d.q.map((bi,i)=>{const ok=ST.qA[i]===d.a[i];if(ok)cor++;return{bi,ma:ST.qA[i],ta:d.a[i],ok}});
-  const tot=d.q.length,pct=Math.round((cor/tot)*100);
-  let m;pct===100?m='🏆 عالی!':pct>=80?m='😍 خیلی خوب!':pct>=60?m='😊 بد نیست!':pct>=40?m='🤔 نصفه‌ونیمه!':m='😅 هنوز منو نمی‌شناسی!';
-  document.getElementById('app').innerHTML=`<button class="back" onclick="nav('/')">← بازگشت</button>
-    <div class="sh"><div class="n">${cor}/${tot}</div><div class="l">${pct}٪</div></div>
-    <div class="card"><p style="font-weight:600">${m}</p></div>
-    ${rs.map(r=>{const it=QB[r.bi];if(!it)return '';return `<div class="card" style="border-color:${r.ok?'rgba(16,185,129,.4)':'rgba(239,68,68,.4)'}"><p style="font-weight:600;font-size:.9rem;margin-bottom:6px">${r.ok?'✅':'❌'} ${esc(it.q)}</p><p class="m">پاسخ تو: ${esc(it.o[r.ma]||'-')}</p>${!r.ok?`<p class="m">درست: ${esc(it.o[r.ta])}</p>`:''}</div>`}).join('')}
-    <button class="btn bp" onclick="nav('/quiz')">ساخت بازی خودم</button><button class="btn bs" onclick="nav('/')">بازگشت</button>`;
+function subQTake(){
+  const d = ST.qDc;
+  let cor = 0;
+  const rows = d.q.map((bi,i)=>{
+    const ok = ST.qA[i] === d.a[i];
+    if(ok) cor++;
+    return {bi, ma:ST.qA[i], ta:d.a[i], ok};
+  });
+  const tot = d.q.length;
+  const pct = Math.round((cor/tot)*100);
+  let msg;
+  if(pct === 100) msg = '🏆 عالی! واقعاً منو می‌شناسی.';
+  else if(pct >= 80) msg = '😍 خیلی خوب! تقریباً کامل.';
+  else if(pct >= 60) msg = '😊 بد نیست، ولی چیزهایی هست که نمی‌دونی.';
+  else if(pct >= 40) msg = '🤔 نصفه‌ونیمه. یه‌کم بیشتر با هم وقت بگذرونیم.';
+  else msg = '😅 انگار هنوز منو نمی‌شناسی. فرصت خوبیه که بیشتر با هم حرف بزنیم.';
+
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="nav('/')">← بازگشت</button>
+    <div class="sh fd"><div class="n">${cor}/${tot}</div><div class="l">${pct}٪</div></div>
+    <div class="card"><p style="font-weight:600">${msg}</p></div>
+    <h3 style="margin-top:20px">جزئیات</h3>
+    ${rows.map(r=>{
+      const it = QUIZ_BANK[r.bi];
+      if(!it) return '';
+      return `<div class="card" style="border-color:${r.ok?'rgba(16,185,129,.4)':'rgba(239,68,68,.4)'}">
+        <p style="font-weight:600;font-size:.9rem;margin-bottom:6px">${r.ok?'✅':'❌'} ${esc(it.q)}</p>
+        <p class="m">انتخاب تو: ${esc(it.o[r.ma] || '-')}</p>
+        ${!r.ok ? `<p class="m">انتخاب درست: ${esc(it.o[r.ta])}</p>` : ''}
+      </div>`;
+    }).join('')}
+    <div class="dis">این بازی می‌تونه شروع یه گفت‌وگوی واقعی باشه. تفاوت‌ها رو با هم بررسی کنید.</div>
+    <button class="btn bp" onclick="nav('/quiz-create')">ساخت بازی خودم</button>
+    <button class="btn bs" onclick="nav('/')">بازگشت</button>
+  `;
   window.scrollTo(0,0);
 }
 
-function vEmergency(){
-  document.getElementById('app').innerHTML=`<button class="back" onclick="nav('/')">← بازگشت</button>
-    <h1 style="color:#F87171">🆘 الان حالم خوب نیست</h1>
-    <div class="warn" style="margin-bottom:14px"><strong>اگر در خطر فوری هستی، همین الان تماس بگیر:</strong><br>☎️ اورژانس اجتماعی: <strong>۱۲۳</strong><br>☎️ صدای مشاور: <strong>۱۴۸۰</strong><br>☎️ اورژانس پزشکی: <strong>۱۱۵</strong></div>
-    <div class="card"><h3>قدم ۱: تنفس ۴-۷-۸</h3><p>۴ ثانیه دم، ۷ ثانیه نگه‌دار، ۸ ثانیه بازدم. سه بار.</p></div>
-    <div class="card"><h3>قدم ۲: تکنیک ۵-۴-۳-۲-۱</h3><p>۵ چیز می‌بینی، ۴ چیز لمس می‌کنی، ۳ چیز می‌شنوی، ۲ چیز بو می‌کنی، ۱ چیز می‌چشی.</p></div>
-    <div class="card"><h3>قدم ۳: آب سرد</h3><p>صورتت را با آب سرد بشور.</p></div>
-    <div class="card"><h3>قدم ۴: با یک نفر حرف بزن</h3><p>با یک دوست یا خط مشاوره تماس بگیر.</p></div>
-    <div class="dis" style="margin-top:16px">این اپ جایگزین خدمات فوریتی نیست.</div>`;
+// ============================================================
+// ME
+// ============================================================
+
+function vMe(){
+  const profileCount = ST.hist.filter(h=>h.type === 'profile').length;
+  const testCount = ST.hist.filter(h=>h.type === 'test').length;
+  const stateCount = ST.hist.filter(h=>h.type === 'state').length;
+  const sitCount = ST.hist.filter(h=>h.type === 'situation').length;
+
+  let h = `<button class="back" onclick="nav('/')">← بازگشت</button>
+    <h1>🪞 من</h1>
+    <p class="m" style="margin-bottom:18px">پروفایل خودشناسی، تاریخچه و الگوها.</p>
+
+    <div class="sr">
+      <div class="stat"><div class="n">${profileCount}</div><div class="t">خودشناسی</div></div>
+      <div class="stat"><div class="n">${testCount}</div><div class="t">تست</div></div>
+      <div class="stat"><div class="n">${stateCount}</div><div class="t">حالت</div></div>
+      <div class="stat"><div class="n">${sitCount}</div><div class="t">موقعیت</div></div>
+    </div>
+
+    <h3 style="margin-top:20px">پاسخ‌های ذخیره‌شده</h3>`;
+
+  const keys = Object.keys(ST.mem).filter(k=>k.startsWith('profile_'));
+  if(!keys.length){
+    h += `<div class="card"><p>هنوز مسیری رو کامل نکردی. از بخش «خودمو بهتر بشناسم» شروع کن.</p></div>`;
+  } else {
+    keys.forEach(k=>{
+      const id = k.replace('profile_','');
+      const p = PROFILE_PATHS[id];
+      if(p) h += `<div class="card c" onclick="nav('/profile-run/${p.id}')"><h4>${p.e} ${p.title}</h4><p>قبلاً این مسیر رو رفتی. می‌تونی دوباره انجام بدی و ببینی تغییر کردی یا نه.</p></div>`;
+    });
+  }
+
+  h += `<button class="btn bs" onclick="nav('/hist')">📈 تاریخچهٔ کامل</button>
+    <button class="btn bs" onclick="nav('/about')">ℹ️ درباره</button>
+    <button class="btn bs" onclick="if(confirm('همهٔ داده‌های خودشناسی پاک شود؟')){localStorage.clear();location.reload();}">🗑️ پاک کردن همه‌چیز</button>`;
+
+  document.getElementById('app').innerHTML = h;
 }
+
+// ============================================================
+// DISCOVER (hub)
+// ============================================================
+
+function vDiscover(){
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="nav('/')">← بازگشت</button>
+    <h1>🔍 کشف</h1>
+    <p class="m" style="margin-bottom:20px">اینجا می‌تونی مسیر خودشناسی رو ادامه بدی، حالت رو بفهمی، یا مهارت یاد بگیری.</p>
+
+    <button class="big-choice" onclick="nav('/profile')">
+      <span class="e">🪞</span><span>خودشناسی</span>
+    </button>
+    <button class="big-choice" onclick="nav('/state')">
+      <span class="e">🔍</span><span>حالت فعلی</span>
+    </button>
+    <button class="big-choice" onclick="nav('/tests')">
+      <span class="e">🧪</span><span>تست‌ها</span>
+    </button>
+    <button class="big-choice" onclick="nav('/skills')">
+      <span class="e">🎯</span><span>آموزش مهارت‌ها</span>
+    </button>
+    <button class="big-choice" onclick="nav('/situation')">
+      <span class="e">💭</span><span>بررسی یک موقعیت</span>
+    </button>
+    <button class="big-choice" onclick="nav('/emergency')">
+      <span class="e">🆘</span><span style="color:#F87171">الان حالم خوب نیست</span>
+    </button>
+  `;
+}
+
+// ============================================================
+// EMERGENCY
+// ============================================================
+
+function vEmergency(){
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="nav('/')">← بازگشت</button>
+    <h1 style="color:#F87171">🆘 الان حالم خوب نیست</h1>
+    <div class="warn">
+      <strong>اگه در خطر فوری هستی یا به خودآزاری فکر می‌کنی، همین الان با یکی از این خطوط تماس بگیر:</strong><br>
+      ☎️ اورژانس اجتماعی: <strong>۱۲۳</strong><br>
+      ☎️ صدای مشاور: <strong>۱۴۸۰</strong><br>
+      ☎️ اورژانس پزشکی: <strong>۱۱۵</strong>
+    </div>
+
+    <h3>۳ قدم فوری برای آرام شدن</h3>
+    <div class="card"><h4>۱. تنفس ۴-۷-۸</h4><p>۴ ثانیه دم، ۷ ثانیه نگه‌دار، ۸ ثانیه بازدم. سه بار.</p></div>
+    <div class="card"><h4>۲. تکنیک ۵-۴-۳-۲-۱</h4><p>۵ چیز می‌بینی، ۴ چیز لمس می‌کنی، ۳ چیز می‌شنوی، ۲ چیز بو می‌کنی، ۱ چیز می‌چشی.</p></div>
+    <div class="card"><h4>۳. آب سرد</h4><p>صورتت رو با آب سرد بشور یا یه لیوان آب سرد بنوش.</p></div>
+
+    <div class="dis">این اپ جایگزین خدمات فوریتی و درمان تخصصی نیست. اگه حالت ادامه داره، حتماً با یه متخصص صحبت کن.</div>
+  `;
+}
+
+// ============================================================
+// HISTORY
+// ============================================================
 
 function vHist(){
-  if(!ST.hist.length){document.getElementById('app').innerHTML=`<button class="back" onclick="nav('/')">← بازگشت</button><h1>📈 تاریخچه</h1><div class="empty"><p>📭 هنوز چیزی ثبت نکرده‌ای.</p></div>`;return}
-  const tc=ST.hist.filter(h=>h.type==='test').length,pc=ST.hist.filter(h=>h.type==='path').length;
-  let h=`<button class="back" onclick="nav('/')">← بازگشت</button><h1>📈 تاریخچه</h1>
-    <div class="sr"><div class="stat"><div class="n">${tc}</div><div class="t">تست</div></div><div class="stat"><div class="n">${pc}</div><div class="t">مسیر</div></div><div class="stat"><div class="n">${ST.hist.length}</div><div class="t">کل</div></div></div>
-    <h3 style="margin-top:16px">آخرین فعالیت‌ها</h3>`;
-  [...ST.hist].reverse().forEach(x=>{
-    const dt=new Date(x.ts).toLocaleDateString('fa-IR')+' '+new Date(x.ts).toLocaleTimeString('fa-IR',{hour:'2-digit',minute:'2-digit'});
-    if(x.type==='test')h+=`<div class="card"><h4>🧪 ${esc(x.title)}</h4><p class="m">${dt}</p><p style="margin-top:6px">نمره: <strong>${x.score}</strong> — ${esc(x.label)}</p></div>`;
-    else h+=`<div class="card"><h4>🧭 ${esc(x.title)}</h4><p class="m">${dt}</p><p style="margin-top:6px">سطح: ${x.severity==='high'?'نیاز به پیگیری':x.severity==='medium'?'نیاز به توجه':'قابل مدیریت'}</p></div>`;
+  if(!ST.hist.length){
+    document.getElementById('app').innerHTML = `<button class="back" onclick="nav('/me')">← بازگشت</button><h1>📈 تاریخچه</h1><div class="empty"><div class="big">📭</div><p>هنوز چیزی ثبت نکرده‌ای.</p></div>`;
+    return;
+  }
+  let h = `<button class="back" onclick="nav('/me')">← بازگشت</button><h1>📈 تاریخچه</h1>`;
+  [...ST.hist].reverse().slice(0,50).forEach(x=>{
+    const dt = new Date(x.ts).toLocaleDateString('fa-IR') + ' ' + new Date(x.ts).toLocaleTimeString('fa-IR',{hour:'2-digit',minute:'2-digit'});
+    const icons = {profile:'🪞',test:'🧪',state:'🔍',situation:'💭',skill:'🎯'};
+    const icon = icons[x.type] || '📌';
+    h += `<div class="card">
+      <h4>${icon} ${esc(x.title || x.event || '')}</h4>
+      <p class="m">${dt}</p>
+      ${x.result ? `<p style="margin-top:6px;font-size:.9rem">${esc(x.result)}</p>` : ''}
+    </div>`;
   });
-  h+=`<button class="btn bs" onclick="if(confirm('پاک شود؟')){ST.hist=[];localStorage.removeItem('mr_hist');vHist()}">🗑️ پاک کردن</button>`;
-  document.getElementById('app').innerHTML=h;
+  document.getElementById('app').innerHTML = h;
 }
+
+// ============================================================
+// ABOUT
+// ============================================================
 
 function vAbout(){
-  document.getElementById('app').innerHTML=`<button class="back" onclick="nav('/')">← بازگشت</button>
-    <h1>ℹ️ درباره</h1>
-    <div class="card"><p>«اتاق ذهن» یک فضای امن برای خودآگاهی، غربالگری و یادگیری مهارت‌های روان‌شناختی است.</p><p>هدف جایگزینی درمان تخصصی نیست.</p></div>
-    <div class="card"><h3>منابع علمی</h3><p>• GAD-7 — Spitzer et al., 2006</p><p>• PHQ-9 — Kroenke et al., 2001</p><p>• PSWQ — Meyer et al., 1990</p><p>• PSS-10 — Cohen et al., 1983</p><p>• ISI — Bastien et al., 2001</p><p>• WHO-5 — WHO, 1998</p><p>• Rosenberg — 1965</p><p>• ASRS — WHO, 2003</p></div>
-    <div class="warn"><strong>سلب مسئولیت:</strong> این اپ ابزار آموزشی است و <strong>جایگزین تشخیص یا درمان تخصصی نیست</strong>.</div>
-    <div class="card"><h3>📢 کانال</h3><button class="btn bs" onclick="window.open('https://t.me/otaghzehn','_blank')">@otaghzehn</button></div>`;
+  document.getElementById('app').innerHTML = `
+    <button class="back" onclick="nav('/me')">← بازگشت</button>
+    <h1>ℹ️ دربارهٔ اتاق ذهن</h1>
+    <div class="card">
+      <p>«اتاق ذهن» یک فضای امن برای خودشناسی، غربالگری و یادگیری مهارت‌های روان‌شناختی است.</p>
+      <p>هدف جایگزینی درمان تخصصی نیست، بلکه کمک به شناخت بهتر خودت و پیدا کردن مسیر کمکیه.</p>
+    </div>
+    <div class="card">
+      <h3>منابع علمی</h3>
+      <p>• GAD-7 — Spitzer et al., 2006</p>
+      <p>• PHQ-9 — Kroenke et al., 2001</p>
+      <p>• PSWQ — Meyer et al., 1990</p>
+      <p>• PSS-10 — Cohen et al., 1983</p>
+      <p>• WHO-5 — WHO, 1998</p>
+      <p>• رویکردهای CBT — Beck, Ellis</p>
+      <p>• خودشفقتی — Kristin Neff</p>
+    </div>
+    <div class="warn">
+      <strong>سلب مسئولیت:</strong> این اپ ابزار آموزشی و خودشناسی است و <strong>جایگزین تشخیص یا درمان تخصصی نیست</strong>.
+    </div>
+    <div class="card">
+      <h3>📢 کانال اتاق ذهن</h3>
+      <button class="btn bs" onclick="window.open('https://t.me/otaghzehn','_blank')">@otaghzehn</button>
+    </div>
+  `;
 }
 
+// ============================================================
+// INIT
+// ============================================================
+
+loadMem();
 loadHist();
-window.addEventListener('hashchange',route);
+window.addEventListener('hashchange', route);
 route();
 </script>
 </body>
